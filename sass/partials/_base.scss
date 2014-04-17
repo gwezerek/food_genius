@@ -6,6 +6,7 @@
 
 .viz-article {
 	margin: 0 auto;
+	max-width: 940px;
 	height: 100%;
 	color: $txt-black;
 	font-size: 15px;
@@ -18,108 +19,18 @@
 	background-color: $bground;
 }
 
-.viz-detail {
-    color: $med-gray;
-    text-transform: uppercase;
-	letter-spacing: .5px;
-    font-weight: 300;
-    font-size: 11px;
-	line-height: 80%;
-}
-
-.viz-overline {
-	margin: 0 0 5px;
-	padding-bottom: 3px;
-	border-bottom: 1px solid $light-gray;
-	color: $med-gray;
-	font-weight: 300;
-	font-size: 11px;
-}
-
-.viz-title {
-	@include inline-block;
-	margin: 0;
-	font-weight: 600;
-	font-size: 42px;
-	font-family: $slab;
-	line-height: 90%;
-	@media (min-width: $small) {
-		font-size: 42px;
-	}
-}
-
-.viz-underline {
-	margin-top: 0;
-	color: $txt-black;
-	font-weight: 300;
-	line-height: 140%;
-}
-
-
-
-.viz-byline {
-	letter-spacing: .5px;
-	line-height: 90%;
-}
-
 .viz-content-block {
 	@include pie-clearfix;
 	margin: 0 0 40px;
 }
 
-.viz-content-header {
-	margin: 0 0 30px;
-}
-
-.viz-overline-wrapper {
-	position: relative;
-	margin: 0 0 5px;
-	padding-bottom: 10px;
-	border-bottom: 2px solid $txt-black;
-}
-
-.viz-subhed {
-	margin: 0 0 10px;
-	padding-bottom: 3px;
-	border-bottom: 1px solid $light-gray;
-	font-weight: 500;
-	font-size: 13px;
-}
-
-.viz-subhed-select {
-	padding-bottom: 7px;
-}
-
-.viz-header-wrapper {
-	@include pie-clearfix;
-	position: relative;
-}
-
-
-
-
-
-// INGREDIENTS
-///////////////////////////////////////////////
-
 .viz-generator-header {
 	position: relative;
-	margin: 20px 0 10px;
-	height: 70px;
 }
 
-.viz-basket {
-	@include transition(0.2s bottom ease-in-out, 0.2s width ease-in-out);
-	@include absolute(n 15px 9px n);
-	z-index: 1;
-	width: 80px;
-	cursor: pointer;
-}
-
-.viz-subhead {
+.viz-hed {
 	@include trans(0.2s, text-align, ease-in-out);
-	@include absolute(n 0 0 0);
-	margin: 0;
+	margin: 0 0 15px;
 	padding: 5px 10px 7px;
 	background: $txt-black;
 	color: white;
@@ -129,168 +40,282 @@
 	-webkit-font-smoothing: antialiased;
 }
 
-.viz-header-start {
-	.viz-basket {
-		width: 280px;
-		bottom: -325px;
-		right: 0;
-		left: 0;
-		margin: auto auto;
-	}
-	.viz-subhead {
-		text-align: center;
-	}
-}
-
-.viz-copy {
-	@include trans(0.2s, text-align, ease-in-out);
-	margin: 0 0 20px 10px;
-	color: $txt-black;
-	line-height: 140%;
-	font-size: 15px;
-}
-
-.viz-copy-start {
-	margin-left: 0;
-	text-align: center;
-}
-
-.viz-ingredients {
-	margin: 0 0 40px;
-	padding: 0;
-	@media (min-width: $small) {
-		width: 48%;
-	}
-}
-
-.viz-ingredients-col-1 {
-	@media (min-width: $small) {
-		float: left;
-	}
-}
-
-.viz-ingredients-col-2 {
-	@media (min-width: $small) {
-		float: right;
-	}
-}
-
-.viz-ingredient-item {
-	display: none;
-	margin-bottom: 20px;
-	list-style-type: none;
-	padding: 15px;
-	border: 1px solid $txt-black;
-}
-
-.viz-number {
-	@include absolute(n 0 10px n);
-	margin: 0;
-	padding-top: 2px;
-	width: 16px;
-	height: 16px;
-	background: $txt-black;
-	color: white;
-	text-align: center;
-	font-weight: 500;
-	font-size: 12px;
-	font-family: $slab;
-}
-
-.viz-ingredient-header {
-	margin-bottom: 10px;
-	padding-bottom: 6px;
-	width: 100%;
-	border-bottom: 2px solid $txt-black;
-	position: relative;
-}
-
-.viz-thumb-container {
-	overflow: hidden;
-	margin: 10px 0 0;
-	width: 100%;
-	max-height: 260px;
-}
-
-.viz-ingredient-thumb {
-	border-top: 1px solid $txt-black;
-	padding-top: 15px;
-	width: 100%;
-}
-
-.viz-ingredient-name {
+.viz-subhead {
 	display: inline-block;	
-	margin: 0 25px 0 0;
+	margin: 0 0 6px;
 	font-weight: 600;
 	font-size: 20px;
 	font-family: $slab;
 	line-height: 100%;
 }
 
-.viz-ingredient-description {
-	margin: 0;
+.viz-smallcaps {
+	text-transform: uppercase;
+	letter-spacing: .75px;
+	font-weight: 500;
+	font-size: 12px;
+	font-family: $slab;
+	line-height: 120%;
+}
+
+.viz-detail {
+    color: $med-gray;
+    font-weight: 400;
+    text-transform: none;
+}
+
+.viz-copy {
+	@include trans(0.2s, text-align, ease-in-out);
+	margin: 0 0 15px;
+	color: $txt-black;
 	font-size: 14px;
 	line-height: 140%;
 }
 
-.viz-readmore {
-	@include trans(0.2s, color, ease-in-out);
-	color: $med-gray;
-	text-decoration: none;
+.viz-leadin {
 	text-transform: uppercase;
+}
+
+.viz-intro-leadin {
+	font-size: 12px;
+	font-weight: 500;
+	font-family: $slab;
+}
+
+.viz-source {
+	display: block;
+	margin: 0 0 7px;
+	padding-top: 7px;
+	border-top: 1px solid $light-gray;
+	color: $med-gray;
 	letter-spacing: .75px;
 	font-weight: 400;
 	font-size: 12px;
 	font-family: $slab;
-	&:hover {
-		color: $dark-gray;
-	}
+	line-height: 140%;
 }
 
-.viz-recipes {
-	padding: 0;
+
+
+//  LAYOUT           
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+.viz-intro-and-legend {
+	width: 58%;
+	padding-right: 2%;
+	border-right: 1px solid $txt-black;
 }
 
-.viz-recipes-item {
-	margin: 0;
-	padding: 10px 0;
+.viz-map-intro {
+	display: inline-block;
+}
+
+
+
+
+
+
+
+
+//  MAP           
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+.viz-svg-wrap {
+	position: relative;
+	margin: 0 auto 30px;
+}
+
+.viz-state-shape {
+	@include trans(0.2s, stroke-width, ease-in-out);
+	stroke: white;
+	stroke-width: 1px;
+}
+
+.viz-map-overlay {
+	@include absolute(n n 0 0);
+	width: 118%;
+	pointer-events: none;
+}
+
+.viz-hover-callout {
+	display: inline-block;
+	width: 40%;
+	float: right;
+}
+
+.viz-state-active {
+	stroke-width: 2px;
+}
+
+
+
+
+
+
+//  LEGEND           
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+.viz-legend {
 	border-top: 1px solid $txt-black;
-	list-style-type: none;
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+
+.viz-scale-label {
+	width: 100%;
+	margin: 0 0 5px;
+	font-weight: 400;
+	color: $med-gray;
+}
+
+.viz-segment-label {
+	margin-left: -7px;
+}
+
+.viz-scale {
+	margin: 0;
+	padding: 0;
+	color: $med-gray;
+}
+
+.viz-scale-segment {
+	@include inline-block;
+	margin: 0;
+	width: 20%;
+	border-top: 10px solid;
+	list-style: none;
+	padding-top: 3px;
+}
+
+.viz-ing-segment {
 	&:nth-of-type(1) {
-		margin-top: 15px;
-		border-top: none;
-		padding-top: 0;
+		border-color: rgb(254,237,222);
 	}
-	&:last-of-type {
-		padding-bottom: 5px;
+	&:nth-of-type(2) {
+		border-color: rgb(253,208,162);
+	}
+	&:nth-of-type(3) {
+		border-color: rgb(253,174,107);
+	}
+	&:nth-of-type(4) {
+		border-color: rgb(253,141,60);
+	}
+	&:nth-of-type(5) {
+		border-color: rgb(230,85,13);
 	}
 }
 
-.viz-recipe-overline {
-	display: block;
+
+
+
+
+
+
+
+
+//  CHARTS           
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+.viz-list-wrapper {
+	@include pie-clearfix;
+	width: 100%;
+}
+
+.viz-states {
+	@include inline-block;
+	margin: 0 0 30px;
+	padding: 0;
+	width: 50%;
+	& .viz-state:last-child {
+		margin-bottom: -5px;
+	}
+}
+
+.viz-states-col-1 {
+	@media (min-width: $small) {
+		float: left;
+		padding-right: 2%;
+		border-right: 1px solid $light-gray;
+	}
+}
+
+.viz-states-col-2 {
+	@media (min-width: $small) {
+		float: right;
+		padding-left: 2%;
+	}
+}
+
+.viz-state {
+	margin-bottom: 20px;
+	width: 100%;
+	list-style-type: none;
+}
+
+.viz-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.viz-thead {
+	border-top: 1px solid $light-gray;
+	border-bottom: 1px solid $light-gray;
+}
+
+.viz-body-tr {
+	& .viz-td:nth-child(2) {
+		width: 20%;
+	}
+	& .viz-td:nth-child(3) {
+		width: 20%;
+	}
+	& .viz-td:nth-child(4) {
+		width: 20%;
+	}
+}
+
+.viz-th {
 	margin-bottom: 3px;
-	color: $med-gray;
+	padding: 5px 0;
 	text-transform: uppercase;
 	letter-spacing: .75px;
-	font-weight: 400;
+	font-weight: 500;
 	font-size: 12px;
 	font-family: $slab;
 }
 
-.viz-recipe-title {
-	display: block;
-	color: $txt-black;
-	text-decoration: none;
+.viz-td {
+	padding: 6px 0 0;
+	font-weight: 400;
 	font-size: 14px;
 }
 
-
-
-
-// SVG Animation
-.viz-svg-wrap {
-	margin: 0 auto 30px;
-	width: 200px;
-	height: 180px;
-	cursor: pointer;
+.viz-body-tr:first-of-type {
+	.viz-td {
+		padding-top: 6px;
+	}
 }
+
+.viz-table-quant-val {
+	text-align: right;
+}
+
+.viz-table-downplay-val {
+	color: $light-gray;
+	font-weight: 300;
+}
+
+.viz-header-start {
+	.viz-basket {
+		right: 0;
+		bottom: -325px;
+		left: 0;
+		margin: auto auto;
+		width: 280px;
+	}
+	.viz-subhead {
+		text-align: center;
+	}
+}
+
+

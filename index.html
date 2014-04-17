@@ -10,69 +10,135 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width">
-	<title>Recipe Generator</title>
+	<title>Food Genius</title>
 	<link rel="stylesheet" href="css/site.css">
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.2.0/snap.svg-min.js"></script>
+	<script src="http://d3js.org/queue.v1.min.js"></script>
+	<script src="http://d3js.org/topojson.v1.min.js"></script>
 </head>
 
 <body>
 	<article class="viz-article">
 		<div class="viz-container">
-			<!-- BRACKET MOD -->
 			<section class="viz-content-block">
-				<!-- <div class="viz-svg-wrap"></div> -->
-				<header class="viz-generator-header viz-header-start">
-					<img class="viz-basket viz-basket-start" src="/img/basket_bw.png" />
-					<h4 class="viz-subhead">Your Ingredients</h4>
+				<header class="viz-generator-header">
+					<h4 class="viz-hed">Most Distinctive Foods by State</h4>
 				</header>
-				<p class="viz-copy viz-copy-start">Click the basket icon to generate your own mystery ingredient&nbsp;challenge.</p>
-				<ul class="viz-ingredients viz-ingredients-col-1">
-				</ul>
-				<ul class="viz-ingredients viz-ingredients-col-2">
-				</ul>
+				<div class="viz-svg-wrap">
+					<img class="viz-map-overlay" src="/img/popular_ingredients.png" />
+				</div>
+				<div class="viz-hover-callout">
+					<li class="viz-state" data-state="NY">
+						<a class="viz-state-anchor"><h5 class="viz-subhead">New York</h5></a>
+						<table class="viz-table">
+							<thead class="viz-thead">
+								<tr class="viz-body-tr">
+									<th class="viz-th" scope="col">Term</th>
+									<th class="viz-th viz-table-quant-val viz-table-downplay-val" scope="col">NY (%)</th>
+									<th class="viz-th viz-table-quant-val viz-table-downplay-val" scope="col">U.S. (%)</th>
+									<th class="viz-th viz-table-quant-val" scope="col">Diff. (%)</th>
+								</tr>
+							</thead>
+							<tbody>
+								
+									<tr class="viz-body-tr">
+										<td class="viz-td">eggplant</td>
+										<td class="viz-td viz-table-quant-val viz-table-downplay-val">54</td>
+										<td class="viz-td viz-table-quant-val viz-table-downplay-val">37</td>
+										<td class="viz-td viz-table-quant-val">17</td>
+									</tr>
+								
+									<tr class="viz-body-tr">
+										<td class="viz-td">cutlet</td>
+										<td class="viz-td viz-table-quant-val viz-table-downplay-val">29</td>
+										<td class="viz-td viz-table-quant-val viz-table-downplay-val">13</td>
+										<td class="viz-td viz-table-quant-val">16</td>
+									</tr>
+								
+									<tr class="viz-body-tr">
+										<td class="viz-td">roll</td>
+										<td class="viz-td viz-table-quant-val viz-table-downplay-val">50</td>
+										<td class="viz-td viz-table-quant-val viz-table-downplay-val">37</td>
+										<td class="viz-td viz-table-quant-val">13</td>
+									</tr>
+								
+									<tr class="viz-body-tr">
+										<td class="viz-td">parmigiana</td>
+										<td class="viz-td viz-table-quant-val viz-table-downplay-val">25</td>
+										<td class="viz-td viz-table-quant-val viz-table-downplay-val">14</td>
+										<td class="viz-td viz-table-quant-val">12</td>
+									</tr>
+								
+									<tr class="viz-body-tr">
+										<td class="viz-td">cold</td>
+										<td class="viz-td viz-table-quant-val viz-table-downplay-val">35</td>
+										<td class="viz-td viz-table-quant-val viz-table-downplay-val">25</td>
+										<td class="viz-td viz-table-quant-val">11</td>
+									</tr>
+								
+							</tbody>
+						</table>
+					</li>
+				</div>
+				<div class="viz-intro-and-legend">
+					<p class="viz-copy viz-map-intro"><span class="viz-leadin viz-intro-leadin">The map above shows</span> each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>		
+					<div class="viz-legend">
+						<p class="viz-scale-label viz-smallcaps">Distinctiveness <span class="viz-detail">(Difference between ingredient's frequency on menus in state vs. U.S.)</span></p>
+						<ul class="viz-scale">
+							<!-- closing tags omitted to remove horizontal margin between inline-block els -->
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment">0
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">10</span>
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">20</span>
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">30</span>
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">40%</span>
+						</ul>
+					</div>
+				</div>
 			</section>
-
+			<section class="viz-content-block">
+				<header class="viz-generator-header">
+					<h4 class="viz-hed">Top 5 Distinctive Terms, All States</h4>
+				</header>
+				<p class="viz-copy viz-charts-intro"><span class="viz-leadin viz-intro-leadin">The map above shows</span> each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>		
+				<div class="viz-list-wrapper">
+					<ul class="viz-states viz-states-col-1">
+					</ul>
+					<ul class="viz-states viz-states-col-2">
+					</ul>
+				</div>
+	    		<p class="viz-source"><span class="viz-leadin">Source:</span> Food Genius</p>
+	    		<p class="viz-source"><span class="viz-leadin">Methodology:</span> Food Genius tracks term appearance on unique menus. So even if "bacon" appears eight times on Waffle House's menu, and there are 20 Waffle House locations in Georgia, Food Genius only increases the count for "bacon" in Georgia by one. Food Genius estimates that their state samples range from 35% of all restaurants in Vermont to 85% of all restaurants in Washington D.C.</p>
+			</section>
 		</div>
 
-		<!-- Templates for Questions -->
-		<script type="text/template" class="viz-ingredient-template">
-				<li class="viz-ingredient-item">
-					<div class="viz-ingredient-info">
-						<div class="viz-ingredient-header">
-							<h5 class="viz-ingredient-name"><%= ingredient %></h5>
-							<h6 class="viz-number"><%= temp_index %></h6>
-						</div>
-						<p class="viz-ingredient-description"><%= description %> <a href="<%= page_url %>" class="viz-readmore"><a href="<%= page_url %>" class="viz-readmore">Read&nbsp;more&nbsp;&hellip;</a></p>
-						<% if (typeof(image_url) != "undefined") { %>
-							<div class="viz-thumb-container">
-								<img class="viz-ingredient-thumb" src="<%= image_url %>" />
-							</div>
-						<% } else { %>
-							<div class="viz-thumb-container">
-								<img class="viz-ingredient-thumb" src="/img/platter.png" />
-							</div>
-						<% } %>
-
-					</div>
-					<ul class="viz-recipes">
-						<% if (typeof(recipe1_source) != "undefined") { %>
-							<li class="viz-recipes-item">
-								<h7 class="viz-recipe-overline"><%= recipe1_source %></h7>
-								<a href="<%= recipe1_url %>" class="viz-recipe-title"><%= recipe1_name %></a>
-							</li>
-						<% } %>
-						<% if (typeof(recipe2_source) != "undefined") { %>
-							<li class="viz-recipes-item">
-								<a class="viz-recipe-overline"><%= recipe2_source %></a>
-								<a href="<%= recipe2_url %>" class="viz-recipe-title"><%= recipe2_name %></a>
-							</li>
-						<% } %>
-					</ul>
-				</li>
+		<!-- Templates for States -->
+		<script type="text/template" class="viz-state-template">
+			<li class="viz-state" data-state="<%= key %>">
+				<a class="viz-state-anchor"><h5 class="viz-subhead"><%= values[0].state_fullname %></h5></a>
+				<table class="viz-table">
+					<thead class="viz-thead">
+						<tr class="viz-body-tr">
+							<th class="viz-th" scope="col">Term</th>
+							<th class="viz-th viz-table-quant-val viz-table-downplay-val" scope="col"><%= key %> (%)</th>
+							<th class="viz-th viz-table-quant-val viz-table-downplay-val" scope="col">U.S. (%)</th>
+							<th class="viz-th viz-table-quant-val" scope="col">Diff. (%)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% _.each(_.range(0,5), function(i){ %>
+							<tr class="viz-body-tr">
+								<td class="viz-td"><%= values[i].term %></td>
+								<td class="viz-td viz-table-quant-val viz-table-downplay-val"><%= percentTimesHundo(values[i].percent_state) %></td>
+								<td class="viz-td viz-table-quant-val viz-table-downplay-val"><%= percentTimesHundo(values[i].percent_us) %></td>
+								<td class="viz-td viz-table-quant-val"><%= percentTimesHundo(values[i].diff) %></td>
+							</tr>
+						<% }); %>
+					</tbody>
+				</table>
+			</li>
 		</script>
 
 		<script type="text/javascript" src="js/quiz.js"></script>

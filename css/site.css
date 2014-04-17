@@ -278,6 +278,7 @@
 /* line 7, ../sass/partials/_base.scss */
 .viz-article {
   margin: 0 auto;
+  max-width: 940px;
   height: 100%;
   color: #33312e;
   font-size: 15px;
@@ -285,68 +286,13 @@
   text-rendering: optimizeLegibility;
 }
 
-/* line 16, ../sass/partials/_base.scss */
+/* line 17, ../sass/partials/_base.scss */
 .viz-container {
   position: relative;
   background-color: white;
 }
 
-/* line 21, ../sass/partials/_base.scss */
-.viz-detail {
-  color: #99948a;
-  text-transform: uppercase;
-  letter-spacing: .5px;
-  font-weight: 300;
-  font-size: 11px;
-  line-height: 80%;
-}
-
-/* line 30, ../sass/partials/_base.scss */
-.viz-overline {
-  margin: 0 0 5px;
-  padding-bottom: 3px;
-  border-bottom: 1px solid #ccc6b9;
-  color: #99948a;
-  font-weight: 300;
-  font-size: 11px;
-}
-
-/* line 39, ../sass/partials/_base.scss */
-.viz-title {
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  zoom: 1;
-  *display: inline;
-  margin: 0;
-  font-weight: 600;
-  font-size: 42px;
-  font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
-  line-height: 90%;
-}
-@media (min-width: 500px) {
-  /* line 39, ../sass/partials/_base.scss */
-  .viz-title {
-    font-size: 42px;
-  }
-}
-
-/* line 51, ../sass/partials/_base.scss */
-.viz-underline {
-  margin-top: 0;
-  color: #33312e;
-  font-weight: 300;
-  line-height: 140%;
-}
-
-/* line 60, ../sass/partials/_base.scss */
-.viz-byline {
-  letter-spacing: .5px;
-  line-height: 90%;
-}
-
-/* line 65, ../sass/partials/_base.scss */
+/* line 22, ../sass/partials/_base.scss */
 .viz-content-block {
   *zoom: 1;
   margin: 0 0 40px;
@@ -358,77 +304,18 @@
   clear: both;
 }
 
-/* line 70, ../sass/partials/_base.scss */
-.viz-content-header {
-  margin: 0 0 30px;
-}
-
-/* line 74, ../sass/partials/_base.scss */
-.viz-overline-wrapper {
-  position: relative;
-  margin: 0 0 5px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #33312e;
-}
-
-/* line 81, ../sass/partials/_base.scss */
-.viz-subhed {
-  margin: 0 0 10px;
-  padding-bottom: 3px;
-  border-bottom: 1px solid #ccc6b9;
-  font-weight: 500;
-  font-size: 13px;
-}
-
-/* line 89, ../sass/partials/_base.scss */
-.viz-subhed-select {
-  padding-bottom: 7px;
-}
-
-/* line 93, ../sass/partials/_base.scss */
-.viz-header-wrapper {
-  *zoom: 1;
-  position: relative;
-}
-/* line 38, ../../../../../../Applications/LiveReload.app/Contents/Resources/SASS.lrplugin/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.viz-header-wrapper:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* line 105, ../sass/partials/_base.scss */
+/* line 27, ../sass/partials/_base.scss */
 .viz-generator-header {
   position: relative;
-  margin: 20px 0 10px;
-  height: 70px;
 }
 
-/* line 111, ../sass/partials/_base.scss */
-.viz-basket {
-  -webkit-transition: 0.2s bottom ease-in-out, 0.2s width ease-in-out;
-  -moz-transition: 0.2s bottom ease-in-out, 0.2s width ease-in-out;
-  -o-transition: 0.2s bottom ease-in-out, 0.2s width ease-in-out;
-  transition: 0.2s bottom ease-in-out, 0.2s width ease-in-out;
-  position: absolute;
-  right: 15px;
-  bottom: 9px;
-  z-index: 1;
-  width: 80px;
-  cursor: pointer;
-}
-
-/* line 119, ../sass/partials/_base.scss */
-.viz-subhead {
+/* line 31, ../sass/partials/_base.scss */
+.viz-hed {
   -webkit-transition: text-align 0.2s ease-in-out;
   -moz-transition: text-align 0.2s ease-in-out;
   -o-transition: text-align 0.2s ease-in-out;
   transition: text-align 0.2s ease-in-out;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0;
+  margin: 0 0 15px;
   padding: 5px 10px 7px;
   background: #33312e;
   color: white;
@@ -438,198 +325,306 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 133, ../sass/partials/_base.scss */
-.viz-header-start .viz-basket {
-  width: 280px;
-  bottom: -325px;
-  right: 0;
-  left: 0;
-  margin: auto auto;
-}
-/* line 140, ../sass/partials/_base.scss */
-.viz-header-start .viz-subhead {
-  text-align: center;
-}
-
-/* line 145, ../sass/partials/_base.scss */
-.viz-copy {
-  -webkit-transition: text-align 0.2s ease-in-out;
-  -moz-transition: text-align 0.2s ease-in-out;
-  -o-transition: text-align 0.2s ease-in-out;
-  transition: text-align 0.2s ease-in-out;
-  margin: 0 0 20px 10px;
-  color: #33312e;
-  line-height: 140%;
-  font-size: 15px;
-}
-
-/* line 153, ../sass/partials/_base.scss */
-.viz-copy-start {
-  margin-left: 0;
-  text-align: center;
-}
-
-/* line 158, ../sass/partials/_base.scss */
-.viz-ingredients {
-  margin: 0 0 40px;
-  padding: 0;
-}
-@media (min-width: 500px) {
-  /* line 158, ../sass/partials/_base.scss */
-  .viz-ingredients {
-    width: 48%;
-  }
-}
-
-@media (min-width: 500px) {
-  /* line 166, ../sass/partials/_base.scss */
-  .viz-ingredients-col-1 {
-    float: left;
-  }
-}
-
-@media (min-width: 500px) {
-  /* line 172, ../sass/partials/_base.scss */
-  .viz-ingredients-col-2 {
-    float: right;
-  }
-}
-
-/* line 178, ../sass/partials/_base.scss */
-.viz-ingredient-item {
-  display: none;
-  margin-bottom: 20px;
-  list-style-type: none;
-  padding: 15px;
-  border: 1px solid #33312e;
-}
-
-/* line 186, ../sass/partials/_base.scss */
-.viz-number {
-  position: absolute;
-  right: 0;
-  bottom: 10px;
-  margin: 0;
-  padding-top: 2px;
-  width: 16px;
-  height: 16px;
-  background: #33312e;
-  color: white;
-  text-align: center;
-  font-weight: 500;
-  font-size: 12px;
-  font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
-}
-
-/* line 200, ../sass/partials/_base.scss */
-.viz-ingredient-header {
-  margin-bottom: 10px;
-  padding-bottom: 6px;
-  width: 100%;
-  border-bottom: 2px solid #33312e;
-  position: relative;
-}
-
-/* line 208, ../sass/partials/_base.scss */
-.viz-thumb-container {
-  overflow: hidden;
-  margin: 10px 0 0;
-  width: 100%;
-  max-height: 260px;
-}
-
-/* line 215, ../sass/partials/_base.scss */
-.viz-ingredient-thumb {
-  border-top: 1px solid #33312e;
-  padding-top: 15px;
-  width: 100%;
-}
-
-/* line 221, ../sass/partials/_base.scss */
-.viz-ingredient-name {
+/* line 43, ../sass/partials/_base.scss */
+.viz-subhead {
   display: inline-block;
-  margin: 0 25px 0 0;
+  margin: 0 0 6px;
   font-weight: 600;
   font-size: 20px;
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
   line-height: 100%;
 }
 
-/* line 230, ../sass/partials/_base.scss */
-.viz-ingredient-description {
-  margin: 0;
+/* line 52, ../sass/partials/_base.scss */
+.viz-smallcaps {
+  text-transform: uppercase;
+  letter-spacing: .75px;
+  font-weight: 500;
+  font-size: 12px;
+  font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
+  line-height: 120%;
+}
+
+/* line 61, ../sass/partials/_base.scss */
+.viz-detail {
+  color: #99948a;
+  font-weight: 400;
+  text-transform: none;
+}
+
+/* line 67, ../sass/partials/_base.scss */
+.viz-copy {
+  -webkit-transition: text-align 0.2s ease-in-out;
+  -moz-transition: text-align 0.2s ease-in-out;
+  -o-transition: text-align 0.2s ease-in-out;
+  transition: text-align 0.2s ease-in-out;
+  margin: 0 0 15px;
+  color: #33312e;
   font-size: 14px;
   line-height: 140%;
 }
 
-/* line 236, ../sass/partials/_base.scss */
-.viz-readmore {
-  -webkit-transition: color 0.2s ease-in-out;
-  -moz-transition: color 0.2s ease-in-out;
-  -o-transition: color 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out;
-  color: #99948a;
-  text-decoration: none;
+/* line 75, ../sass/partials/_base.scss */
+.viz-leadin {
   text-transform: uppercase;
+}
+
+/* line 79, ../sass/partials/_base.scss */
+.viz-intro-leadin {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
+}
+
+/* line 85, ../sass/partials/_base.scss */
+.viz-source {
+  display: block;
+  margin: 0 0 7px;
+  padding-top: 7px;
+  border-top: 1px solid #ccc6b9;
+  color: #99948a;
   letter-spacing: .75px;
   font-weight: 400;
   font-size: 12px;
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
-}
-/* line 245, ../sass/partials/_base.scss */
-.viz-readmore:hover {
-  color: #66635d;
+  line-height: 140%;
 }
 
-/* line 250, ../sass/partials/_base.scss */
-.viz-recipes {
-  padding: 0;
+/* line 103, ../sass/partials/_base.scss */
+.viz-intro-and-legend {
+  width: 58%;
+  padding-right: 2%;
+  border-right: 1px solid #33312e;
 }
 
-/* line 254, ../sass/partials/_base.scss */
-.viz-recipes-item {
-  margin: 0;
-  padding: 10px 0;
+/* line 109, ../sass/partials/_base.scss */
+.viz-map-intro {
+  display: inline-block;
+}
+
+/* line 123, ../sass/partials/_base.scss */
+.viz-svg-wrap {
+  position: relative;
+  margin: 0 auto 30px;
+}
+
+/* line 128, ../sass/partials/_base.scss */
+.viz-state-shape {
+  -webkit-transition: stroke-width 0.2s ease-in-out;
+  -moz-transition: stroke-width 0.2s ease-in-out;
+  -o-transition: stroke-width 0.2s ease-in-out;
+  transition: stroke-width 0.2s ease-in-out;
+  stroke: white;
+  stroke-width: 1px;
+}
+
+/* line 134, ../sass/partials/_base.scss */
+.viz-map-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 118%;
+  pointer-events: none;
+}
+
+/* line 140, ../sass/partials/_base.scss */
+.viz-hover-callout {
+  display: inline-block;
+  width: 40%;
+  float: right;
+}
+
+/* line 146, ../sass/partials/_base.scss */
+.viz-state-active {
+  stroke-width: 2px;
+}
+
+/* line 158, ../sass/partials/_base.scss */
+.viz-legend {
   border-top: 1px solid #33312e;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 164, ../sass/partials/_base.scss */
+.viz-scale-label {
+  width: 100%;
+  margin: 0 0 5px;
+  font-weight: 400;
+  color: #99948a;
+}
+
+/* line 171, ../sass/partials/_base.scss */
+.viz-segment-label {
+  margin-left: -7px;
+}
+
+/* line 175, ../sass/partials/_base.scss */
+.viz-scale {
+  margin: 0;
+  padding: 0;
+  color: #99948a;
+}
+
+/* line 181, ../sass/partials/_base.scss */
+.viz-scale-segment {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0;
+  width: 20%;
+  border-top: 10px solid;
+  list-style: none;
+  padding-top: 3px;
+}
+
+/* line 191, ../sass/partials/_base.scss */
+.viz-ing-segment:nth-of-type(1) {
+  border-color: #feedde;
+}
+/* line 194, ../sass/partials/_base.scss */
+.viz-ing-segment:nth-of-type(2) {
+  border-color: #fdd0a2;
+}
+/* line 197, ../sass/partials/_base.scss */
+.viz-ing-segment:nth-of-type(3) {
+  border-color: #fdae6b;
+}
+/* line 200, ../sass/partials/_base.scss */
+.viz-ing-segment:nth-of-type(4) {
+  border-color: #fd8d3c;
+}
+/* line 203, ../sass/partials/_base.scss */
+.viz-ing-segment:nth-of-type(5) {
+  border-color: #e6550d;
+}
+
+/* line 219, ../sass/partials/_base.scss */
+.viz-list-wrapper {
+  *zoom: 1;
+  width: 100%;
+}
+/* line 38, ../../../../../../Applications/LiveReload.app/Contents/Resources/SASS.lrplugin/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.viz-list-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 224, ../sass/partials/_base.scss */
+.viz-states {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0 0 30px;
+  padding: 0;
+  width: 50%;
+}
+/* line 229, ../sass/partials/_base.scss */
+.viz-states .viz-state:last-child {
+  margin-bottom: -5px;
+}
+
+@media (min-width: 600px) {
+  /* line 234, ../sass/partials/_base.scss */
+  .viz-states-col-1 {
+    float: left;
+    padding-right: 2%;
+    border-right: 1px solid #ccc6b9;
+  }
+}
+
+@media (min-width: 600px) {
+  /* line 242, ../sass/partials/_base.scss */
+  .viz-states-col-2 {
+    float: right;
+    padding-left: 2%;
+  }
+}
+
+/* line 249, ../sass/partials/_base.scss */
+.viz-state {
+  margin-bottom: 20px;
+  width: 100%;
   list-style-type: none;
 }
-/* line 259, ../sass/partials/_base.scss */
-.viz-recipes-item:nth-of-type(1) {
-  margin-top: 15px;
-  border-top: none;
-  padding-top: 0;
-}
-/* line 264, ../sass/partials/_base.scss */
-.viz-recipes-item:last-of-type {
-  padding-bottom: 5px;
+
+/* line 255, ../sass/partials/_base.scss */
+.viz-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
+/* line 260, ../sass/partials/_base.scss */
+.viz-thead {
+  border-top: 1px solid #ccc6b9;
+  border-bottom: 1px solid #ccc6b9;
+}
+
+/* line 266, ../sass/partials/_base.scss */
+.viz-body-tr .viz-td:nth-child(2) {
+  width: 20%;
+}
 /* line 269, ../sass/partials/_base.scss */
-.viz-recipe-overline {
-  display: block;
+.viz-body-tr .viz-td:nth-child(3) {
+  width: 20%;
+}
+/* line 272, ../sass/partials/_base.scss */
+.viz-body-tr .viz-td:nth-child(4) {
+  width: 20%;
+}
+
+/* line 277, ../sass/partials/_base.scss */
+.viz-th {
   margin-bottom: 3px;
-  color: #99948a;
+  padding: 5px 0;
   text-transform: uppercase;
   letter-spacing: .75px;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 12px;
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
 }
 
-/* line 280, ../sass/partials/_base.scss */
-.viz-recipe-title {
-  display: block;
-  color: #33312e;
-  text-decoration: none;
+/* line 287, ../sass/partials/_base.scss */
+.viz-td {
+  padding: 6px 0 0;
+  font-weight: 400;
   font-size: 14px;
 }
 
-/* line 291, ../sass/partials/_base.scss */
-.viz-svg-wrap {
-  margin: 0 auto 30px;
-  width: 200px;
-  height: 180px;
-  cursor: pointer;
+/* line 294, ../sass/partials/_base.scss */
+.viz-body-tr:first-of-type .viz-td {
+  padding-top: 6px;
+}
+
+/* line 299, ../sass/partials/_base.scss */
+.viz-table-quant-val {
+  text-align: right;
+}
+
+/* line 303, ../sass/partials/_base.scss */
+.viz-table-downplay-val {
+  color: #ccc6b9;
+  font-weight: 300;
+}
+
+/* line 309, ../sass/partials/_base.scss */
+.viz-header-start .viz-basket {
+  right: 0;
+  bottom: -325px;
+  left: 0;
+  margin: auto auto;
+  width: 280px;
+}
+/* line 316, ../sass/partials/_base.scss */
+.viz-header-start .viz-subhead {
+  text-align: center;
 }
 
 /* line 25, ../sass/site.scss */
@@ -643,11 +638,10 @@
 body {
   margin: 0 auto;
   padding: 15px 20px;
-  max-width: 606px;
 }
-@media (min-width: 500px) {
+@media (min-width: 600px) {
   /* line 29, ../sass/site.scss */
   body {
-    padding: 30px 20px;
+    padding: 40px 20px;
   }
 }

@@ -1,16 +1,15 @@
-/*jshint -W099 */
+
 
 // SETUP VARIABLES
 // =============================================
-var spreadsheetURL = "/ingredients_finalEdit.csv";
-// var spreadsheetURL = "http://www.guswezerek.com/projects/recipe_generator/ingredients_finalEdit.csv";
-var appID = "d4056344";
-var appKey = "cf30fed394ef2013d82d03179ca4f961";
+var spreadsheetURL = "/food_genius.tsv";
+var jsonURL = "/us.json";
+var regionalTSV = "/regional_ingredients.tsv";
+// var spreadsheetURL = "http://www.guswezerek.com/projects/food_genius/food_genius.tsv";
+// var jsonURL = "http://www.guswezerek.com/projects/food_genius/us.json";
 
 // For template
-var vizEven = false;
-var vizQuiz = false;
-var ingredientsTemplate = _.template( $(".viz-ingredient-template").html() );
+var statesTemplate = _.template( $(".viz-state-template").html() );
 
 
 // SETUP
@@ -21,171 +20,139 @@ var ingredientsTemplate = _.template( $(".viz-ingredient-template").html() );
 
 
 
-// LOAD DAT DATA
+
+// D3
 // =============================================
 
-d3.csv(spreadsheetURL, function(error, myData) {
-	DATA = myData;
-});
+var width = 868,
+	height = 550;
 
+var rateById = d3.map();
 
+var color = d3.scale.quantize()
+	.domain([0,0.5])
+	.range(['rgb(254,237,222)','rgb(253,208,162)','rgb(253,174,107)','rgb(253,141,60)','rgb(230,85,13)']);
 
+var projection = d3.geo.albersUsa()
+	.scale(1180)
+	.translate([width / 2, height / 2]);
 
+var path = d3.geo.path()
+	.projection(projection);
 
-// HELPERS
-// =============================================
-function getIngredients(data) {
+var svg = d3.select(".viz-svg-wrap").append("svg")
+	.attr("width", width)
+	.attr("height", height);
 
-	var ingredients = [];
-	
-	for (var i = 0; i < 4; i++) {
-		var randomInt = getRandomInt(0, data.length);
-		var ingredient = DATA[randomInt];
-		fillJSON(ingredient, ingredients);
-	};
-}
+queue()
+	.defer(d3.json, jsonURL)
+	.defer(d3.tsv, spreadsheetURL)
+	.defer(d3.tsv, regionalTSV)
+	.await(ready);
 
-function fillJSON(ingredient, ingredients) {
+function ready(error, us, termData, regionalData) {
 
-	var ingredientName = ingredient["search_title"];
+	var nested_regional = d3.nest()
+		.key(function(d) {return d.state; })
+		.entries(regionalData);
 
-	var url = "http://api.yummly.com/v1/api/recipes?_app_id=" + appID + "&_app_key=" + appKey + "&q=" + ingredientName + "&requirePictures=true";
-
-	$.ajax({
-	    type: 'GET',
-	    url: url,
-	    dataType: 'JSONP',
-	    jsonp: 'callback',
-	    success: function(json) {
-	    	var matches = json["matches"];
-
-	    	if (matches.length > 1) {
-		    	$.when(
-
-		    		$.ajax({
-					    type: 'GET',
-					    url: "http://api.yummly.com/v1/api/recipe/" + matches[0]["id"] +"?_app_id=" + appID + "&_app_key=" + appKey,
-					    dataType: 'JSONP',
-					    jsonp: 'callback',
-					    success: function(recipe) {
-					    	ingredient["image_url"] = recipe["images"][0]["hostedLargeUrl"];
-					    	ingredient["recipe1_name"] = recipe["name"];
-					    	ingredient["recipe1_source"] = recipe["source"]["sourceDisplayName"];
-					    	ingredient["recipe1_url"] = recipe["source"]["sourceRecipeUrl"];				    	
-					    }
-					}),
-
-					$.ajax({
-					    type: 'GET',
-					    url: "http://api.yummly.com/v1/api/recipe/" + matches[1]["id"] +"?_app_id=" + appID + "&_app_key=" + appKey,
-					    dataType: 'JSONP',
-					    jsonp: 'callback',
-					    success: function(recipe) {
-					    	ingredient["recipe2_name"] = recipe["name"];
-					    	ingredient["recipe2_source"] = recipe["source"]["sourceDisplayName"];
-					    	ingredient["recipe2_url"] = recipe["source"]["sourceRecipeUrl"];
-					    }
-					})
-
-	    		).then(function() {
-
-			    	pushUpdatedIngredient(ingredients, ingredient);
-
-					if (ingredients.length === 4) {
-						populateIngredients(ingredients);
-					}
-
-				});
-
-	    	} else if (matches.length > 0) {
-		    	$.when(
-
-		    		$.ajax({
-					    type: 'GET',
-					    url: "http://api.yummly.com/v1/api/recipe/" + matches[0]["id"] +"?_app_id=" + appID + "&_app_key=" + appKey,
-					    dataType: 'JSONP',
-					    jsonp: 'callback',
-					    success: function(recipe) {
-					    	ingredient["image_url"] = recipe["images"][0]["hostedLargeUrl"];
-					    	ingredient["recipe1_name"] = recipe["name"];
-					    	ingredient["recipe1_source"] = recipe["source"]["sourceDisplayName"];
-					    	ingredient["recipe1_url"] = recipe["source"]["sourceRecipeUrl"];				    	
-					    }
-					})
-
-	    		).then(function() {
-
-			    	pushUpdatedIngredient(ingredients, ingredient);
-
-					if (ingredients.length === 4) {
-						populateIngredients(ingredients);
-					}
-
-				});
-	    	} else {
-
-	    		pushUpdatedIngredient(ingredients, ingredient);
-
-				if (ingredients.length === 4) {
-					populateIngredients(ingredients);
-				}
-	    	}
-	    }
+	_.each(nested_regional, function(e,i) {
+		var ingredients = e.values[0];
+		ingredients.ranch = { 
+			"ingredient": "ranch dressing",
+			"pct": ingredients.ranch_pct,
+			"diff": ingredients.ranch_diff
+		};
+		ingredients.pecan = { 
+			"ingredient": "pecan",
+			"pct": ingredients.pecan_pct,
+			"diff": ingredients.pecan_diff
+		};
+		ingredients.chile = { 
+			"ingredient": "green chile",
+			"pct": ingredients.chile_pct,
+			"diff": ingredients.chile_diff
+		};
+		ingredients.cheesesteak = { 
+			"ingredient": "cheesesteak",
+			"pct": ingredients.ranch_pct,
+			"diff": ingredients.ranch_diff
+		};
+		ingredients.bell = { 
+			"ingredient": "green bell pepper",
+			"pct": ingredients.bell_pct,
+			"diff": ingredients.bell_diff
+		};
 	});
-}
 
-function pushUpdatedIngredient(ingredientsArray, ingredient) {
-	ingredientsArray.push(ingredient);
-}
+	console.log(nested_regional);
 
-function populateIngredients(selectedIngredients) {
+	var nested_terms = d3.nest()
+		.key(function(d) {return d.state; })
+		.entries(termData);
 
-	var myObj = {};
-	var toAppendString1 = "";
-	var toAppendString2 = "";
+	DATA = nested_terms;
+	populateStates(DATA);
 
-	// Create objects that underscore likes
-	myObj["ingredients"] = selectedIngredients;
-	selectedIngredients = myObj;
-	
-	// Compile the list
-	for (i = 0; i < selectedIngredients.ingredients.length; i++) {
-		var selected = selectedIngredients.ingredients[i];
-		selected["temp_index"] = i +1;
-		if (i < 2) {
-			toAppendString1 += ingredientsTemplate(selected);
-		} else {
-			toAppendString2 += ingredientsTemplate(selected);
+
+	// Dynamically get min and max for color range
+	color.domain([
+		d3.min(termData, function(d) { return d.diff; }),
+		d3.max(termData, function(d) { return d.diff; })
+	]);
+
+	// Merge diff vals from termData into us data object
+	for (var i = 0; i < DATA.length; i++) {
+		var ingArray = [];
+
+		_.each(DATA[i].values, function(e, j) {
+			if (DATA[i].values[j].type === "ingredient" || DATA[i].values[j].type === "dish") {
+				ingArray.push(DATA[i].values[j]);
+			}
+		});
+
+		var mostDiff = ingArray[0];
+
+		var termDataState = mostDiff.state_fullname;
+
+		//Find the corresponding state inside the GeoJSON
+		for (var j = 0; j < us.features.length; j++) {
+
+			var jsonState = us.features[j].properties.name;
+
+			if (termDataState == jsonState) {
+
+				//Copy the termData value into the JSON
+				us.features[j].properties.value = parseFloat(mostDiff.diff);
+				us.features[j].properties.abrv =  mostDiff.state;
+				us.features[j].properties.term = mostDiff.term;
+
+				//Stop looking through the JSON
+				break;
+			}
 		}
 	}
 
-	// Fade out current list 
-	hideRecipes();
+	// Create the state paths
+	svg.selectAll("path")
+		.data(us.features)
+		.enter().append("path")
+		.attr("d", path)
+		.attr("id", function(d) { return d.properties.abrv })
+		.attr("class", "viz-state-shape")
+		.style("fill", function(d) {
+			var value = d.properties.value;
 
-	// Append the lists
-	$(".viz-ingredients-col-1").html(toAppendString1);
-	$(".viz-ingredients-col-2").html(toAppendString2);
-
-	// Reveal the ingredients one by one
-	(function showIngredient (i) {          
-		setTimeout(function () {   
-			$(".viz-ingredient-item").eq(i).fadeIn(200);
-			if (i < 4) {
-				i++; 
-				showIngredient(i);
+			if (value) {
+				return color(value);
 			} else {
-				showRecipes();
+				return "#ccc";
 			}
-		}, 500)
-	})(0);
-}
+	});
 
-function hideRecipes() {
-	$(".viz-subhead-recipes").hide();
-}
+	// Now that the elements exist we can bind handlers
+	bindMapHandlers();
 
-function showRecipes() {
-	$(".viz-subhead-recipes").fadeIn(200);
 }
 
 
@@ -199,20 +166,93 @@ function showRecipes() {
 
 // HANDLERS
 // =============================================
-$(".viz-basket").on("click", function() {
-	$(".viz-generator-header").removeClass("viz-header-start");
-	$(".viz-copy").removeClass("viz-copy-start");
-	getIngredients(DATA);
-});
+function bindMapHandlers() {
+	$(".viz-svg-wrap").on({
+		mouseenter: function() {
+			var callout = $(".viz-hover-callout");
+			var states = $(".viz-state");
+			var state = this.id;
+			var element = states.filter("[data-state='" + state + "']").first();
+			var toInsert = element.clone();
 
-
-
-// GENERAL HELPERS
-// =============================================
-
-// Returns a random integer between min and max
-function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
+			d3.select(this).moveToFront();
+			this.addClass("viz-state-active");
+			callout.html(toInsert);
+		},
+		mouseleave: function() {
+			this.removeClass("viz-state-active");
+		}
+	}, ".viz-state-shape");
 }
 
 
+
+
+
+
+
+
+
+
+
+// HELPERS
+// =============================================
+
+function populateStates(data) {
+	var myObj = {};
+	var toAppendString1 = "";
+	var toAppendString2 = "";
+	var dataLength = data.length;
+	var toPercent = d3.format("%");
+
+
+	// Create objects that underscore likes
+	myObj["states"] = data;
+	data = myObj;
+	
+	// Compile the list
+	for (i = 0; i < dataLength; i++) {
+		if (i < dataLength/2 ) {
+			toAppendString1 += statesTemplate(data.states[i]);
+		} else {
+			toAppendString2 += statesTemplate(data.states[i]);
+		}
+	}
+
+	// Append the lists
+	$(".viz-states-col-1").html(toAppendString1);
+	$(".viz-states-col-2").html(toAppendString2);
+};
+
+var percentTimesHundo = function(val) {
+	val  = val * 100;
+	// var formatVal = d3.format(".0");
+	return d3.round(val);
+};
+
+
+// SVG HELPERS
+// =============================================
+
+d3.selection.prototype.moveToFront = function() {
+	return this.each(function() {
+		this.parentNode.appendChild(this);
+	});
+};
+
+SVGElement.prototype.hasClass = function(className) {
+	return new RegExp('(\\s|^)' + className + '(\\s|$)').test(this.getAttribute("class"));
+};
+
+SVGElement.prototype.addClass = function(className) {
+	if (!this.hasClass(className)) {
+		this.setAttribute("class", this.getAttribute("class") + " " + className);
+	}
+};
+
+SVGElement.prototype.removeClass = function(className) {
+	var removedClass = this.getAttribute("class").replace(new RegExp("(\\s|^)" + className + "(\\s|$)", "g"), "$2");
+	if (this.hasClass(className)) {
+		this.setAttribute("class", removedClass);
+	}
+};
