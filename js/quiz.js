@@ -2,18 +2,18 @@
 
 // SETUP VARIABLES
 // =============================================
+
+var INGDATA, REGIONALDATA, MAPDATA, STATES;
+
 var spreadsheetURL = "/food_genius.tsv";
 var jsonURL = "/us.json";
 var regionalTSV = "/regional_ingredients.tsv";
 // var spreadsheetURL = "http://www.guswezerek.com/projects/food_genius/food_genius.tsv";
 // var jsonURL = "http://www.guswezerek.com/projects/food_genius/us.json";
+// var regionalTSV = "http://www.guswezerek.com/projects/food_genius/regional_ingredients.tsv";
 
 // For template
 var statesTemplate = _.template( $(".viz-state-template").html() );
-
-
-// SETUP
-// =============================================
 
 
 
@@ -27,11 +27,7 @@ var statesTemplate = _.template( $(".viz-state-template").html() );
 var width = 868,
 	height = 550;
 
-var rateById = d3.map();
-
-var color = d3.scale.quantize()
-	.domain([0,0.5])
-	.range(['rgb(254,237,222)','rgb(253,208,162)','rgb(253,174,107)','rgb(253,141,60)','rgb(230,85,13)']);
+var color = d3.scale.quantize();
 
 var projection = d3.geo.albersUsa()
 	.scale(1180)
@@ -50,109 +46,38 @@ queue()
 	.defer(d3.tsv, regionalTSV)
 	.await(ready);
 
+
+
 function ready(error, us, termData, regionalData) {
 
 	var nested_regional = d3.nest()
 		.key(function(d) {return d.state; })
 		.entries(regionalData);
 
-	_.each(nested_regional, function(e,i) {
-		var ingredients = e.values[0];
-		ingredients.ranch = { 
-			"ingredient": "ranch dressing",
-			"pct": ingredients.ranch_pct,
-			"diff": ingredients.ranch_diff
-		};
-		ingredients.pecan = { 
-			"ingredient": "pecan",
-			"pct": ingredients.pecan_pct,
-			"diff": ingredients.pecan_diff
-		};
-		ingredients.chile = { 
-			"ingredient": "green chile",
-			"pct": ingredients.chile_pct,
-			"diff": ingredients.chile_diff
-		};
-		ingredients.cheesesteak = { 
-			"ingredient": "cheesesteak",
-			"pct": ingredients.ranch_pct,
-			"diff": ingredients.ranch_diff
-		};
-		ingredients.bell = { 
-			"ingredient": "green bell pepper",
-			"pct": ingredients.bell_pct,
-			"diff": ingredients.bell_diff
-		};
-	});
-
-	console.log(nested_regional);
-
 	var nested_terms = d3.nest()
 		.key(function(d) {return d.state; })
 		.entries(termData);
 
-	DATA = nested_terms;
-	populateStates(DATA);
+	REGIONALDATA = nested_regional;
+	INGDATA = nested_terms;
+	MAPDATA = us;
 
-
-	// Dynamically get min and max for color range
-	color.domain([
-		d3.min(termData, function(d) { return d.diff; }),
-		d3.max(termData, function(d) { return d.diff; })
-	]);
-
-	// Merge diff vals from termData into us data object
-	for (var i = 0; i < DATA.length; i++) {
-		var ingArray = [];
-
-		_.each(DATA[i].values, function(e, j) {
-			if (DATA[i].values[j].type === "ingredient" || DATA[i].values[j].type === "dish") {
-				ingArray.push(DATA[i].values[j]);
-			}
-		});
-
-		var mostDiff = ingArray[0];
-
-		var termDataState = mostDiff.state_fullname;
-
-		//Find the corresponding state inside the GeoJSON
-		for (var j = 0; j < us.features.length; j++) {
-
-			var jsonState = us.features[j].properties.name;
-
-			if (termDataState == jsonState) {
-
-				//Copy the termData value into the JSON
-				us.features[j].properties.value = parseFloat(mostDiff.diff);
-				us.features[j].properties.abrv =  mostDiff.state;
-				us.features[j].properties.term = mostDiff.term;
-
-				//Stop looking through the JSON
-				break;
-			}
-		}
-	}
+	populateStates(INGDATA);
 
 	// Create the state paths
-	svg.selectAll("path")
+	var states = svg.selectAll("path")
 		.data(us.features)
-		.enter().append("path")
+	  .enter().append("path")
 		.attr("d", path)
-		.attr("id", function(d) { return d.properties.abrv })
-		.attr("class", "viz-state-shape")
-		.style("fill", function(d) {
-			var value = d.properties.value;
+		.attr("class", "viz-state-shape");
 
-			if (value) {
-				return color(value);
-			} else {
-				return "#ccc";
-			}
-	});
+	STATES = states;
+
+	// Shade map
+	drawIngMap(us, states);
 
 	// Now that the elements exist we can bind handlers
 	bindMapHandlers();
-
 }
 
 
@@ -166,7 +91,25 @@ function ready(error, us, termData, regionalData) {
 
 // HANDLERS
 // =============================================
+
+
 function bindMapHandlers() {
+
+	// Regional map icons
+	$(".viz-regional-icon").on("click", function(){
+		var term = $(this).data("term");
+
+		updateLayout();
+		drawRegionalMap(MAPDATA, STATES, term);
+	});
+
+	// Top terms map icon
+	$(".viz-terms-icon").on("click", function(){
+		updateLayout();
+		drawIngMap(MAPDATA, STATES)
+	});
+
+	// State hover functionality
 	$(".viz-svg-wrap").on({
 		mouseenter: function() {
 			var callout = $(".viz-hover-callout");
@@ -183,6 +126,7 @@ function bindMapHandlers() {
 			this.removeClass("viz-state-active");
 		}
 	}, ".viz-state-shape");
+
 }
 
 
@@ -197,6 +141,114 @@ function bindMapHandlers() {
 
 // HELPERS
 // =============================================
+
+function updateLayout() {
+	$(".viz-map-hed").hide();
+	$(".viz-map-intro").hide();
+	$(".viz-scale").hide();
+}
+
+function drawRegionalMap(data, states, term) {
+
+	$(".viz-" + term).show();
+	$(".viz-scale-regional").fadeIn(200);
+	$(".viz-map-overlay").fadeOut(200);
+
+	color.range(['rgb(178,24,43)','rgb(214,96,77)','rgb(244,165,130)','rgb(253,219,199)','rgb(255,255,255)','rgb(224,224,224)','rgb(186,186,186)','rgb(135,135,135)','rgb(77,77,77)'])
+		.domain([45, -45]);
+
+	// Merge diff vals from REGIONALDATA into us data object
+	if (!data.features[0].properties[term + "_diff"]) {
+		for (var i = 0; i < REGIONALDATA.length; i++) {
+
+			var state = REGIONALDATA[i];
+
+			var regionalDataState = state.key;
+
+			//Find the corresponding state inside the GeoJSON
+			for (var j = 0; j < data.features.length; j++) {
+
+				var jsonState = data.features[j].properties.abrv;
+
+				if (regionalDataState == jsonState) {
+
+					//Copy the termData value into the JSON
+					data.features[j].properties[term + "_diff"] = parseFloat(state.values[0][term + "_diff"]);
+
+					//Stop looking through the JSON
+					break;
+				}
+			}
+		}
+	}
+
+	states.style("stroke", "rgb(204, 198, 185)")
+		.style("fill", function(d) {
+			var value = d.properties[term + "_diff"];
+			
+			if (value) {
+				return color(value);
+			} else {
+				return "#ccc";
+			}
+		});
+}
+
+function drawIngMap(data, states) {
+	
+	$(".viz-terms").show();
+	$(".viz-scale-ing").fadeIn(200);
+	$(".viz-map-overlay").fadeIn(200);
+
+	color.range(['rgb(254,237,222)','rgb(253,208,162)','rgb(253,174,107)','rgb(253,141,60)','rgb(230,85,13)'])
+		.domain([0, 0.5]);
+
+	// Merge diff vals from INGDATA into us data object
+	if (!data.features[0].properties.value) {
+		for (var i = 0; i < INGDATA.length; i++) {
+			var ingArray = [];
+
+			_.each(INGDATA[i].values, function(e, j) {
+				if (INGDATA[i].values[j].type === "ingredient" || INGDATA[i].values[j].type === "dish") {
+					ingArray.push(INGDATA[i].values[j]);
+				}
+			});
+
+			var mostDiff = ingArray[0];
+
+			var termDataState = mostDiff.state_fullname;
+
+			//Find the corresponding state inside the GeoJSON
+			for (var j = 0; j < data.features.length; j++) {
+
+				var jsonState = data.features[j].properties.name;
+
+				if (termDataState == jsonState) {
+
+					//Copy the termData value into the JSON
+					data.features[j].properties.value = mostDiff.diff;
+					data.features[j].properties.abrv =  mostDiff.state;
+					data.features[j].properties.term = mostDiff.term;
+
+					//Stop looking through the JSON
+					break;
+				}
+			}
+		}
+	}
+
+	states.style("stroke", "rgb(255, 255, 255)")
+		.attr("id", function(d) { return d.properties.abrv; })
+		.style("fill", function(d) {
+			var value = d.properties.value;
+			if (value) {
+				return color(value);
+			} else {
+				return "#ccc";
+			}
+		});
+}
+
 
 function populateStates(data) {
 	var myObj = {};

@@ -25,7 +25,20 @@
 		<div class="viz-container">
 			<section class="viz-content-block">
 				<header class="viz-generator-header">
-					<h4 class="viz-hed">Most Distinctive Foods by State</h4>
+					<h4 class="viz-hed viz-map-hed viz-terms">Most Distinctive Food by State</h4>
+					<h4 class="viz-hed viz-map-hed viz-ranch">Relative Popularity: Ranch Dressing</h4>
+					<h4 class="viz-hed viz-map-hed viz-chile">Relative Popularity: Green Chile</h4>
+					<h4 class="viz-hed viz-map-hed viz-bell">Relative Popularity: Green Bell Pepper</h4>
+					<h4 class="viz-hed viz-map-hed viz-cheesesteak">Relative Popularity: Cheesesteak</h4>
+					<h4 class="viz-hed viz-map-hed viz-pecan">Relative Popularity: Pecan</h4>
+					<div class="viz-icons-wrapper">
+						<a class="viz-terms-icon">All</a>
+						<a class="viz-regional-icon" data-term="chile">Green Chile</a>
+						<a class="viz-regional-icon" data-term="cheesesteak">Cheesesteak</a>
+						<a class="viz-regional-icon" data-term="bell">Green Bell Pepper</a>
+						<a class="viz-regional-icon" data-term="ranch">Ranch Dressing</a>
+						<a class="viz-regional-icon" data-term="pecan">Pecan</a>
+					</div>
 				</header>
 				<div class="viz-svg-wrap">
 					<img class="viz-map-overlay" src="/img/popular_ingredients.png" />
@@ -84,34 +97,49 @@
 					</li>
 				</div>
 				<div class="viz-intro-and-legend">
-					<p class="viz-copy viz-map-intro"><span class="viz-leadin viz-intro-leadin">The map above shows</span> each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>		
+					<p class="viz-copy viz-map-intro viz-terms">The map above shows each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>
+					<p class="viz-copy viz-map-intro viz-ranch"><span class="viz-leadin viz-intro-leadin">Ranch Dressing</span> Each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>
+					<p class="viz-copy viz-map-intro viz-chile"><span class="viz-leadin viz-intro-leadin">Green Chile</span> Each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>
+					<p class="viz-copy viz-map-intro viz-bell"><span class="viz-leadin viz-intro-leadin">Green Bell Pepper</span> Each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>
+					<p class="viz-copy viz-map-intro viz-cheesesteak"><span class="viz-leadin viz-intro-leadin">Cheesesteak</span> Each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>
+					<p class="viz-copy viz-map-intro viz-pecan"><span class="viz-leadin viz-intro-leadin">Pecan</span> Each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>
 					<div class="viz-legend">
-						<p class="viz-scale-label viz-smallcaps">Distinctiveness <span class="viz-detail">(Difference between ingredient's frequency on menus in state vs. U.S.)</span></p>
-						<ul class="viz-scale">
-							<!-- closing tags omitted to remove horizontal margin between inline-block els -->
+						<p class="viz-scale-label viz-smallcaps">Relative Popularity <span class="viz-detail">(Difference between term's frequency on menus in state vs. U.S.)</span></p>
+						<ul class="viz-scale viz-scale-ing">
 							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment">0
 							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">10</span>
 							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">20</span>
 							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">30</span>
 							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">40%</span>
 						</ul>
+						<ul class="viz-scale viz-scale-regional">
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment">-&infin;
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">-35</span>
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">-25</span>
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">-15</span>
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">-5</span>
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">5</span>
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">15</span>
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">25</span>
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">35%</span>
+						</ul>
 					</div>
 				</div>
 			</section>
-			<section class="viz-content-block">
+			<section class="viz-content-block viz-charts-wrapper">
 				<header class="viz-generator-header">
 					<h4 class="viz-hed">Top 5 Distinctive Terms, All States</h4>
 				</header>
-				<p class="viz-copy viz-charts-intro"><span class="viz-leadin viz-intro-leadin">The map above shows</span> each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>		
+				<p class="viz-copy viz-charts-intro"><span class="viz-leadin viz-intro-leadin">The map above shows</span> each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore popularity maps for the five terms above.</p>		
 				<div class="viz-list-wrapper">
 					<ul class="viz-states viz-states-col-1">
 					</ul>
 					<ul class="viz-states viz-states-col-2">
 					</ul>
 				</div>
-	    		<p class="viz-source"><span class="viz-leadin">Source:</span> Food Genius</p>
-	    		<p class="viz-source"><span class="viz-leadin">Methodology:</span> Food Genius tracks term appearance on unique menus. So even if "bacon" appears eight times on Waffle House's menu, and there are 20 Waffle House locations in Georgia, Food Genius only increases the count for "bacon" in Georgia by one. Food Genius estimates that their state samples range from 35% of all restaurants in Vermont to 85% of all restaurants in Washington D.C.</p>
 			</section>
+    		<p class="viz-source"><span class="viz-leadin">Source:</span> Food Genius</p>
+    		<p class="viz-source"><span class="viz-leadin">Methodology:</span> Food Genius tracks term appearance on unique menus. So even if "bacon" appears eight times on Waffle House's menu, and there are 20 Waffle House locations in Georgia, Food Genius only increases the count for "bacon" in Georgia by one. The range of Food Genius's coverage spans from Washington D.C., where the company tracks an estimated 85% of restaurants, to Alaska, from which almost all of the data comes from chain restaurants.</p>
 		</div>
 
 		<!-- Templates for States -->

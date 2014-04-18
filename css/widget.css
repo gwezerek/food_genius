@@ -36,7 +36,7 @@
 /* line 22, ../sass/partials/_base.scss */
 .viz-content-block {
   *zoom: 1;
-  margin: 0 0 40px;
+  margin: 0 0 20px;
 }
 /* line 38, ../../../../../../Applications/LiveReload.app/Contents/Resources/SASS.lrplugin/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .viz-content-block:after {
@@ -89,8 +89,8 @@
 /* line 61, ../sass/partials/_base.scss */
 .viz-detail {
   color: #99948a;
-  font-weight: 400;
   text-transform: none;
+  font-weight: 400;
 }
 
 /* line 67, ../sass/partials/_base.scss */
@@ -112,8 +112,8 @@
 
 /* line 79, ../sass/partials/_base.scss */
 .viz-intro-leadin {
-  font-size: 12px;
   font-weight: 500;
+  font-size: 12px;
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
 }
 
@@ -132,34 +132,47 @@
 }
 
 /* line 103, ../sass/partials/_base.scss */
+.viz-map-hed {
+  text-align: center;
+  display: none;
+}
+
+/* line 108, ../sass/partials/_base.scss */
 .viz-intro-and-legend {
-  width: 58%;
   padding-right: 2%;
+  width: 58%;
   border-right: 1px solid #33312e;
 }
 
-/* line 109, ../sass/partials/_base.scss */
+/* line 114, ../sass/partials/_base.scss */
 .viz-map-intro {
   display: inline-block;
+  display: none;
 }
 
-/* line 123, ../sass/partials/_base.scss */
+/* line 119, ../sass/partials/_base.scss */
+.viz-terms {
+  display: block;
+}
+
+/* line 132, ../sass/partials/_base.scss */
 .viz-svg-wrap {
   position: relative;
   margin: 0 auto 30px;
 }
 
-/* line 128, ../sass/partials/_base.scss */
+/* line 137, ../sass/partials/_base.scss */
 .viz-state-shape {
-  -webkit-transition: stroke-width 0.2s ease-in-out;
-  -moz-transition: stroke-width 0.2s ease-in-out;
-  -o-transition: stroke-width 0.2s ease-in-out;
-  transition: stroke-width 0.2s ease-in-out;
+  -webkit-transition: 0.5s stroke-width ease-in-out, 0.5s fill ease-in-out;
+  -moz-transition: 0.5s stroke-width ease-in-out, 0.5s fill ease-in-out;
+  -o-transition: 0.5s stroke-width ease-in-out, 0.5s fill ease-in-out;
+  transition: 0.5s stroke-width ease-in-out, 0.5s fill ease-in-out;
+  fill: white;
   stroke: white;
   stroke-width: 1px;
 }
 
-/* line 134, ../sass/partials/_base.scss */
+/* line 144, ../sass/partials/_base.scss */
 .viz-map-overlay {
   position: absolute;
   bottom: 0;
@@ -168,46 +181,51 @@
   pointer-events: none;
 }
 
-/* line 140, ../sass/partials/_base.scss */
+/* line 150, ../sass/partials/_base.scss */
 .viz-hover-callout {
   display: inline-block;
-  width: 40%;
   float: right;
+  width: 40%;
 }
 
-/* line 146, ../sass/partials/_base.scss */
+/* line 156, ../sass/partials/_base.scss */
 .viz-state-active {
   stroke-width: 2px;
 }
 
-/* line 158, ../sass/partials/_base.scss */
+/* line 168, ../sass/partials/_base.scss */
 .viz-legend {
-  border-top: 1px solid #33312e;
-  padding-top: 20px;
   margin-bottom: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #33312e;
 }
 
-/* line 164, ../sass/partials/_base.scss */
+/* line 174, ../sass/partials/_base.scss */
 .viz-scale-label {
-  width: 100%;
   margin: 0 0 5px;
-  font-weight: 400;
+  width: 100%;
   color: #99948a;
+  font-weight: 400;
 }
 
-/* line 171, ../sass/partials/_base.scss */
+/* line 181, ../sass/partials/_base.scss */
 .viz-segment-label {
   margin-left: -7px;
 }
 
-/* line 175, ../sass/partials/_base.scss */
+/* line 185, ../sass/partials/_base.scss */
 .viz-scale {
   margin: 0;
   padding: 0;
   color: #99948a;
 }
 
-/* line 181, ../sass/partials/_base.scss */
+/* line 191, ../sass/partials/_base.scss */
+.viz-scale-regional {
+  display: none;
+}
+
+/* line 195, ../sass/partials/_base.scss */
 .viz-scale-segment {
   display: -moz-inline-stack;
   display: inline-block;
@@ -216,34 +234,85 @@
   zoom: 1;
   *display: inline;
   margin: 0;
-  width: 20%;
+  padding-top: 3px;
   border-top: 10px solid;
   list-style: none;
-  padding-top: 3px;
 }
 
-/* line 191, ../sass/partials/_base.scss */
+/* line 203, ../sass/partials/_base.scss */
+.viz-ing-segment {
+  width: 20%;
+}
+/* line 205, ../sass/partials/_base.scss */
 .viz-ing-segment:nth-of-type(1) {
   border-color: #feedde;
 }
-/* line 194, ../sass/partials/_base.scss */
+/* line 208, ../sass/partials/_base.scss */
 .viz-ing-segment:nth-of-type(2) {
   border-color: #fdd0a2;
 }
-/* line 197, ../sass/partials/_base.scss */
+/* line 211, ../sass/partials/_base.scss */
 .viz-ing-segment:nth-of-type(3) {
   border-color: #fdae6b;
 }
-/* line 200, ../sass/partials/_base.scss */
+/* line 214, ../sass/partials/_base.scss */
 .viz-ing-segment:nth-of-type(4) {
   border-color: #fd8d3c;
 }
-/* line 203, ../sass/partials/_base.scss */
+/* line 217, ../sass/partials/_base.scss */
 .viz-ing-segment:nth-of-type(5) {
   border-color: #e6550d;
 }
 
-/* line 219, ../sass/partials/_base.scss */
+/* line 222, ../sass/partials/_base.scss */
+.viz-reg-segment {
+  width: 11.111111%;
+}
+/* line 224, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(1) {
+  border-color: #4d4d4d;
+}
+/* line 227, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(2) {
+  border-color: #878787;
+}
+/* line 230, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(3) {
+  border-color: #bababa;
+}
+/* line 233, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(4) {
+  border-color: #e0e0e0;
+}
+/* line 236, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(5) {
+  border-color: white;
+}
+/* line 239, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(6) {
+  border-color: #fddbc7;
+}
+/* line 242, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(7) {
+  border-color: #f4a582;
+}
+/* line 245, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(8) {
+  border-color: #d6604d;
+}
+/* line 248, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(9) {
+  border-color: #b2182b;
+}
+
+@media (min-width: 940px) {
+  /* line 266, ../sass/partials/_base.scss */
+  .viz-charts-wrapper {
+    display: none;
+  }
+}
+
+/* line 272, ../sass/partials/_base.scss */
 .viz-list-wrapper {
   *zoom: 1;
   width: 100%;
@@ -255,7 +324,7 @@
   clear: both;
 }
 
-/* line 224, ../sass/partials/_base.scss */
+/* line 277, ../sass/partials/_base.scss */
 .viz-states {
   display: -moz-inline-stack;
   display: inline-block;
@@ -267,13 +336,13 @@
   padding: 0;
   width: 50%;
 }
-/* line 229, ../sass/partials/_base.scss */
+/* line 282, ../sass/partials/_base.scss */
 .viz-states .viz-state:last-child {
   margin-bottom: -5px;
 }
 
 @media (min-width: 600px) {
-  /* line 234, ../sass/partials/_base.scss */
+  /* line 287, ../sass/partials/_base.scss */
   .viz-states-col-1 {
     float: left;
     padding-right: 2%;
@@ -282,46 +351,46 @@
 }
 
 @media (min-width: 600px) {
-  /* line 242, ../sass/partials/_base.scss */
+  /* line 295, ../sass/partials/_base.scss */
   .viz-states-col-2 {
     float: right;
     padding-left: 2%;
   }
 }
 
-/* line 249, ../sass/partials/_base.scss */
+/* line 302, ../sass/partials/_base.scss */
 .viz-state {
   margin-bottom: 20px;
   width: 100%;
   list-style-type: none;
 }
 
-/* line 255, ../sass/partials/_base.scss */
+/* line 308, ../sass/partials/_base.scss */
 .viz-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-/* line 260, ../sass/partials/_base.scss */
+/* line 313, ../sass/partials/_base.scss */
 .viz-thead {
   border-top: 1px solid #ccc6b9;
   border-bottom: 1px solid #ccc6b9;
 }
 
-/* line 266, ../sass/partials/_base.scss */
+/* line 319, ../sass/partials/_base.scss */
 .viz-body-tr .viz-td:nth-child(2) {
   width: 20%;
 }
-/* line 269, ../sass/partials/_base.scss */
+/* line 322, ../sass/partials/_base.scss */
 .viz-body-tr .viz-td:nth-child(3) {
   width: 20%;
 }
-/* line 272, ../sass/partials/_base.scss */
+/* line 325, ../sass/partials/_base.scss */
 .viz-body-tr .viz-td:nth-child(4) {
   width: 20%;
 }
 
-/* line 277, ../sass/partials/_base.scss */
+/* line 330, ../sass/partials/_base.scss */
 .viz-th {
   margin-bottom: 3px;
   padding: 5px 0;
@@ -332,30 +401,30 @@
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
 }
 
-/* line 287, ../sass/partials/_base.scss */
+/* line 340, ../sass/partials/_base.scss */
 .viz-td {
   padding: 6px 0 0;
   font-weight: 400;
   font-size: 14px;
 }
 
-/* line 294, ../sass/partials/_base.scss */
+/* line 347, ../sass/partials/_base.scss */
 .viz-body-tr:first-of-type .viz-td {
   padding-top: 6px;
 }
 
-/* line 299, ../sass/partials/_base.scss */
+/* line 352, ../sass/partials/_base.scss */
 .viz-table-quant-val {
   text-align: right;
 }
 
-/* line 303, ../sass/partials/_base.scss */
+/* line 356, ../sass/partials/_base.scss */
 .viz-table-downplay-val {
   color: #ccc6b9;
   font-weight: 300;
 }
 
-/* line 309, ../sass/partials/_base.scss */
+/* line 362, ../sass/partials/_base.scss */
 .viz-header-start .viz-basket {
   right: 0;
   bottom: -325px;
@@ -363,7 +432,7 @@
   margin: auto auto;
   width: 280px;
 }
-/* line 316, ../sass/partials/_base.scss */
+/* line 369, ../sass/partials/_base.scss */
 .viz-header-start .viz-subhead {
   text-align: center;
 }
