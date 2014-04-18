@@ -23,7 +23,7 @@
 <body>
 	<article class="viz-article">
 		<div class="viz-container">
-			<section class="viz-content-block">
+			<section class="viz-content-block viz-content-map">
 				<header class="viz-generator-header">
 					<h4 class="viz-hed viz-map-hed viz-terms">Most Distinctive Food by State</h4>
 					<h4 class="viz-hed viz-map-hed viz-ranch">Relative Popularity: Ranch Dressing</h4>
@@ -31,16 +31,17 @@
 					<h4 class="viz-hed viz-map-hed viz-bell">Relative Popularity: Green Bell Pepper</h4>
 					<h4 class="viz-hed viz-map-hed viz-cheesesteak">Relative Popularity: Cheesesteak</h4>
 					<h4 class="viz-hed viz-map-hed viz-pecan">Relative Popularity: Pecan</h4>
-					<div class="viz-icons-wrapper">
-						<a class="viz-terms-icon">All</a>
-						<a class="viz-regional-icon" data-term="chile">Green Chile</a>
-						<a class="viz-regional-icon" data-term="cheesesteak">Cheesesteak</a>
-						<a class="viz-regional-icon" data-term="bell">Green Bell Pepper</a>
-						<a class="viz-regional-icon" data-term="ranch">Ranch Dressing</a>
-						<a class="viz-regional-icon" data-term="pecan">Pecan</a>
+					<div class="viz-btns-wrapper">
+						<a class="viz-nav-btn viz-smallcaps viz-terms-btn viz-nav-btn-active">All</a>
+						<a class="viz-nav-btn viz-smallcaps viz-regional-btn" data-term="chile">Green Chile</a>
+						<a class="viz-nav-btn viz-smallcaps viz-regional-btn" data-term="cheesesteak">Cheesesteak</a>
+						<a class="viz-nav-btn viz-smallcaps viz-regional-btn" data-term="bell">Green Bell Pepper</a>
+						<a class="viz-nav-btn viz-smallcaps viz-regional-btn" data-term="ranch">Ranch Dressing</a>
+						<a class="viz-nav-btn viz-smallcaps viz-regional-btn" data-term="pecan">Pecan</a>
 					</div>
 				</header>
 				<div class="viz-svg-wrap">
+					<!-- <img class="viz-map-overlay" src="http://www.guswezerek.com/projects/food_genius/img/popular_ingredients.png" /> -->
 					<img class="viz-map-overlay" src="/img/popular_ingredients.png" />
 				</div>
 				<div class="viz-hover-callout">
@@ -106,22 +107,18 @@
 					<div class="viz-legend">
 						<p class="viz-scale-label viz-smallcaps">Relative Popularity <span class="viz-detail">(Difference between term's frequency on menus in state vs. U.S.)</span></p>
 						<ul class="viz-scale viz-scale-ing">
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment">0
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">10</span>
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment">10
 							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">20</span>
 							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">30</span>
 							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">40%</span>
 						</ul>
 						<ul class="viz-scale viz-scale-regional">
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment">-&infin;
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">-35</span>
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">-25</span>
 							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">-15</span>
 							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">-5</span>
 							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">5</span>
 							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">15</span>
 							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">25</span>
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">35%</span>
+							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">35% and up</span>
 						</ul>
 					</div>
 				</div>
@@ -130,16 +127,15 @@
 				<header class="viz-generator-header">
 					<h4 class="viz-hed">Top 5 Distinctive Terms, All States</h4>
 				</header>
-				<p class="viz-copy viz-charts-intro"><span class="viz-leadin viz-intro-leadin">The map above shows</span> each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore popularity maps for the five terms above.</p>		
+				<p class="viz-copy viz-charts-intro"><span class="viz-leadin viz-intro-leadin">The charts below show</span> each state's top five menu terms. View this page at larger widths to see maps for the most popular ingredient in each state, and nationwide popularity maps for ingredients such as ranch dressing and green bell peppers.</p>		
 				<div class="viz-list-wrapper">
-					<ul class="viz-states viz-states-col-1">
-					</ul>
-					<ul class="viz-states viz-states-col-2">
-					</ul>
+					<ul class="viz-states viz-states-col-1"></ul>
+					<ul class="viz-states viz-states-col-2"></ul>
 				</div>
 			</section>
-    		<p class="viz-source"><span class="viz-leadin">Source:</span> Food Genius</p>
-    		<p class="viz-source"><span class="viz-leadin">Methodology:</span> Food Genius tracks term appearance on unique menus. So even if "bacon" appears eight times on Waffle House's menu, and there are 20 Waffle House locations in Georgia, Food Genius only increases the count for "bacon" in Georgia by one. The range of Food Genius's coverage spans from Washington D.C., where the company tracks an estimated 85% of restaurants, to Alaska, from which almost all of the data comes from chain restaurants.</p>
+    		<p class="viz-source"><span class="viz-leadin">Graphic</span> Gus Wezerek</p>
+    		<p class="viz-source"><span class="viz-leadin">Source</span> Food Genius</p>
+    		<p class="viz-source"><span class="viz-leadin">Methodology</span> Food Genius tracks term appearance on unique menus. So even if "bacon" appears eight times on Waffle House's menu, and there are 20 Waffle House locations in Georgia, Food Genius only increases the count for "bacon" in Georgia by one. The range of Food Genius's coverage spans from Washington D.C., where the company tracks an estimated 85% of restaurants, to Alaska, from which almost all of the data comes from chain restaurants.</p>
 		</div>
 
 		<!-- Templates for States -->

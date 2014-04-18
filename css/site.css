@@ -323,9 +323,10 @@
   font-size: 22px;
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 43, ../sass/partials/_base.scss */
+/* line 44, ../sass/partials/_base.scss */
 .viz-subhead {
   display: inline-block;
   margin: 0 0 6px;
@@ -335,7 +336,7 @@
   line-height: 100%;
 }
 
-/* line 52, ../sass/partials/_base.scss */
+/* line 53, ../sass/partials/_base.scss */
 .viz-smallcaps {
   text-transform: uppercase;
   letter-spacing: .75px;
@@ -345,14 +346,14 @@
   line-height: 120%;
 }
 
-/* line 61, ../sass/partials/_base.scss */
+/* line 62, ../sass/partials/_base.scss */
 .viz-detail {
   color: #99948a;
   text-transform: none;
   font-weight: 400;
 }
 
-/* line 67, ../sass/partials/_base.scss */
+/* line 68, ../sass/partials/_base.scss */
 .viz-copy {
   -webkit-transition: text-align 0.2s ease-in-out;
   -moz-transition: text-align 0.2s ease-in-out;
@@ -364,19 +365,19 @@
   line-height: 140%;
 }
 
-/* line 75, ../sass/partials/_base.scss */
+/* line 76, ../sass/partials/_base.scss */
 .viz-leadin {
   text-transform: uppercase;
 }
 
-/* line 79, ../sass/partials/_base.scss */
+/* line 80, ../sass/partials/_base.scss */
 .viz-intro-leadin {
   font-weight: 500;
   font-size: 12px;
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
 }
 
-/* line 85, ../sass/partials/_base.scss */
+/* line 86, ../sass/partials/_base.scss */
 .viz-source {
   display: block;
   margin: 0 0 7px;
@@ -391,36 +392,75 @@
 }
 
 /* line 103, ../sass/partials/_base.scss */
+.viz-content-map {
+  display: none;
+}
+@media (min-width: 940px) {
+  /* line 103, ../sass/partials/_base.scss */
+  .viz-content-map {
+    display: block;
+  }
+}
+
+/* line 110, ../sass/partials/_base.scss */
 .viz-map-hed {
   text-align: center;
   display: none;
+  margin-bottom: 10px;
 }
 
-/* line 108, ../sass/partials/_base.scss */
+/* line 116, ../sass/partials/_base.scss */
+.viz-btns-wrapper {
+  text-align: center;
+}
+
+/* line 120, ../sass/partials/_base.scss */
+.viz-nav-btn {
+  -webkit-transition: color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out;
+  -o-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+  padding: 0 10px;
+  color: #99948a;
+  font-weight: 400;
+  cursor: pointer;
+}
+/* line 126, ../sass/partials/_base.scss */
+.viz-nav-btn:hover {
+  color: #66635d;
+}
+
+/* line 131, ../sass/partials/_base.scss */
+.viz-nav-btn-active {
+  color: #33312e;
+  font-weight: 500;
+}
+
+/* line 136, ../sass/partials/_base.scss */
 .viz-intro-and-legend {
   padding-right: 2%;
   width: 58%;
   border-right: 1px solid #33312e;
 }
 
-/* line 114, ../sass/partials/_base.scss */
+/* line 142, ../sass/partials/_base.scss */
 .viz-map-intro {
   display: inline-block;
   display: none;
 }
 
-/* line 119, ../sass/partials/_base.scss */
+/* line 147, ../sass/partials/_base.scss */
 .viz-terms {
   display: block;
 }
 
-/* line 132, ../sass/partials/_base.scss */
+/* line 160, ../sass/partials/_base.scss */
 .viz-svg-wrap {
   position: relative;
   margin: 0 auto 30px;
 }
 
-/* line 137, ../sass/partials/_base.scss */
+/* line 165, ../sass/partials/_base.scss */
 .viz-state-shape {
   -webkit-transition: 0.5s stroke-width ease-in-out, 0.5s fill ease-in-out;
   -moz-transition: 0.5s stroke-width ease-in-out, 0.5s fill ease-in-out;
@@ -431,35 +471,35 @@
   stroke-width: 1px;
 }
 
-/* line 144, ../sass/partials/_base.scss */
+/* line 172, ../sass/partials/_base.scss */
 .viz-map-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 118%;
+  width: 1109px;
   pointer-events: none;
 }
 
-/* line 150, ../sass/partials/_base.scss */
+/* line 179, ../sass/partials/_base.scss */
 .viz-hover-callout {
   display: inline-block;
   float: right;
   width: 40%;
 }
 
-/* line 156, ../sass/partials/_base.scss */
+/* line 185, ../sass/partials/_base.scss */
 .viz-state-active {
   stroke-width: 2px;
 }
 
-/* line 168, ../sass/partials/_base.scss */
+/* line 197, ../sass/partials/_base.scss */
 .viz-legend {
   margin-bottom: 20px;
   padding-top: 20px;
   border-top: 1px solid #33312e;
 }
 
-/* line 174, ../sass/partials/_base.scss */
+/* line 203, ../sass/partials/_base.scss */
 .viz-scale-label {
   margin: 0 0 5px;
   width: 100%;
@@ -467,24 +507,24 @@
   font-weight: 400;
 }
 
-/* line 181, ../sass/partials/_base.scss */
+/* line 210, ../sass/partials/_base.scss */
 .viz-segment-label {
   margin-left: -7px;
 }
 
-/* line 185, ../sass/partials/_base.scss */
+/* line 214, ../sass/partials/_base.scss */
 .viz-scale {
   margin: 0;
   padding: 0;
   color: #99948a;
 }
 
-/* line 191, ../sass/partials/_base.scss */
+/* line 220, ../sass/partials/_base.scss */
 .viz-scale-regional {
   display: none;
 }
 
-/* line 195, ../sass/partials/_base.scss */
+/* line 224, ../sass/partials/_base.scss */
 .viz-scale-segment {
   display: -moz-inline-stack;
   display: inline-block;
@@ -498,80 +538,64 @@
   list-style: none;
 }
 
-/* line 203, ../sass/partials/_base.scss */
+/* line 232, ../sass/partials/_base.scss */
 .viz-ing-segment {
-  width: 20%;
+  width: 25%;
 }
-/* line 205, ../sass/partials/_base.scss */
+/* line 234, ../sass/partials/_base.scss */
 .viz-ing-segment:nth-of-type(1) {
-  border-color: #feedde;
+  border-color: #fee5d9;
 }
-/* line 208, ../sass/partials/_base.scss */
+/* line 237, ../sass/partials/_base.scss */
 .viz-ing-segment:nth-of-type(2) {
-  border-color: #fdd0a2;
+  border-color: #fcae91;
 }
-/* line 211, ../sass/partials/_base.scss */
+/* line 240, ../sass/partials/_base.scss */
 .viz-ing-segment:nth-of-type(3) {
-  border-color: #fdae6b;
+  border-color: #fb6a4a;
 }
-/* line 214, ../sass/partials/_base.scss */
+/* line 243, ../sass/partials/_base.scss */
 .viz-ing-segment:nth-of-type(4) {
-  border-color: #fd8d3c;
-}
-/* line 217, ../sass/partials/_base.scss */
-.viz-ing-segment:nth-of-type(5) {
-  border-color: #e6550d;
+  border-color: #cb181d;
 }
 
-/* line 222, ../sass/partials/_base.scss */
+/* line 248, ../sass/partials/_base.scss */
 .viz-reg-segment {
-  width: 11.111111%;
+  width: 16.666666667%;
 }
-/* line 224, ../sass/partials/_base.scss */
+/* line 259, ../sass/partials/_base.scss */
 .viz-reg-segment:nth-of-type(1) {
-  border-color: #4d4d4d;
-}
-/* line 227, ../sass/partials/_base.scss */
-.viz-reg-segment:nth-of-type(2) {
-  border-color: #878787;
-}
-/* line 230, ../sass/partials/_base.scss */
-.viz-reg-segment:nth-of-type(3) {
-  border-color: #bababa;
-}
-/* line 233, ../sass/partials/_base.scss */
-.viz-reg-segment:nth-of-type(4) {
   border-color: #e0e0e0;
 }
-/* line 236, ../sass/partials/_base.scss */
-.viz-reg-segment:nth-of-type(5) {
+/* line 262, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(2) {
   border-color: white;
 }
-/* line 239, ../sass/partials/_base.scss */
-.viz-reg-segment:nth-of-type(6) {
+/* line 265, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(3) {
   border-color: #fddbc7;
 }
-/* line 242, ../sass/partials/_base.scss */
-.viz-reg-segment:nth-of-type(7) {
+/* line 268, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(4) {
   border-color: #f4a582;
 }
-/* line 245, ../sass/partials/_base.scss */
-.viz-reg-segment:nth-of-type(8) {
+/* line 271, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(5) {
   border-color: #d6604d;
 }
-/* line 248, ../sass/partials/_base.scss */
-.viz-reg-segment:nth-of-type(9) {
+/* line 274, ../sass/partials/_base.scss */
+.viz-reg-segment:nth-of-type(6) {
   border-color: #b2182b;
 }
 
 @media (min-width: 940px) {
-  /* line 266, ../sass/partials/_base.scss */
+  /* line 292, ../sass/partials/_base.scss */
   .viz-charts-wrapper {
     display: none;
   }
 }
 
-/* line 272, ../sass/partials/_base.scss */
+/* line 298, ../sass/partials/_base.scss */
 .viz-list-wrapper {
   *zoom: 1;
   width: 100%;
@@ -583,7 +607,7 @@
   clear: both;
 }
 
-/* line 277, ../sass/partials/_base.scss */
+/* line 303, ../sass/partials/_base.scss */
 .viz-states {
   display: -moz-inline-stack;
   display: inline-block;
@@ -593,15 +617,21 @@
   *display: inline;
   margin: 0 0 30px;
   padding: 0;
-  width: 50%;
+  width: 100%;
 }
-/* line 282, ../sass/partials/_base.scss */
+/* line 308, ../sass/partials/_base.scss */
 .viz-states .viz-state:last-child {
   margin-bottom: -5px;
 }
+@media (min-width: 600px) {
+  /* line 303, ../sass/partials/_base.scss */
+  .viz-states {
+    width: 50%;
+  }
+}
 
 @media (min-width: 600px) {
-  /* line 287, ../sass/partials/_base.scss */
+  /* line 316, ../sass/partials/_base.scss */
   .viz-states-col-1 {
     float: left;
     padding-right: 2%;
@@ -610,46 +640,46 @@
 }
 
 @media (min-width: 600px) {
-  /* line 295, ../sass/partials/_base.scss */
+  /* line 324, ../sass/partials/_base.scss */
   .viz-states-col-2 {
     float: right;
     padding-left: 2%;
   }
 }
 
-/* line 302, ../sass/partials/_base.scss */
+/* line 331, ../sass/partials/_base.scss */
 .viz-state {
   margin-bottom: 20px;
   width: 100%;
   list-style-type: none;
 }
 
-/* line 308, ../sass/partials/_base.scss */
+/* line 337, ../sass/partials/_base.scss */
 .viz-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-/* line 313, ../sass/partials/_base.scss */
+/* line 342, ../sass/partials/_base.scss */
 .viz-thead {
   border-top: 1px solid #ccc6b9;
   border-bottom: 1px solid #ccc6b9;
 }
 
-/* line 319, ../sass/partials/_base.scss */
+/* line 348, ../sass/partials/_base.scss */
 .viz-body-tr .viz-td:nth-child(2) {
   width: 20%;
 }
-/* line 322, ../sass/partials/_base.scss */
+/* line 351, ../sass/partials/_base.scss */
 .viz-body-tr .viz-td:nth-child(3) {
   width: 20%;
 }
-/* line 325, ../sass/partials/_base.scss */
+/* line 354, ../sass/partials/_base.scss */
 .viz-body-tr .viz-td:nth-child(4) {
   width: 20%;
 }
 
-/* line 330, ../sass/partials/_base.scss */
+/* line 359, ../sass/partials/_base.scss */
 .viz-th {
   margin-bottom: 3px;
   padding: 5px 0;
@@ -658,32 +688,33 @@
   font-weight: 500;
   font-size: 12px;
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
+  text-align: left;
 }
 
-/* line 340, ../sass/partials/_base.scss */
+/* line 370, ../sass/partials/_base.scss */
 .viz-td {
   padding: 6px 0 0;
   font-weight: 400;
   font-size: 14px;
 }
 
-/* line 347, ../sass/partials/_base.scss */
+/* line 377, ../sass/partials/_base.scss */
 .viz-body-tr:first-of-type .viz-td {
   padding-top: 6px;
 }
 
-/* line 352, ../sass/partials/_base.scss */
+/* line 382, ../sass/partials/_base.scss */
 .viz-table-quant-val {
   text-align: right;
 }
 
-/* line 356, ../sass/partials/_base.scss */
+/* line 386, ../sass/partials/_base.scss */
 .viz-table-downplay-val {
   color: #ccc6b9;
   font-weight: 300;
 }
 
-/* line 362, ../sass/partials/_base.scss */
+/* line 392, ../sass/partials/_base.scss */
 .viz-header-start .viz-basket {
   right: 0;
   bottom: -325px;
@@ -691,7 +722,7 @@
   margin: auto auto;
   width: 280px;
 }
-/* line 369, ../sass/partials/_base.scss */
+/* line 399, ../sass/partials/_base.scss */
 .viz-header-start .viz-subhead {
   text-align: center;
 }

@@ -95,17 +95,17 @@ function ready(error, us, termData, regionalData) {
 
 function bindMapHandlers() {
 
-	// Regional map icons
-	$(".viz-regional-icon").on("click", function(){
+	// Regional map btns
+	$(".viz-regional-btn").on("click", function(){
 		var term = $(this).data("term");
 
-		updateLayout();
+		updateLayout($(this));
 		drawRegionalMap(MAPDATA, STATES, term);
 	});
 
-	// Top terms map icon
-	$(".viz-terms-icon").on("click", function(){
-		updateLayout();
+	// Top terms map btn
+	$(".viz-terms-btn").on("click", function(){
+		updateLayout($(this));
 		drawIngMap(MAPDATA, STATES)
 	});
 
@@ -142,10 +142,12 @@ function bindMapHandlers() {
 // HELPERS
 // =============================================
 
-function updateLayout() {
+function updateLayout(target) {
 	$(".viz-map-hed").hide();
 	$(".viz-map-intro").hide();
 	$(".viz-scale").hide();
+	$(".viz-nav-btn").removeClass("viz-nav-btn-active");
+	target.addClass("viz-nav-btn-active");
 }
 
 function drawRegionalMap(data, states, term) {
@@ -154,8 +156,8 @@ function drawRegionalMap(data, states, term) {
 	$(".viz-scale-regional").fadeIn(200);
 	$(".viz-map-overlay").fadeOut(200);
 
-	color.range(['rgb(178,24,43)','rgb(214,96,77)','rgb(244,165,130)','rgb(253,219,199)','rgb(255,255,255)','rgb(224,224,224)','rgb(186,186,186)','rgb(135,135,135)','rgb(77,77,77)'])
-		.domain([45, -45]);
+	color.range(['rgb(178,24,43)','rgb(214,96,77)','rgb(244,165,130)','rgb(253,219,199)','rgb(255,255,255)','rgb(224,224,224)'])
+		.domain([45, -15]);
 
 	// Merge diff vals from REGIONALDATA into us data object
 	if (!data.features[0].properties[term + "_diff"]) {
@@ -185,12 +187,8 @@ function drawRegionalMap(data, states, term) {
 	states.style("stroke", "rgb(204, 198, 185)")
 		.style("fill", function(d) {
 			var value = d.properties[term + "_diff"];
-			
-			if (value) {
-				return color(value);
-			} else {
-				return "#ccc";
-			}
+			// var value = "-4.9";			
+			return color(value);
 		});
 }
 
@@ -200,8 +198,8 @@ function drawIngMap(data, states) {
 	$(".viz-scale-ing").fadeIn(200);
 	$(".viz-map-overlay").fadeIn(200);
 
-	color.range(['rgb(254,237,222)','rgb(253,208,162)','rgb(253,174,107)','rgb(253,141,60)','rgb(230,85,13)'])
-		.domain([0, 0.5]);
+	color.range(['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(203,24,29)'])
+		.domain([0.1, 0.5]);
 
 	// Merge diff vals from INGDATA into us data object
 	if (!data.features[0].properties.value) {
@@ -241,11 +239,7 @@ function drawIngMap(data, states) {
 		.attr("id", function(d) { return d.properties.abrv; })
 		.style("fill", function(d) {
 			var value = d.properties.value;
-			if (value) {
-				return color(value);
-			} else {
-				return "#ccc";
-			}
+			return color(value);
 		});
 }
 
