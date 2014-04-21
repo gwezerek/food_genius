@@ -186,6 +186,76 @@
 	stroke-width: 2px;
 }
 
+.viz-proxies {
+	position: relative;
+	width: 100%;
+	height: 100%;
+		background-color: red;
+
+}
+
+.viz-proxy {
+	position: absolute;
+	height: 14px;
+}
+
+.viz-proxy-HI {
+	width: 24px;
+	height: 20px;
+	top: 577px;
+	left: 235px;
+}
+.viz-proxy-FL {
+	width: 43px;
+	top: 520px;
+	left: 630px;
+}
+.viz-proxy-VT {
+	width: 40px;
+	height: 20px;
+	top: 136px;
+	left: 730px;
+}
+.viz-proxy-NH {
+	width: 47px;
+	top: 185px;
+	left: 830px;
+}
+.viz-proxy-MA {
+	width: 75px;
+	top: 200px;
+	left: 832px;
+}
+.viz-proxy-RI {
+	width: 85px;
+	top: 217px;
+	left: 850px;
+}
+.viz-proxy-CT {
+	width: 26px;
+	top: 240px;
+	left: 825px;
+}
+.viz-proxy-NJ {
+	width: 65px;
+	top: 260px;
+	left: 795px;
+}
+.viz-proxy-DE {
+	width: 60px;
+	top: 283px;
+	left: 793px;
+}
+.viz-proxy-MD {
+	width: 50px;
+	top: 302px;
+	left: 785px;
+}
+.viz-proxy-DC {
+	width: 25px;
+	top: 320px;
+	left: 776px;
+}
 
 
 

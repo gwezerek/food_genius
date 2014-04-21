@@ -5,12 +5,12 @@
 
 var INGDATA, REGIONALDATA, MAPDATA, STATES;
 
-var spreadsheetURL = "/food_genius.tsv";
-var jsonURL = "/us.json";
-var regionalTSV = "/regional_ingredients.tsv";
-// var spreadsheetURL = "http://www.guswezerek.com/projects/food_genius/food_genius.tsv";
-// var jsonURL = "http://www.guswezerek.com/projects/food_genius/us.json";
-// var regionalTSV = "http://www.guswezerek.com/projects/food_genius/regional_ingredients.tsv";
+// var spreadsheetURL = "/food_genius.tsv";
+// var jsonURL = "/us.json";
+// var regionalTSV = "/regional_ingredients.tsv";
+var spreadsheetURL = "http://www.guswezerek.com/projects/food_genius/food_genius.tsv";
+var jsonURL = "http://www.guswezerek.com/projects/food_genius/us.json";
+var regionalTSV = "http://www.guswezerek.com/projects/food_genius/regional_ingredients.tsv";
 
 // For template
 var statesTemplate = _.template( $(".viz-state-template").html() );
@@ -110,7 +110,7 @@ function bindMapHandlers() {
 	});
 
 	// State hover functionality
-	$(".viz-svg-wrap").on({
+	$(".viz-content-block").on({
 		mouseenter: function() {
 			var callout = $(".viz-hover-callout");
 			var states = $(".viz-state");
@@ -119,13 +119,27 @@ function bindMapHandlers() {
 			var toInsert = element.clone();
 
 			d3.select(this).moveToFront();
-			this.addClass("viz-state-active");
+
+			if (this instanceof SVGElement) {
+				this.addClass("viz-state-active");
+			} else {
+				var partnerState = d3.select("#" + state);
+				partnerState.moveToFront();
+				partnerState[0][0].addClass("viz-state-active");
+			}
+
 			callout.html(toInsert);
 		},
 		mouseleave: function() {
-			this.removeClass("viz-state-active");
+			var state = this.id;
+
+			if (this instanceof SVGElement) {
+				this.removeClass("viz-state-active");
+			} else {
+				d3.select("#" + state)[0][0].removeClass("viz-state-active");
+			}
 		}
-	}, ".viz-state-shape");
+	}, ".viz-state-shape, .viz-proxy");
 
 }
 
@@ -152,6 +166,7 @@ function updateLayout(target) {
 
 function drawRegionalMap(data, states, term) {
 
+	$(".viz-proxy").hide();
 	$(".viz-" + term).show();
 	$(".viz-scale-regional").fadeIn(200);
 	$(".viz-map-overlay").fadeOut(200);
@@ -195,6 +210,7 @@ function drawRegionalMap(data, states, term) {
 function drawIngMap(data, states) {
 	
 	$(".viz-terms").show();
+	$(".viz-proxy").show();
 	$(".viz-scale-ing").fadeIn(200);
 	$(".viz-map-overlay").fadeIn(200);
 
