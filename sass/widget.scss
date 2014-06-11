@@ -28,6 +28,9 @@
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
+
+// Longform page styline
+
 #page .page-inner {
 	background-image: none;
 }
@@ -74,46 +77,60 @@
 	display: none;
 }
 
-// .full-view>header .title {
-// 	font-weight: 700 !important;
-// }
-
 .full-view>header .deck, .full-view>header .deck p {
-	font-weight: 500 !important;
 	margin-bottom: 0;
+	font-weight: 500 !important;
 }
 
 .prose.body {
 
 	// General FC resets
-
 	* {
 		-webkit-font-smoothing: subpixel-antialiased;
+	}
+
+	img {
+		max-width: none;
 	}
 
 	form {
 		margin: 0 0 -15px 0;
 	}
 
+	table {
+		margin: 0;
+		border: none;
+	}
+
+	table thead, table tfoot {
+		background: none;
+	}
+
 	p, p:first-child, p:first-line {
-		font-family: inherit !important;
 		color: inherit;
-		line-height: inherit;
 		font-weight: inherit !important;
+		font-family: inherit !important;
+		line-height: inherit;
 	}
 
 	label {
 		margin: 0;
 	}
 
-
 	ol {
 		list-style-type: none;
 		line-height: 100%;
+		& li {
+			width: auto;
+		}
 	}
 
-	ol>li {
-		width: auto;
+	ul {
+		margin: 0;
+		& li {
+			padding-left: 0;
+			line-height: 100%;
+		}
 	}
 
 	ol>li:before {
@@ -125,339 +142,111 @@
 	}
 
 
-	// Base viz resets
-
-	.viz-graphic-text {
-		color: $bground-15;
-	}
-
-	.viz-interactive-text {
-		color: $bground-11;
-	}
-
-	.viz-product-text {
-		color: $bground-9;
-	}
-
-	.viz-architecture-text {
-		color: $bground-13;
-	}
-
-	.viz-graphic-img {
-		background-color: $bground-15;
-	}
-
-	.viz-interactive-img {
-		background-color: $bground-11;
-	}
-
-	.viz-product-img {
-		background-color: $bground-9;
-	}
-
-	.viz-architecture-img {
-		background-color: $bground-13;
-	}
-
-	.viz-title {
+	// Base overwrites
+	.viz-hed {
+		margin: 0;
+		padding: 5px 10px 7px;
+		padding: 5px 10px 7px;
 		text-transform: none;
-		letter-spacing: normal;
+		letter-spacing: 0;
+		font-weight: 600 !important;
+		font-size: 22px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.viz-subhead {
+		text-transform: none;
+		letter-spacing: 0;
+		font-weight: 600 !important;
+		font-size: 18px !important;
+		line-height: 110%;
+	}
+
+	.viz-copy, .viz-copy:first-line, .viz-copy:first-child {
+		color: $txt-black !important;
+		font-size: 14px !important;
+		line-height: 140% !important;
 		font-weight: 500 !important;
-		font-size: 42px;
-		font-family: $slab;
-		line-height: 90%;
-		font-color: $txt-black;
 	}
 
-	// INTRO GRAF
-	.viz-native-copy {
-		line-height: 160%;
-		font-size: 15px;
-		margin-bottom: 24px;
-	}
-
-	// BRACKET
-
-	.viz-bracket {
-		margin: 24px 0;
-		margin-right: -312px;
-	}
-
-	.viz-legend {
-	  margin: 0 0 0 4px;
-	  list-style-type: none !important;
-	  font-family: $sans;
-	}
-
-	.viz-legend-item {
-		position: static;
-		margin: 0 15px 5px 0;
-		padding: 0;
-		width: auto;
-		list-style-type: none !important;
-		font-size: 30px;
-		line-height: 40%;
-		&:before {
-			margin-left: -5px;
-			padding-right: 2px;
-			content: "\002022";
-		}
-		&:last-of-type {
-			margin-right: 0;
-		}
-	}
-
-	.viz-legend-item {
-		@include inline-block;
-		@include trans(0.2s, opacity, ease-in-out);
-		margin: 0 15px 5px 0;
-		background-color: $bground;
-		font-size: 36px;
-		line-height: 40%;
-		&:before {
-			margin-left: -5px;
-			padding-right: 2px;
-			color: inherit;
-			content: "\002022" !important;
-		}
-		&:last-of-type {
-			margin-right: 0;
-		}
+	.viz-smallcaps {
+		font-size: 12px !important;
+		font-family: $slab !important;
+		line-height: 120%;
 	}
 
 	.viz-detail {
-		color: $med-gray;
+	    color: $med-gray !important;
+	    text-transform: none;
 	}
 
-	.viz-bracket-date-list {
-		margin: 0 0 30px;
-	}
-
-	.viz-bracket-date {
-		position: absolute;
-		padding: 0;
-		font-size: 11px;
-		&:nth-of-type(1){
-			left: 0px;
-		}
-		&:nth-of-type(2){
-			left: 12%;
-		}
-		&:nth-of-type(3){
-			left: 23%;
-		}
-		&:nth-of-type(4){
-			left: 34%;
-		}
-		&:nth-of-type(5){
-			left: 47%;
-		}
-		&:nth-of-type(6){
-			right: 34%;
-		}
-		&:nth-of-type(7){
-			right: 23%;
-		}
-		&:nth-of-type(8){
-			right: 12%;
-		}
-		&:nth-of-type(9){
-			right: 0px;
-		}
-	}
-
-	.viz-bracket-competitor-name {
-		font-weight: 500;
-	}
-
-	.viz-info-instructions, .viz-info-instructions:first-child, .viz-info-instructions:first-line {
-		color: $txt-black;
-		font-size: 12px !important;
-		line-height: 130%;
-	}
-
-	.viz-headshot {
-		max-width: none;
-	}
-
-	.viz-designer-name, .viz-designer-job {
-		margin-bottom: 0;
-	}
-
-	.viz-bracket-designer-description, .viz-bracket-designer-description:first-child, .viz-bracket-designer-description:first-line {
-		margin-bottom: 0;
-		color: $med-gray;
-		font-size: 12px !important;
-		line-height: 140%;
-	}
-
-	.viz-designer-name, .viz-designer-name:first-child, .viz-designer-name:first-line {
-		margin-bottom: 2px;
-		color: $txt-black;
-		font-weight: 500 !important;
-		font-size: 13px !important;
-		line-height: 100%;
-	}
-
-	.viz-designer-job, .viz-designer-job:first-child, .viz-designer-job:first-line {
-		color: $med-gray;
-		font-size: 11px !important;
-		line-height: 120%;
-	}
-
-	.viz-champion-name, .viz-champion-name:first-child, .viz-champion-name:first-line {
-		margin: 0 0 5px;
-		font-weight: 500 !important;
-		font-size: 12px !important;
-		line-height: 80%;
-		color: $txt-black;
-	}
-
-	.viz-champion-seed {
-		font-weight: 300;
-	}
-
-	.viz-champion-headshot {
-		max-width: none;
-		width: 60px;
-	}
-
-	.viz-champion-label, .viz-champion-label:first-child, .viz-champion-label:first-line {
-		margin: 0;
-		color: $med-gray;
-		font-size: 10px !important;
-		line-height: 80%;
-	}
-
-	.viz-underline {
-		color: $txt-black;
-		line-height: 160% !important;
-		font-size: 15px !important;
-	}
-
-
-
-
-	// QUIZ
-
-	.viz-quiz {
-		max-width: none;
-	}
-
-	.viz-choices-group {
-		margin: 0 0 20px;
-		list-style-type: none !important;
-		vertical-align: top;
-	}
-
-	.viz-choice-item {
-		position: static;
-		margin-bottom: 0;
-		padding: 5px 0;
-		width: 100%;
-		list-style-type: none !important;
-		&:nth-child(2n) {
-			margin-bottom: 10px;
-		}
-		&:last-of-type {
-			padding-bottom: 0;
-		}
-	}
-
-	.viz-division .viz-choice-loser {
-		margin-bottom: 0;
-		padding: 5px 0 0px;
-	}
-
-	.viz-vs {
-		color: $light-gray;
-		line-height: 120%;
-	}
-
-	.viz-submitted-alert {
-		margin: -25px 0 10px;
-		padding: 5px;
-		color: $light-gray;
-		font-size: 11px !important;
-	}
-
-	.viz-designer-description, .viz-designer-description:first-child, .viz-designer-description:first-line {
-		margin: 0px;
-		padding: 10px 0;
-		color: $med-gray;
-		font-size: 12px !important;
-		line-height: 140%;
-	}
-
-	.viz-choice-loser .viz-designer-name, .viz-choice-loser .viz-designer-name:first-child, .viz-choice-loser .viz-designer-name:first-line {
+	.viz-source, .viz-source:first-line, .viz-source:first-child {
+		margin: 0 0 7px;
 		color: $med-gray !important;
-		font-weight: 300 !important;
+		font-weight: 400 !important;
+		font-size: 12px !important;
+		font-family: $slab !important;
+		line-height: 140% !important;
 	}
 
 
-
-	// RANKINGS
-
-	.viz-rankings {
-		max-width: none;
+	// Graphic specific
+	.viz-map-hed {
+		margin-bottom: 10px !important;
+		text-align: center;
+		line-height: 120%;
 	}
 
-	.viz-division-finals {
+	.viz-nav-btn {
+		border-bottom: none;
+		color: $med-gray !important;
+		&:hover {
+			color: $dark-gray !important;
+		}
+	}
+
+	.viz-nav-btn-active {
+		color: $txt-black !important;
+	}
+	
+	.viz-state {
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	.viz-state-anchor {
+		border-bottom: none;
+		color: $txt-black !important;
+	}
+
+	.viz-content-map {
+		margin: 24px 0;
+		margin-right: -312px;
+		max-width: 940px;
+	}
+
+	.viz-footer {
+		margin-right: -312px;
+		max-width: 940px;
+	}
+
+	.viz-ing-segment {
+		width: 25%;
+	}
+
+	.viz-reg-segment {
+		width: 16.666666667%;
+	}
+	
+	.viz-scale-label, .viz-scale-label:first-line, .viz-scale-label:first-child {
+		margin: 0 0 5px;
 		width: 100%;
-		margin-bottom: 35px !important;
-		padding: 0;
-	}
-
-	.viz-division-list {
-		margin: 0;
-		padding: 0;
-		list-style-type: none !important;
-	}
-
-	.viz-division {
-		margin: 0 0 35px;
-	}
-
-	.viz-group-2 .viz-division:last-of-type {
-		margin-bottom: 0;
-	}
-
-
-	.viz-division-button {
-		border: none;
-	}
-
-	.viz-division-title {
-		text-transform: uppercase;
-		font-weight: 300 !important;
-		font-size: 11px !important;
-		line-height: 80%;
-	}
-
-	.viz-division-name {
-		font-family: $sans;
-	}
-
-	.viz-division-round {
-		margin: 10px 0 16px;
-		color: $txt-black;
-		font-weight: 600 !important;
-		font-size: 15px !important;
+		color: $txt-black !important;
+		font-weight: 500 !important;
+		font-size: 12px !important;
 		font-family: $slab !important;
 	}
-
-	.viz-division-designers-list {
-		padding: 0 10px;
-		margin: 0;
-		list-style-type: none;
-	}
-
-	.viz-transition {
-		position: absolute;
-	& .viz-vs {
-		opacity: 0;
-	}
-}
 
 }
 

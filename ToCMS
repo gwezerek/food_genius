@@ -1,0 +1,44 @@
+
+// In main.js setup variables
+var pymChild = new pym.Child();
+
+// To call iframe resize (say, on text expanding)
+pymChild.sendHeightToParent();
+
+// In CMS post BODY COPY field:
+[widget name=widgetCustomContent config=][/widget]
+
+// Upload your graphic to our S3 infographics.fastcompany.com bucket
+
+// In WIDGET: CUSTOM CONTENT field:
+// TODO: Replace cdn of pym with local copy
+<div class="viz-article" id="viz-pym">
+	<script>
+		// var graphicURL = "http://infographics.fastcompany.com/fastcompany/4-29-14-june-recommender/index.html";
+		var graphicURL = "http://www.guswezerek.com/projects/june_recommender/";
+		$.getScript("https://cdn.rawgit.com/nprapps/pym.js/master/src/pym.js", function(){
+		    pym.Parent('viz-pym', graphicURL, {});
+		 });
+	</script>
+</div>
+
+
+
+
+
+// For graphics without iframes
+<article class="viz-article" id="viz-pym">
+	<script type="text/javascript">
+		window.FC = window.FC || {};
+		window.FC.inlineFunctions = window.FC.inlineFunctions || {};
+
+		window.FC.inlineFunctions.vizScript = function() {
+			// main.js pasted here
+		};
+
+		require(['/js/vendor/d3.min.js'], function(d3) {
+			window.d3 = d3;
+			window.FC.inlineFunctions.vizScript();
+		});
+	</script>
+</article>

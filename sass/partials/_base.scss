@@ -45,7 +45,7 @@
 	display: inline-block;	
 	margin: 0 0 6px;
 	font-weight: 600;
-	font-size: 20px;
+	font-size: 18px;
 	font-family: $slab;
 	line-height: 100%;
 }
@@ -74,6 +74,8 @@
 }
 
 .viz-leadin {
+	font-weight: 500;
+	color: $txt-black;
 	text-transform: uppercase;
 }
 
@@ -102,7 +104,7 @@
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 .viz-content-map {
 	display: none;
-	@media (min-width: 940px) {
+	@media (min-width: $large) {
 		display: block;
 	}
 }
@@ -273,7 +275,7 @@
 .viz-scale-label {
 	margin: 0 0 5px;
 	width: 100%;
-	color: $med-gray;
+	color: $txt-black;
 	font-weight: 400;
 }
 
@@ -317,15 +319,6 @@
 
 .viz-reg-segment {
 	width: 16.666666667%;
-	// &:nth-of-type(1) {
-	// 	border-color: rgb(77,77,77);
-	// }
-	// &:nth-of-type(2) {
-	// 	border-color: rgb(135,135,135);
-	// }
-	// &:nth-of-type(3) {
-	// 	border-color: rgb(186,186,186);
-	// }
 	&:nth-of-type(1) {
 		border-color: rgb(224,224,224);
 	}
@@ -360,7 +353,7 @@
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 .viz-charts-wrapper {
-	@media (min-width: 940px) {
+	@media (min-width: $large) {
 		display: none;
 	}
 }

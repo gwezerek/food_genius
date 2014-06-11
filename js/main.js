@@ -1,22 +1,12 @@
+/*jshint -W099 */
+/*jslint browser: true, sub: true */
 
 
 // SETUP VARIABLES
 // =============================================
 
 var INGDATA, REGIONALDATA, MAPDATA, STATES;
-
-// var spreadsheetURL = "/food_genius.tsv";
-// var jsonURL = "/us.json";
-// var regionalTSV = "/regional_ingredients.tsv";
-var spreadsheetURL = "http://www.guswezerek.com/projects/food_genius/food_genius.tsv";
-var jsonURL = "http://www.guswezerek.com/projects/food_genius/us.json";
-var regionalTSV = "http://www.guswezerek.com/projects/food_genius/regional_ingredients.tsv";
-
-// For template
-var statesTemplate = _.template( $(".viz-state-template").html() );
-
-
-
+var dataURL = "http://www.guswezerek.com/projects/food_genius/food_genius.tsv";
 
 
 
@@ -38,7 +28,7 @@ var path = d3.geo.path()
 
 var svg = d3.select(".viz-svg-wrap").append("svg")
 	.attr("width", width)
-	.attr("height", height);
+	.attr("height", height);f
 
 queue()
 	.defer(d3.json, jsonURL)
@@ -106,7 +96,7 @@ function bindMapHandlers() {
 	// Top terms map btn
 	$(".viz-terms-btn").on("click", function(){
 		updateLayout($(this));
-		drawIngMap(MAPDATA, STATES)
+		drawIngMap(MAPDATA, STATES);
 	});
 
 	// State hover functionality
@@ -142,13 +132,6 @@ function bindMapHandlers() {
 	}, ".viz-state-shape, .viz-proxy");
 
 }
-
-
-
-
-
-
-
 
 
 
@@ -202,7 +185,6 @@ function drawRegionalMap(data, states, term) {
 	states.style("stroke", "rgb(204, 198, 185)")
 		.style("fill", function(d) {
 			var value = d.properties[term + "_diff"];
-			// var value = "-4.9";			
 			return color(value);
 		});
 }
@@ -229,7 +211,6 @@ function drawIngMap(data, states) {
 			});
 
 			var mostDiff = ingArray[0];
-
 			var termDataState = mostDiff.state_fullname;
 
 			//Find the corresponding state inside the GeoJSON
@@ -284,7 +265,7 @@ function populateStates(data) {
 	// Append the lists
 	$(".viz-states-col-1").html(toAppendString1);
 	$(".viz-states-col-2").html(toAppendString2);
-};
+}
 
 var percentTimesHundo = function(val) {
 	val  = val * 100;
