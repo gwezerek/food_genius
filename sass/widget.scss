@@ -201,6 +201,7 @@
 	.viz-nav-btn {
 		border-bottom: none;
 		color: $med-gray !important;
+<<<<<<< HEAD
 		&:hover {
 			color: $dark-gray !important;
 		}
@@ -208,13 +209,69 @@
 
 	.viz-nav-btn-active {
 		color: $txt-black !important;
+||||||| merged common ancestors
+		font-weight: 300 !important;
 	}
 
+
+
+	// RANKINGS
+
+	.viz-rankings {
+		max-width: none;
+=======
+		&:hover {
+			color: $dark-gray !important;
+		}
+>>>>>>> 152a47ece20c90f522eb9da87ec4f73b70db711d
+	}
+
+<<<<<<< HEAD
 	.viz-state {
 		margin-bottom: 20px;
 		padding: 0;
+||||||| merged common ancestors
+	.viz-division-finals {
+		width: 100%;
+		margin-bottom: 35px !important;
+		padding: 0;
+=======
+	.viz-nav-btn-active {
+		color: $txt-black !important;
+>>>>>>> 152a47ece20c90f522eb9da87ec4f73b70db711d
+	}
+<<<<<<< HEAD
+
+	.viz-state-anchor {
+		border-bottom: none;
+		color: $txt-black !important;
+||||||| merged common ancestors
+
+	.viz-division-list {
+		margin: 0;
+		padding: 0;
+		list-style-type: none !important;
+=======
+	
+	.viz-state {
+		margin-bottom: 20px;
+		padding: 0;
+>>>>>>> 152a47ece20c90f522eb9da87ec4f73b70db711d
 	}
 
+<<<<<<< HEAD
+	.viz-content-map {
+		margin: 24px 0;
+		margin-right: -312px;
+		max-width: 940px;
+||||||| merged common ancestors
+	.viz-division {
+		margin: 0 0 35px;
+	}
+
+	.viz-group-2 .viz-division:last-of-type {
+		margin-bottom: 0;
+=======
 	.viz-state-anchor {
 		border-bottom: none;
 		color: $txt-black !important;
@@ -224,6 +281,7 @@
 		margin: 24px 0;
 		margin-right: -312px;
 		max-width: 940px;
+>>>>>>> 152a47ece20c90f522eb9da87ec4f73b70db711d
 	}
 
 	.viz-footer {
@@ -238,6 +296,7 @@
 	.viz-reg-segment {
 		width: 16.666666667%;
 	}
+<<<<<<< HEAD
 
 	.viz-scale-label, .viz-scale-label:first-line, .viz-scale-label:first-child {
 		margin: 0 0 5px;
@@ -245,6 +304,22 @@
 		color: $txt-black !important;
 		font-weight: 500 !important;
 		font-size: 12px !important;
+||||||| merged common ancestors
+
+	.viz-division-round {
+		margin: 10px 0 16px;
+		color: $txt-black;
+		font-weight: 600 !important;
+		font-size: 15px !important;
+=======
+	
+	.viz-scale-label, .viz-scale-label:first-line, .viz-scale-label:first-child {
+		margin: 0 0 5px;
+		width: 100%;
+		color: $txt-black !important;
+		font-weight: 500 !important;
+		font-size: 12px !important;
+>>>>>>> 152a47ece20c90f522eb9da87ec4f73b70db711d
 		font-family: $slab !important;
 	}
 

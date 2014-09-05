@@ -23,8 +23,248 @@
 	display: static;
 }
 
+<<<<<<< HEAD
 .viz-combo-reveal {
 	// cursor: pointer;
+||||||| merged common ancestors
+.viz-generator-header {
+	position: relative;
+}
+
+.viz-hed {
+	@include trans(0.2s, text-align, ease-in-out);
+	margin: 0 0 15px;
+	padding: 5px 10px 7px;
+	background: $txt-black;
+	color: white;
+	font-weight: 600;
+	font-size: 22px;
+	font-family: $slab;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.viz-subhead {
+	display: inline-block;	
+	margin: 0 0 6px;
+	font-weight: 600;
+	font-size: 20px;
+	font-family: $slab;
+	line-height: 100%;
+}
+
+.viz-smallcaps {
+	text-transform: uppercase;
+	letter-spacing: .75px;
+	font-weight: 500;
+	font-size: 12px;
+	font-family: $slab;
+	line-height: 120%;
+}
+
+.viz-detail {
+    color: $med-gray;
+    text-transform: none;
+    font-weight: 400;
+}
+
+.viz-copy {
+	@include trans(0.2s, text-align, ease-in-out);
+	margin: 0 0 15px;
+	color: $txt-black;
+	font-size: 14px;
+	line-height: 140%;
+}
+
+.viz-leadin {
+	text-transform: uppercase;
+}
+
+.viz-intro-leadin {
+	font-weight: 500;
+	font-size: 12px;
+	font-family: $slab;
+}
+
+.viz-source {
+	display: block;
+	margin: 0 0 7px;
+	padding-top: 7px;
+	border-top: 1px solid $light-gray;
+	color: $med-gray;
+	letter-spacing: .75px;
+	font-weight: 400;
+	font-size: 12px;
+	font-family: $slab;
+	line-height: 140%;
+}
+
+
+
+//  LAYOUT           
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+.viz-content-map {
+	display: none;
+	@media (min-width: 940px) {
+		display: block;
+	}
+}
+
+.viz-map-hed {
+	text-align: center;
+	display: none;
+	margin-bottom: 10px;
+}
+
+.viz-btns-wrapper {
+	text-align: center;
+}
+
+.viz-nav-btn {
+	@include trans(0.2s, color, ease-in-out);
+	padding: 0 10px;
+	color: $med-gray;
+	font-weight: 400;
+	cursor: pointer;
+	&:hover {
+		color: $dark-gray;
+	}
+}
+
+.viz-nav-btn-active {
+	color: $txt-black;
+	font-weight: 500;
+}
+
+.viz-intro-and-legend {
+	padding-right: 2%;
+	width: 58%;
+	border-right: 1px solid $txt-black;
+}
+
+.viz-map-intro {
+	display: inline-block;
+=======
+.viz-generator-header {
+	position: relative;
+}
+
+.viz-hed {
+	@include trans(0.2s, text-align, ease-in-out);
+	margin: 0 0 15px;
+	padding: 5px 10px 7px;
+	background: $txt-black;
+	color: white;
+	font-weight: 600;
+	font-size: 22px;
+	font-family: $slab;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.viz-subhead {
+	display: inline-block;	
+	margin: 0 0 6px;
+	font-weight: 600;
+	font-size: 18px;
+	font-family: $slab;
+	line-height: 100%;
+}
+
+.viz-smallcaps {
+	text-transform: uppercase;
+	letter-spacing: .75px;
+	font-weight: 500;
+	font-size: 12px;
+	font-family: $slab;
+	line-height: 120%;
+}
+
+.viz-detail {
+    color: $med-gray;
+    text-transform: none;
+    font-weight: 400;
+}
+
+.viz-copy {
+	@include trans(0.2s, text-align, ease-in-out);
+	margin: 0 0 15px;
+	color: $txt-black;
+	font-size: 14px;
+	line-height: 140%;
+}
+
+.viz-leadin {
+	font-weight: 500;
+	color: $txt-black;
+	text-transform: uppercase;
+}
+
+.viz-intro-leadin {
+	font-weight: 500;
+	font-size: 12px;
+	font-family: $slab;
+}
+
+.viz-source {
+	display: block;
+	margin: 0 0 7px;
+	padding-top: 7px;
+	border-top: 1px solid $light-gray;
+	color: $med-gray;
+	letter-spacing: .75px;
+	font-weight: 400;
+	font-size: 12px;
+	font-family: $slab;
+	line-height: 140%;
+}
+
+
+
+//  LAYOUT           
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+.viz-content-map {
+	display: none;
+	@media (min-width: $large) {
+		display: block;
+	}
+}
+
+.viz-map-hed {
+	text-align: center;
+	display: none;
+	margin-bottom: 10px;
+}
+
+.viz-btns-wrapper {
+	text-align: center;
+}
+
+.viz-nav-btn {
+	@include trans(0.2s, color, ease-in-out);
+	padding: 0 10px;
+	color: $med-gray;
+	font-weight: 400;
+	cursor: pointer;
+	&:hover {
+		color: $dark-gray;
+	}
+}
+
+.viz-nav-btn-active {
+	color: $txt-black;
+	font-weight: 500;
+}
+
+.viz-intro-and-legend {
+	padding-right: 2%;
+	width: 58%;
+	border-right: 1px solid $txt-black;
+}
+
+.viz-map-intro {
+	display: inline-block;
+>>>>>>> 152a47ece20c90f522eb9da87ec4f73b70db711d
 	display: none;
 }
 
@@ -41,3 +281,430 @@
 .viz-active {
 	opacity: 1;
 }
+<<<<<<< HEAD
+||||||| merged common ancestors
+
+
+
+
+
+//  LEGEND           
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+.viz-legend {
+	margin-bottom: 20px;
+	padding-top: 20px;
+	border-top: 1px solid $txt-black;
+}
+
+.viz-scale-label {
+	margin: 0 0 5px;
+	width: 100%;
+	color: $med-gray;
+	font-weight: 400;
+}
+
+.viz-segment-label {
+	margin-left: -7px;
+}
+
+.viz-scale {
+	margin: 0;
+	padding: 0;
+	color: $med-gray;
+}
+
+.viz-scale-regional {
+	display: none;
+}
+
+.viz-scale-segment {
+	@include inline-block;
+	margin: 0;
+	padding-top: 3px;
+	border-top: 10px solid;
+	list-style: none;
+}
+
+.viz-ing-segment {
+	width: 25%;
+	&:nth-of-type(1) {
+		border-color: rgb(254,229,217);
+	}
+	&:nth-of-type(2) {
+		border-color: rgb(252,174,145);
+	}
+	&:nth-of-type(3) {
+		border-color: rgb(251,106,74);
+	}
+	&:nth-of-type(4) {
+		border-color: rgb(203,24,29);
+	}
+}
+
+.viz-reg-segment {
+	width: 16.666666667%;
+	// &:nth-of-type(1) {
+	// 	border-color: rgb(77,77,77);
+	// }
+	// &:nth-of-type(2) {
+	// 	border-color: rgb(135,135,135);
+	// }
+	// &:nth-of-type(3) {
+	// 	border-color: rgb(186,186,186);
+	// }
+	&:nth-of-type(1) {
+		border-color: rgb(224,224,224);
+	}
+	&:nth-of-type(2) {
+		border-color: rgb(255,255,255);
+	}
+	&:nth-of-type(3) {
+		border-color: rgb(253,219,199);
+	}
+	&:nth-of-type(4) {
+		border-color: rgb(244,165,130);
+	}
+	&:nth-of-type(5) {
+		border-color: rgb(214,96,77);
+	}
+	&:nth-of-type(6) {
+		border-color: rgb(178,24,43);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+//  CHARTS           
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+.viz-charts-wrapper {
+	@media (min-width: 940px) {
+		display: none;
+	}
+}
+
+.viz-list-wrapper {
+	@include pie-clearfix;
+	width: 100%;
+}
+
+.viz-states {
+	@include inline-block;
+	margin: 0 0 30px;
+	padding: 0;
+	width: 100%;
+	& .viz-state:last-child {
+		margin-bottom: -5px;
+	}
+	@media (min-width: $small) {
+		width: 50%;
+	}
+}
+
+.viz-states-col-1 {
+	@media (min-width: $small) {
+		float: left;
+		padding-right: 2%;
+		border-right: 1px solid $light-gray;
+	}
+}
+
+.viz-states-col-2 {
+	@media (min-width: $small) {
+		float: right;
+		padding-left: 2%;
+	}
+}
+
+.viz-state {
+	margin-bottom: 20px;
+	width: 100%;
+	list-style-type: none;
+}
+
+.viz-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.viz-thead {
+	border-top: 1px solid $light-gray;
+	border-bottom: 1px solid $light-gray;
+}
+
+.viz-body-tr {
+	& .viz-td:nth-child(2) {
+		width: 20%;
+	}
+	& .viz-td:nth-child(3) {
+		width: 20%;
+	}
+	& .viz-td:nth-child(4) {
+		width: 20%;
+	}
+}
+
+.viz-th {
+	margin-bottom: 3px;
+	padding: 5px 0;
+	text-transform: uppercase;
+	letter-spacing: .75px;
+	font-weight: 500;
+	font-size: 12px;
+	font-family: $slab;
+	text-align: left;
+}
+
+.viz-td {
+	padding: 6px 0 0;
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.viz-body-tr:first-of-type {
+	.viz-td {
+		padding-top: 6px;
+	}
+}
+
+.viz-table-quant-val {
+	text-align: right;
+}
+
+.viz-table-downplay-val {
+	color: $light-gray;
+	font-weight: 300;
+}
+
+.viz-header-start {
+	.viz-basket {
+		right: 0;
+		bottom: -325px;
+		left: 0;
+		margin: auto auto;
+		width: 280px;
+	}
+	.viz-subhead {
+		text-align: center;
+	}
+}
+
+
+=======
+
+
+
+
+
+//  LEGEND           
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+.viz-legend {
+	margin-bottom: 20px;
+	padding-top: 20px;
+	border-top: 1px solid $txt-black;
+}
+
+.viz-scale-label {
+	margin: 0 0 5px;
+	width: 100%;
+	color: $txt-black;
+	font-weight: 400;
+}
+
+.viz-segment-label {
+	margin-left: -7px;
+}
+
+.viz-scale {
+	margin: 0;
+	padding: 0;
+	color: $med-gray;
+}
+
+.viz-scale-regional {
+	display: none;
+}
+
+.viz-scale-segment {
+	@include inline-block;
+	margin: 0;
+	padding-top: 3px;
+	border-top: 10px solid;
+	list-style: none;
+}
+
+.viz-ing-segment {
+	width: 25%;
+	&:nth-of-type(1) {
+		border-color: rgb(254,229,217);
+	}
+	&:nth-of-type(2) {
+		border-color: rgb(252,174,145);
+	}
+	&:nth-of-type(3) {
+		border-color: rgb(251,106,74);
+	}
+	&:nth-of-type(4) {
+		border-color: rgb(203,24,29);
+	}
+}
+
+.viz-reg-segment {
+	width: 16.666666667%;
+	&:nth-of-type(1) {
+		border-color: rgb(224,224,224);
+	}
+	&:nth-of-type(2) {
+		border-color: rgb(255,255,255);
+	}
+	&:nth-of-type(3) {
+		border-color: rgb(253,219,199);
+	}
+	&:nth-of-type(4) {
+		border-color: rgb(244,165,130);
+	}
+	&:nth-of-type(5) {
+		border-color: rgb(214,96,77);
+	}
+	&:nth-of-type(6) {
+		border-color: rgb(178,24,43);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+//  CHARTS           
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+.viz-charts-wrapper {
+	@media (min-width: $large) {
+		display: none;
+	}
+}
+
+.viz-list-wrapper {
+	@include pie-clearfix;
+	width: 100%;
+}
+
+.viz-states {
+	@include inline-block;
+	margin: 0 0 30px;
+	padding: 0;
+	width: 100%;
+	& .viz-state:last-child {
+		margin-bottom: -5px;
+	}
+	@media (min-width: $small) {
+		width: 50%;
+	}
+}
+
+.viz-states-col-1 {
+	@media (min-width: $small) {
+		float: left;
+		padding-right: 2%;
+		border-right: 1px solid $light-gray;
+	}
+}
+
+.viz-states-col-2 {
+	@media (min-width: $small) {
+		float: right;
+		padding-left: 2%;
+	}
+}
+
+.viz-state {
+	margin-bottom: 20px;
+	width: 100%;
+	list-style-type: none;
+}
+
+.viz-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.viz-thead {
+	border-top: 1px solid $light-gray;
+	border-bottom: 1px solid $light-gray;
+}
+
+.viz-body-tr {
+	& .viz-td:nth-child(2) {
+		width: 20%;
+	}
+	& .viz-td:nth-child(3) {
+		width: 20%;
+	}
+	& .viz-td:nth-child(4) {
+		width: 20%;
+	}
+}
+
+.viz-th {
+	margin-bottom: 3px;
+	padding: 5px 0;
+	text-transform: uppercase;
+	letter-spacing: .75px;
+	font-weight: 500;
+	font-size: 12px;
+	font-family: $slab;
+	text-align: left;
+}
+
+.viz-td {
+	padding: 6px 0 0;
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.viz-body-tr:first-of-type {
+	.viz-td {
+		padding-top: 6px;
+	}
+}
+
+.viz-table-quant-val {
+	text-align: right;
+}
+
+.viz-table-downplay-val {
+	color: $light-gray;
+	font-weight: 300;
+}
+
+.viz-header-start {
+	.viz-basket {
+		right: 0;
+		bottom: -325px;
+		left: 0;
+		margin: auto auto;
+		width: 280px;
+	}
+	.viz-subhead {
+		text-align: center;
+	}
+}
+
+
+>>>>>>> 152a47ece20c90f522eb9da87ec4f73b70db711d

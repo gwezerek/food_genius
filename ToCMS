@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 // In main.js setup variables
 var pymChild = new pym.Child();
@@ -42,3 +43,55 @@ pymChild.sendHeightToParent();
 		});
 	</script>
 </article>
+||||||| merged common ancestors
+=======
+
+// In CMS post BODY COPY field:
+[widget name=widgetCustomContent config=][/widget]
+
+
+## FOR GRAPHICS PULLED IN VIA PYM/IFRAMES
+
+1. In main.js setup variables of your project
+var pymChild = new pym.Child();
+
+2. To call iframe resize (say, on text expanding)
+pymChild.sendHeightToParent();
+
+3. Upload your graphic to our S3 infographics.fastcompany.com bucket
+// You'll need to make files public and it can get confusing--don't be afraid to reach out for help at this step
+
+4. In WIDGET: CUSTOM CONTENT field in the cms:
+// TODO: Replace CDN of pym with hosted copy
+<div class="viz-article" id="viz-pym">
+	<script>
+		// var graphicURL = "http://infographics.fastcompany.com/fastcompany/4-29-14-june-recommender/index.html";
+		$.getScript("https://cdn.rawgit.com/nprapps/pym.js/master/src/pym.js", function(){
+		    pym.Parent('viz-pym', graphicURL, {});
+		 });
+	</script>
+</div>
+
+
+
+
+
+## FOR GRAPHICS LIVING IN THE CUSTOM HTML/CSS CMS FIELDS (NO IFRAME)
+
+<article class="viz-article" id="viz-pym">
+	<script type="text/javascript">
+		window.FC = window.FC || {};
+		window.FC.inlineFunctions = window.FC.inlineFunctions || {};
+
+		window.FC.inlineFunctions.vizScript = function() {
+			// main.js pasted here
+		};
+
+		// Add any libs such as _, d3, etc...
+		require(['/js/vendor/d3.min.js'], function(d3) {
+			window.d3 = d3;
+			window.FC.inlineFunctions.vizScript();
+		});
+	</script>
+</article>
+>>>>>>> 152a47ece20c90f522eb9da87ec4f73b70db711d

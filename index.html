@@ -3465,7 +3465,67 @@
   </g>
 </svg>
 
+<<<<<<< HEAD
 		<script type="text/javascript" src="js/main.js"></script>
+||||||| merged common ancestors
+		<!-- Templates for States -->
+		<script type="text/template" class="viz-state-template">
+			<li class="viz-state" data-state="<%= key %>">
+				<a class="viz-state-anchor"><h5 class="viz-subhead"><%= values[0].state_fullname %></h5></a>
+				<table class="viz-table">
+					<thead class="viz-thead">
+						<tr class="viz-body-tr">
+							<th class="viz-th" scope="col">Term</th>
+							<th class="viz-th viz-table-quant-val viz-table-downplay-val" scope="col"><%= key %> (%)</th>
+							<th class="viz-th viz-table-quant-val viz-table-downplay-val" scope="col">U.S. (%)</th>
+							<th class="viz-th viz-table-quant-val" scope="col">Diff. (%)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% _.each(_.range(0,5), function(i){ %>
+							<tr class="viz-body-tr">
+								<td class="viz-td"><%= values[i].term %></td>
+								<td class="viz-td viz-table-quant-val viz-table-downplay-val"><%= percentTimesHundo(values[i].percent_state) %></td>
+								<td class="viz-td viz-table-quant-val viz-table-downplay-val"><%= percentTimesHundo(values[i].percent_us) %></td>
+								<td class="viz-td viz-table-quant-val"><%= percentTimesHundo(values[i].diff) %></td>
+							</tr>
+						<% }); %>
+					</tbody>
+				</table>
+			</li>
+		</script>
+
+		<script type="text/javascript" src="js/quiz.js"></script>
+=======
+		<!-- Templates for States -->
+		<script type="text/template" class="viz-state-template">
+			<li class="viz-state" data-state="<%= key %>">
+				<a class="viz-state-anchor"><h5 class="viz-subhead"><%= values[0].state_fullname %></h5></a>
+				<table class="viz-table">
+					<thead class="viz-thead">
+						<tr class="viz-body-tr">
+							<th class="viz-th" scope="col">Term</th>
+							<th class="viz-th viz-table-quant-val viz-table-downplay-val" scope="col"><%= key %> (%)</th>
+							<th class="viz-th viz-table-quant-val viz-table-downplay-val" scope="col">U.S. (%)</th>
+							<th class="viz-th viz-table-quant-val" scope="col">Diff. (%)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% _.each(_.range(0,5), function(i){ %>
+							<tr class="viz-body-tr">
+								<td class="viz-td"><%= values[i].term %></td>
+								<td class="viz-td viz-table-quant-val viz-table-downplay-val"><%= percentTimesHundo(values[i].percent_state) %></td>
+								<td class="viz-td viz-table-quant-val viz-table-downplay-val"><%= percentTimesHundo(values[i].percent_us) %></td>
+								<td class="viz-td viz-table-quant-val"><%= percentTimesHundo(values[i].diff) %></td>
+							</tr>
+						<% }); %>
+					</tbody>
+				</table>
+			</li>
+		</script>
+
+		<script type="text/javascript" src="js/main.js"></script>
+>>>>>>> 152a47ece20c90f522eb9da87ec4f73b70db711d
 
 	</article>
 
