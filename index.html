@@ -10,7 +10,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width">
-	<title>Food Genius</title>
+	<title>Can You Spot Great Design?: The Fast Company Quiz</title>
 	<link rel="stylesheet" href="css/site.css">
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -23,155 +23,58 @@
 <body>
 	<article class="viz-article">
 		<div class="viz-container">
-			<section class="viz-content-block viz-content-map">
-				<header class="viz-generator-header">
-					<h4 class="viz-hed viz-map-hed viz-terms">Most Distinctive Food by State</h4>
-					<h4 class="viz-hed viz-map-hed viz-ranch">Relative Popularity: Ranch Dressing</h4>
-					<h4 class="viz-hed viz-map-hed viz-chile">Relative Popularity: Green Chile</h4>
-					<h4 class="viz-hed viz-map-hed viz-bell">Relative Popularity: Green Bell Pepper</h4>
-					<h4 class="viz-hed viz-map-hed viz-cheesesteak">Relative Popularity: Cheesesteak</h4>
-					<h4 class="viz-hed viz-map-hed viz-pecan">Relative Popularity: Pecan</h4>
-					<div class="viz-btns-wrapper">
-						<a class="viz-nav-btn viz-smallcaps viz-terms-btn viz-nav-btn-active">All</a>
-						<a class="viz-nav-btn viz-smallcaps viz-regional-btn" data-term="chile">Green Chile</a>
-						<a class="viz-nav-btn viz-smallcaps viz-regional-btn" data-term="cheesesteak">Cheesesteak</a>
-						<a class="viz-nav-btn viz-smallcaps viz-regional-btn" data-term="bell">Green Bell Pepper</a>
-						<a class="viz-nav-btn viz-smallcaps viz-regional-btn" data-term="ranch">Ranch Dressing</a>
-						<a class="viz-nav-btn viz-smallcaps viz-regional-btn" data-term="pecan">Pecan</a>
-					</div>
+				<header class="viz-header">
+					<h4 class="viz-hed">Can You Spot Great Design?: The <cite class="viz-hed-cite">Fast Company</cite> Quiz</h4>
+          <p class="viz-copy viz-intro">Do you know what good design looks like? We asked a panel of design experts what products, household items or body parts that they felt embodied great&mdash;or terrible&mdash;design. Answer these questions to find out if your design eye matches the&nbsp;professionals.</p>
 				</header>
-				<div class="viz-svg-wrap">
-					<img class="viz-map-overlay" src="http://www.guswezerek.com/projects/food_genius/img/popular_ingredients.png" />
-				</div>
-				<div class="viz-proxy viz-proxy-HI" id="HI"></div>
-				<div class="viz-proxy viz-proxy-FL" id="FL"></div>
-				<div class="viz-proxy viz-proxy-VT" id="VT"></div>
-				<div class="viz-proxy viz-proxy-NH" id="NH"></div>
-				<div class="viz-proxy viz-proxy-MA" id="MA"></div>
-				<div class="viz-proxy viz-proxy-RI" id="RI"></div>
-				<div class="viz-proxy viz-proxy-CT" id="CT"></div>
-				<div class="viz-proxy viz-proxy-NJ" id="NJ"></div>
-				<div class="viz-proxy viz-proxy-DE" id="DE"></div>
-				<div class="viz-proxy viz-proxy-MD" id="MD"></div>
-				<div class="viz-proxy viz-proxy-DC" id="DC"></div>
-				<div class="viz-hover-callout">
-					<li class="viz-state" data-state="NY">
-						<a class="viz-state-anchor"><h5 class="viz-subhead">New York</h5></a>
-						<table class="viz-table">
-							<thead class="viz-thead">
-								<tr class="viz-body-tr">
-									<th class="viz-th" scope="col">Term</th>
-									<th class="viz-th viz-table-quant-val viz-table-downplay-val" scope="col">NY (%)</th>
-									<th class="viz-th viz-table-quant-val viz-table-downplay-val" scope="col">U.S. (%)</th>
-									<th class="viz-th viz-table-quant-val" scope="col">Diff. (%)</th>
-								</tr>
-							</thead>
-							<tbody>
-								
-									<tr class="viz-body-tr">
-										<td class="viz-td">eggplant</td>
-										<td class="viz-td viz-table-quant-val viz-table-downplay-val">54</td>
-										<td class="viz-td viz-table-quant-val viz-table-downplay-val">37</td>
-										<td class="viz-td viz-table-quant-val">17</td>
-									</tr>
-								
-									<tr class="viz-body-tr">
-										<td class="viz-td">cutlet</td>
-										<td class="viz-td viz-table-quant-val viz-table-downplay-val">29</td>
-										<td class="viz-td viz-table-quant-val viz-table-downplay-val">13</td>
-										<td class="viz-td viz-table-quant-val">16</td>
-									</tr>
-								
-									<tr class="viz-body-tr">
-										<td class="viz-td">roll</td>
-										<td class="viz-td viz-table-quant-val viz-table-downplay-val">50</td>
-										<td class="viz-td viz-table-quant-val viz-table-downplay-val">37</td>
-										<td class="viz-td viz-table-quant-val">13</td>
-									</tr>
-								
-									<tr class="viz-body-tr">
-										<td class="viz-td">parmigiana</td>
-										<td class="viz-td viz-table-quant-val viz-table-downplay-val">25</td>
-										<td class="viz-td viz-table-quant-val viz-table-downplay-val">14</td>
-										<td class="viz-td viz-table-quant-val">12</td>
-									</tr>
-								
-									<tr class="viz-body-tr">
-										<td class="viz-td">cold</td>
-										<td class="viz-td viz-table-quant-val viz-table-downplay-val">35</td>
-										<td class="viz-td viz-table-quant-val viz-table-downplay-val">25</td>
-										<td class="viz-td viz-table-quant-val">11</td>
-									</tr>
-								
-							</tbody>
-						</table>
-					</li>
-				</div>
-				<div class="viz-intro-and-legend">
-					<p class="viz-copy viz-map-intro viz-terms">The map above shows each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>
-					<p class="viz-copy viz-map-intro viz-ranch"><span class="viz-leadin viz-intro-leadin">Ranch Dressing</span> Each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>
-					<p class="viz-copy viz-map-intro viz-chile"><span class="viz-leadin viz-intro-leadin">Green Chile</span> Each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>
-					<p class="viz-copy viz-map-intro viz-bell"><span class="viz-leadin viz-intro-leadin">Green Bell Pepper</span> Each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>
-					<p class="viz-copy viz-map-intro viz-cheesesteak"><span class="viz-leadin viz-intro-leadin">Cheesesteak</span> Each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>
-					<p class="viz-copy viz-map-intro viz-pecan"><span class="viz-leadin viz-intro-leadin">Pecan</span> Each state's top ingredient or dish, but Food Genius also tracks sensory terms such as "creamy" and preparation terms like "blended." We've included those words in the Top 5 chart for each state. Touch a state to see its top terms, or explore distinctiveness maps for the five terms above.</p>
-					<div class="viz-legend">
-						<p class="viz-scale-label viz-smallcaps">Relative Popularity <span class="viz-detail">(Difference between term's frequency on menus in state vs. U.S.)</span></p>
-						<ul class="viz-scale viz-scale-ing">
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment">10
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">20</span>
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">30</span>
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-ing-segment"><span class="viz-segment-label">40%</span>
-						</ul>
-						<ul class="viz-scale viz-scale-regional">
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">-15</span>
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">-5</span>
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">5</span>
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">15</span>
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">25</span>
-							<li class="viz-scale-segment viz-smallcaps viz-detail viz-reg-segment"><span class="viz-segment-label">35% and up</span>
-						</ul>
-					</div>
-				</div>
+			<section class="viz-content-block">
+				<ol class="viz-choice-list">
+					<div class="viz-choice-list-left"></div>
+					<div class="viz-choice-list-right"></div>
+				</ol>
 			</section>
-			<section class="viz-content-block viz-charts-wrapper">
-				<header class="viz-generator-header">
-					<h4 class="viz-hed">Top 5 Distinctive Terms, All States</h4>
-				</header>
-				<p class="viz-copy viz-charts-intro"><span class="viz-leadin viz-intro-leadin">The charts below show</span> each state's top five menu terms. View this page at larger widths to see maps for the most popular ingredient in each state, and nationwide popularity maps for ingredients such as ranch dressing and green bell peppers.</p>		
-				<div class="viz-list-wrapper">
-					<ul class="viz-states viz-states-col-1"></ul>
-					<ul class="viz-states viz-states-col-2"></ul>
-				</div>
+			<section class="viz-content-block">
+				<p class="viz-copy viz-results">You agreed with our experts <span class="viz-agree-count">0</span> times and disagreed <span class="viz-disagree-count">0</span> times.</p>
 			</section>
-    		<p class="viz-source"><span class="viz-leadin">Graphic</span> Gus Wezerek</p>
-    		<p class="viz-source"><span class="viz-leadin">Source</span> Food Genius</p>
-    		<p class="viz-source"><span class="viz-leadin">Methodology</span> Food Genius tracks term appearance on unique menus. So even if "bacon" appears eight times on Waffle House's menu, and there are 20 Waffle House locations in Georgia, Food Genius only increases the count for "bacon" in Georgia by one. The range of Food Genius's coverage spans from Washington D.C., where the company tracks an estimated 85% of restaurants, to Alaska, from which almost all of the data comes from chain restaurants.</p>
+			<footer class="viz-footer">
+				<p class="viz-footer-copy">
+					<span class="viz-leadin">Illustrations</span> <span class="viz-credit-copy">Pierre Dubois</span>
+					<span class="viz-leadin">Development</span> <span class="viz-credit-copy">Gus Wezerek</span>
+	    	</p>
+    	</footer>
 		</div>
 
+
 		<!-- Templates for States -->
-		<script type="text/template" class="viz-state-template">
-			<li class="viz-state" data-state="<%= key %>">
-				<a class="viz-state-anchor"><h5 class="viz-subhead"><%= values[0].state_fullname %></h5></a>
-				<table class="viz-table">
-					<thead class="viz-thead">
-						<tr class="viz-body-tr">
-							<th class="viz-th" scope="col">Term</th>
-							<th class="viz-th viz-table-quant-val viz-table-downplay-val" scope="col"><%= key %> (%)</th>
-							<th class="viz-th viz-table-quant-val viz-table-downplay-val" scope="col">U.S. (%)</th>
-							<th class="viz-th viz-table-quant-val" scope="col">Diff. (%)</th>
-						</tr>
-					</thead>
-					<tbody>
-						<% _.each(_.range(0,5), function(i){ %>
-							<tr class="viz-body-tr">
-								<td class="viz-td"><%= values[i].term %></td>
-								<td class="viz-td viz-table-quant-val viz-table-downplay-val"><%= percentTimesHundo(values[i].percent_state) %></td>
-								<td class="viz-td viz-table-quant-val viz-table-downplay-val"><%= percentTimesHundo(values[i].percent_us) %></td>
-								<td class="viz-td viz-table-quant-val"><%= percentTimesHundo(values[i].diff) %></td>
-							</tr>
-						<% }); %>
-					</tbody>
-				</table>
+		<script class="viz-template" type="text/template">
+			<li class="viz-choice-item">
+				<header class="viz-choice-hed viz-copy">
+					<p class="viz-product-label"><%- index %>. <%- product %></p>
+				</header>
+				<div class="viz-grid">
+					<div class="viz-col-1-3 viz-loathe" <% if ( love === 'FALSE' ){ %>data-correct="true"<% } %>>
+						<button class="viz-choice-button viz-loathe-button icon-trash-o">
+							<span class="viz-label">Loathe It</span>
+						</button>
+					</div>
+					<div class="viz-col-1-3">
+						<div class="viz-product-wrap">
+							<img src="img/<%- img_name %>.png" class="viz-product-illo">
+						</div>
+					</div>
+					<div class="viz-col-1-3 viz-choice-sub-item viz-love" <% if ( love === 'TRUE' ){ %>data-correct="true"<% } %>>
+						<button class="viz-choice-button viz-love-button icon-heart-o">
+							<span class="viz-label">Love It</span>
+						</button>
+					</div>
+				</div>
+				<div class="viz-opinion-wrap">
+					<h5 class="viz-copy viz-opinion-hed">Our expert <span class="viz-opinion-decision"></span> with you</h5>
+					<p class="viz-copy viz-opinion">
+						<span class="viz-opinion-copy">&ldquo;<%- opinion %>&rdquo;</span>
+						<span class="viz-expert"><i class="viz-expert-icon icon-user"></i>&nbsp;<span class="viz-expert-name"><%- expert %></span><span class="viz-expert-job"> <%- title %></span></span>
+					</p>
+				</div>
 			</li>
 		</script>
 

@@ -1,467 +1,346 @@
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-//  Base styles            
+//  Base styles
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 .viz-article {
-	margin: 0 auto;
-	max-width: 940px;
-	height: 100%;
-	color: $txt-black;
-	font-size: 15px;
-	font-family: $sans;
-	text-rendering: optimizeLegibility;
+    font-family: $sans;
+    font-size: 15px;
+    max-width: 640px;
+    height: 100%;
+    margin: 0 auto;
+    color: $txt-black;
+    text-rendering: optimizeLegibility;
 }
 
 .viz-container {
-	position: relative;
-	background-color: $bground;
+    position: relative;
+    background-color: $bground;
 }
 
 .viz-content-block {
-	@include pie-clearfix;
-	margin: 0 0 20px;
+    @include pie-clearfix;
+    margin: 0 0 24px;
 }
 
-.viz-generator-header {
-	position: relative;
+.viz-svg-wrap {
+    position: relative;
+    margin: 0 auto 30px;
+}
+
+.viz-header {
+    margin-bottom: 24px;
 }
 
 .viz-hed {
-	@include trans(0.2s, text-align, ease-in-out);
-	margin: 0 0 15px;
-	padding: 5px 10px 7px;
-	background: $txt-black;
-	color: white;
-	font-weight: 600;
-	font-size: 22px;
-	font-family: $slab;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    @include trans(.2s, text-align, ease-in-out);
+    font-family: $slab;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    padding: 5px 10px 7px;
+    color: white;
+    background: $txt-black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .viz-subhead {
-	display: inline-block;	
-	margin: 0 0 6px;
-	font-weight: 600;
-	font-size: 18px;
-	font-family: $slab;
-	line-height: 100%;
+    font-family: $slab;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 100%;
+    display: inline-block;
+    margin: 0 0 6px;
 }
 
 .viz-smallcaps {
-	text-transform: uppercase;
-	letter-spacing: .75px;
-	font-weight: 500;
-	font-size: 12px;
-	font-family: $slab;
-	line-height: 120%;
+    font-family: $slab;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: .75px;
+    text-transform: uppercase;
 }
 
 .viz-detail {
-    color: $med-gray;
-    text-transform: none;
     font-weight: 400;
+    text-transform: none;
+    color: $med-gray;
 }
 
 .viz-copy {
-	@include trans(0.2s, text-align, ease-in-out);
-	margin: 0 0 15px;
-	color: $txt-black;
-	font-size: 14px;
-	line-height: 140%;
+    font-size: 14px;
+    line-height: 140%;
+    margin: 0 0 15px;
+    color: $txt-black;
 }
 
 .viz-leadin {
-	font-weight: 500;
-	color: $txt-black;
-	text-transform: uppercase;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $txt-black;
 }
 
 .viz-intro-leadin {
-	font-weight: 500;
-	font-size: 12px;
-	font-family: $slab;
+    font-family: $slab;
+    font-size: 12px;
+    font-weight: 500;
 }
 
-.viz-source {
-	display: block;
-	margin: 0 0 7px;
-	padding-top: 7px;
-	border-top: 1px solid $light-gray;
-	color: $med-gray;
-	letter-spacing: .75px;
-	font-weight: 400;
-	font-size: 12px;
-	font-family: $slab;
-	line-height: 140%;
+.viz-footer {
+    padding-top: 12px;
+    border-top: 1px solid $light-gray;
+}
+
+.viz-footer-copy {
+    font-size: 12px;
+    color: $med-gray;
+    margin: 0;
+}
+
+.viz-credit-copy {
+    margin-right: 6px;
 }
 
 
 
-//  LAYOUT           
+//  TABLES
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-.viz-content-map {
-	display: none;
-	@media (min-width: $large) {
-		display: block;
-	}
-}
-
-.viz-map-hed {
-	text-align: center;
-	display: none;
-	margin-bottom: 10px;
-}
-
-.viz-btns-wrapper {
-	text-align: center;
-}
-
-.viz-nav-btn {
-	@include trans(0.2s, color, ease-in-out);
-	padding: 0 10px;
-	color: $med-gray;
-	font-weight: 400;
-	cursor: pointer;
-	&:hover {
-		color: $dark-gray;
-	}
-}
-
-.viz-nav-btn-active {
-	color: $txt-black;
-	font-weight: 500;
-}
-
-.viz-intro-and-legend {
-	padding-right: 2%;
-	width: 58%;
-	border-right: 1px solid $txt-black;
-}
-
-.viz-map-intro {
-	display: inline-block;
-	display: none;
-}
-
-.viz-terms {
-	display: block;
-}
-
-
-
-
-
-
-
-//  MAP           
-// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-.viz-svg-wrap {
-	position: relative;
-	margin: 0 auto 30px;
-}
-
-.viz-state-shape {
-	@include transition(0.5s stroke-width ease-in-out, 0.5s fill ease-in-out);
-	fill: white;
-	stroke: white;
-	stroke-width: 1px;
-}
-
-.viz-map-overlay {
-	@include absolute(n n 0 0);
-	width: 1109px;
-	// width: 118%;
-	pointer-events: none;
-}
-
-.viz-hover-callout {
-	display: inline-block;
-	float: right;
-	width: 40%;
-}
-
-.viz-state-active {
-	stroke-width: 2px;
-}
-
-.viz-proxies {
-	position: relative;
-	width: 100%;
-	height: 100%;
-		background-color: red;
-
-}
-
-.viz-proxy {
-	position: absolute;
-	height: 14px;
-}
-
-.viz-proxy-HI {
-	width: 24px;
-	height: 20px;
-	top: 577px;
-	left: 235px;
-}
-.viz-proxy-FL {
-	width: 43px;
-	top: 520px;
-	left: 630px;
-}
-.viz-proxy-VT {
-	width: 40px;
-	height: 20px;
-	top: 136px;
-	left: 730px;
-}
-.viz-proxy-NH {
-	width: 47px;
-	top: 185px;
-	left: 830px;
-}
-.viz-proxy-MA {
-	width: 75px;
-	top: 200px;
-	left: 832px;
-}
-.viz-proxy-RI {
-	width: 85px;
-	top: 217px;
-	left: 850px;
-}
-.viz-proxy-CT {
-	width: 26px;
-	top: 240px;
-	left: 825px;
-}
-.viz-proxy-NJ {
-	width: 65px;
-	top: 260px;
-	left: 795px;
-}
-.viz-proxy-DE {
-	width: 60px;
-	top: 283px;
-	left: 793px;
-}
-.viz-proxy-MD {
-	width: 50px;
-	top: 302px;
-	left: 785px;
-}
-.viz-proxy-DC {
-	width: 25px;
-	top: 320px;
-	left: 776px;
-}
-
-
-
-
-
-//  LEGEND           
-// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-.viz-legend {
-	margin-bottom: 20px;
-	padding-top: 20px;
-	border-top: 1px solid $txt-black;
-}
-
-.viz-scale-label {
-	margin: 0 0 5px;
-	width: 100%;
-	color: $txt-black;
-	font-weight: 400;
-}
-
-.viz-segment-label {
-	margin-left: -7px;
-}
-
-.viz-scale {
-	margin: 0;
-	padding: 0;
-	color: $med-gray;
-}
-
-.viz-scale-regional {
-	display: none;
-}
-
-.viz-scale-segment {
-	@include inline-block;
-	margin: 0;
-	padding-top: 3px;
-	border-top: 10px solid;
-	list-style: none;
-}
-
-.viz-ing-segment {
-	width: 25%;
-	&:nth-of-type(1) {
-		border-color: rgb(254,229,217);
-	}
-	&:nth-of-type(2) {
-		border-color: rgb(252,174,145);
-	}
-	&:nth-of-type(3) {
-		border-color: rgb(251,106,74);
-	}
-	&:nth-of-type(4) {
-		border-color: rgb(203,24,29);
-	}
-}
-
-.viz-reg-segment {
-	width: 16.666666667%;
-	&:nth-of-type(1) {
-		border-color: rgb(224,224,224);
-	}
-	&:nth-of-type(2) {
-		border-color: rgb(255,255,255);
-	}
-	&:nth-of-type(3) {
-		border-color: rgb(253,219,199);
-	}
-	&:nth-of-type(4) {
-		border-color: rgb(244,165,130);
-	}
-	&:nth-of-type(5) {
-		border-color: rgb(214,96,77);
-	}
-	&:nth-of-type(6) {
-		border-color: rgb(178,24,43);
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-//  CHARTS           
-// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-.viz-charts-wrapper {
-	@media (min-width: $large) {
-		display: none;
-	}
-}
-
-.viz-list-wrapper {
-	@include pie-clearfix;
-	width: 100%;
-}
-
-.viz-states {
-	@include inline-block;
-	margin: 0 0 30px;
-	padding: 0;
-	width: 100%;
-	& .viz-state:last-child {
-		margin-bottom: -5px;
-	}
-	@media (min-width: $small) {
-		width: 50%;
-	}
-}
-
-.viz-states-col-1 {
-	@media (min-width: $small) {
-		float: left;
-		padding-right: 2%;
-		border-right: 1px solid $light-gray;
-	}
-}
-
-.viz-states-col-2 {
-	@media (min-width: $small) {
-		float: right;
-		padding-left: 2%;
-	}
-}
-
-.viz-state {
-	margin-bottom: 20px;
-	width: 100%;
-	list-style-type: none;
-}
 
 .viz-table {
-	width: 100%;
-	border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 .viz-thead {
-	border-top: 1px solid $light-gray;
-	border-bottom: 1px solid $light-gray;
-}
-
-.viz-body-tr {
-	& .viz-td:nth-child(2) {
-		width: 20%;
-	}
-	& .viz-td:nth-child(3) {
-		width: 20%;
-	}
-	& .viz-td:nth-child(4) {
-		width: 20%;
-	}
+    border-top: 1px solid $light-gray;
+    border-bottom: 1px solid $light-gray;
 }
 
 .viz-th {
-	margin-bottom: 3px;
-	padding: 5px 0;
-	text-transform: uppercase;
-	letter-spacing: .75px;
-	font-weight: 500;
-	font-size: 12px;
-	font-family: $slab;
-	text-align: left;
+    font-family: $slab;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    padding: 5px 0;
+    text-align: left;
+    letter-spacing: .75px;
+    text-transform: uppercase;
 }
 
 .viz-td {
-	padding: 6px 0 0;
-	font-weight: 400;
-	font-size: 14px;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 6px 0 0;
 }
 
-.viz-body-tr:first-of-type {
-	.viz-td {
-		padding-top: 6px;
-	}
+.viz-disabled {
+    pointer-events: none;
 }
 
-.viz-table-quant-val {
-	text-align: right;
+//  LAYOUT
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+.viz-grid {
+    @include pie-clearfix;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-.viz-table-downplay-val {
-	color: $light-gray;
-	font-weight: 300;
+[class*='col-'] {
+    float: left;
 }
 
-.viz-header-start {
-	.viz-basket {
-		right: 0;
-		bottom: -325px;
-		left: 0;
-		margin: auto auto;
-		width: 280px;
-	}
-	.viz-subhead {
-		text-align: center;
-	}
+.viz-col-1-3 {
+    width: 33.33%;
 }
 
 
+//  GRAPHIC-SPECIFIC
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+.viz-hed-cite {
+    margin-right: 2px;
+}
+
+.viz-choice-list {
+    margin: 0;
+    padding: 0;
+}
+
+.viz-choice-list-left,
+ .viz-choice-list-right {
+    @media (min-width: $small) {
+        float: left;
+        width: 50%;
+    }
+}
+
+.viz-choice-list-left {
+    @media (min-width: $small) {
+        padding-right: 24px;
+        border-right: 1px solid $light-gray;
+    }
+}
+
+.viz-choice-list-right {
+    @media (min-width: $small) {
+        padding-left: 24px;
+    }
+}
+
+.viz-choice-item {
+    margin-bottom: 24px;
+    list-style-type: none;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.viz-choice-hed {
+    position: relative;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $light-gray;
+}
+
+.viz-product-label {
+    font-family: $slab;
+    font-size: 18px;
+    font-weight: 500;
+    display: inline;
+}
+
+.viz-choice-button {
+    @include input-default;
+    @include backface-visibility(hidden);
+    @include trans(.2s, all, ease-in-out);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 6px;
+    padding: 21px 10px 0;
+    color: white;
+    border-radius: 50%;
+    display: block;
+    &:before {
+        @include trans(.2s, all, ease-in-out);
+        @include absolute(-200% n n 0);
+        font-size: 28px;
+        width: 100%;
+    }
+    &:hover:before {
+        top: 17px;
+    }
+    &:hover .viz-label {
+        @include translateY(300%);
+    }
+    &:active {
+        margin: 4px auto -4px;
+        box-shadow: none;
+    }
+}
+
+.viz-love-button {
+    background: $bground-8;
+    box-shadow: tint($bground-8, 30%) 0px 4px 0px 0px;
+}
+
+.viz-loathe-button {
+    background: $bground-15;
+    box-shadow: tint($bground-15, 30%) 0px 4px 0px 0px;
+}
+
+.viz-label {
+    @include trans(.2s, all, ease-in-out);
+    @include backface-visibility(hidden);
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 110%;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.viz-product-wrap {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+}
+
+.viz-product-illo {
+    @include vertical-align;
+    @include backface-visibility(hidden);
+    max-width: 100%;
+    max-height: 70px;
+    margin: 0 auto;
+}
+
+.viz-agree-count,
+ .viz-disagree-count {
+    font-family: $slab;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.viz-results {
+    text-align: center;
+    margin: 0;
+}
+
+// OPINION MOD
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+.viz-opinion-wrap {
+    @include trans(.2s, opacity, ease-in-out);
+    display: none;
+}
+
+.viz-unselected {
+    opacity: .1;
+}
+
+.viz-opinion-hed {
+    margin-bottom: 3px;
+}
+
+.viz-opinion {
+    text-indent: -3.5px;
+}
+
+.viz-opinion-decision {
+    text-transform: uppercase;
+}
+
+.viz-opinion-copy {
+    text-indent: -3.5px;
+    margin: 0 3px 6px 0;
+    font-size: 12px;
+    line-height: 140%;
+}
+
+.viz-expert {
+    font-size: 10px;
+    line-height: 140%;
+    color: $med-gray;
+}
+
+.viz-expert-icon {
+    margin-right: 1px;
+}
+
+.viz-expert-name {
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+.viz-expert-job {
+    font-size: 12px;
+    // font-weight: 300;
+}

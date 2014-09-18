@@ -2,300 +2,272 @@
 /*jslint browser: true, sub: true */
 
 
-// SETUP VARIABLES
+
+// SETUP
 // =============================================
 
-var INGDATA, REGIONALDATA, MAPDATA, STATES;
-var dataURL = "http://www.guswezerek.com/projects/food_genius/food_genius.tsv";
+var agreeCount = $('.viz-agree-count');
+var disagreeCount = $('.viz-disagree-count');
 
+var quizTemplate = _.template(
+	$('.viz-template').html()
+);
+var templateData = [
+  {
+    "index": 1,
+    "product": "Hummingbirds",
+    "img_name": "hummingbird",
+    "love": "TRUE",
+    "expert": "Sunni Brown",
+    "title": "Founder, The Doodle Revolution",
+    "opinion": "A creature that can migrate hundreds of miles, flap its wings 100 times per second, reach speeds of 58 mph, and be pleasing to the eye, while requiring just six calories per day is an exquisite creature indeed."
+  },
+  {
+    "index": 2,
+    "product": "Pill organizers",
+    "img_name": "pills_organizer",
+    "love": "FALSE",
+    "expert": "Sunni Brown",
+    "title": "Founder, The Doodle Revolution",
+    "opinion": "Given the number of senior citizens and the ubiquitousness of supplement-lovers, it’s baffling that the design of these devices actually seems user-antagonistic. The AARP needs a Kickstarter."
+  },
+  {
+    "index": 3,
+    "product": "Naked edison lightbulb",
+    "img_name": "edison_bulb",
+    "love": "TRUE",
+    "expert": "Shauna Mei",
+    "title": "Founder, CEO of Ahalife",
+    "opinion": "Edison’s original creation is beautiful, and has a perfect candle-lit glow that makes people look their best."
+  },
+  {
+    "index": 4,
+    "product": "My hands",
+    "img_name": "hands",
+    "love": "TRUE",
+    "expert": "Jami Curl",
+    "title": "Founder, Quin",
+    "opinion": "I spend half my work day inventing candies or bettering recipes in a kitchen. The tool I rely on time and time again are my hands. From poking to pinching to gauging temperature, they always work perfectly."
+  },
+  {
+    "index": 5,
+    "product": "School lunch programs",
+    "img_name": "lunch_programs",
+    "love": "FALSE",
+    "expert": "Jami Curl",
+    "title": "Founder, Quin",
+    "opinion": "Real food has been replaced by factory-produced barely-food. It’s crazy to think that cafeteria workers once made their own bread and served chicken that wasn’t in finger form."
+  },
+  {
+    "index": 6,
+    "product": "Plain white t-shirt",
+    "img_name": "white_shirt",
+    "love": "TRUE",
+    "expert": "Jae Goodman",
+    "title": "Chief Creative Officer, CAA Marketing",
+    "opinion": "Simplicity and versatility, with room for interpretation by generations of designers and consumers."
+  },
+  {
+    "index": 7,
+    "product": "The human neck",
+    "img_name": "neck",
+    "love": "FALSE",
+    "expert": "Tal Dehtiar",
+    "title": "Founder, Oliberté Footwear",
+    "opinion": "It cannot turn 360 degrees. Imagine a world where you can turn your head all the way around – that would have been a better way to design a neck. It would change everything."
+  },
+  {
+    "index": 8,
+    "product": "Metal-latched Mason jars",
+    "img_name": "mason_jars",
+    "love": "TRUE",
+    "expert": "Leslie Bradshaw",
+    "title": "Chief Operating Officer, Guide",
+    "opinion": "There is such a sense of satisfaction when you pop open the top, and an equal sense of ‘my contents are safely sealed’ when you latch it back down. To think this was patented back in 1858!"
+  },
+  {
+    "index": 9,
+    "product": "Land line phone",
+    "img_name": "land_line",
+    "love": "TRUE",
+    "expert": "Dan Heath",
+    "title": "Author, Duke",
+    "opinion": "It works every time, never drops calls, and has amazing sound quality. Shouldn’t corded phones be rebranded as luxury products that offer an ‘intimate audio experience’? Or does that sound phone-sex-ish?"
+  },
+  {
+    "index": 10,
+    "product": "Pizza",
+    "img_name": "pizza",
+    "love": "TRUE",
+    "expert": "Neil Blumenthal",
+    "title": "Cofounder, Warby Parker",
+    "opinion": "It’s edible, portable, foldable, and affordable. New York City’s subway map is all of the same things, except edible."
+  },
+  {
+    "index": 11,
+    "product": "Legos",
+    "img_name": "lego",
+    "love": "TRUE",
+    "expert": "Dave Gilboa",
+    "title": "Cofounder, Warby Parker",
+    "opinion": "They’re simple, fun, and can be used to build almost anything."
+  },
+  {
+    "index": 12,
+    "product": "Martini glasses",
+    "img_name": "martini_glass",
+    "love": "FALSE",
+    "expert": "Dave Gilboa",
+    "title": "Cofounder, Warby Parker",
+    "opinion": "These glasses are precision engineered—to make spilling inevitable."
+  },
+  {
+    "index": 13,
+    "product": "K–12 education",
+    "img_name": "k_12",
+    "love": "FALSE",
+    "expert": "Bing Gordon",
+    "title": "Partner, Kleiner Perkins Caufield & Byers",
+    "opinion": "It’s not tuned for personalized progression, and the feedback systems are way too slow, with insufficient social loops and group work."
+  },
+  {
+    "index": 14,
+    "product": "Infant car seats",
+    "img_name": "car_seat",
+    "love": "FALSE",
+    "expert": "Julie Keefe",
+    "title": "Creative Laureate, Portland, Oregon",
+    "opinion": "My guess is that there hasn’t been a design award given to any designer of infant car seats ever, ever in history."
+  },
+  {
+    "index": 15,
+    "product": "X-Acto knife",
+    "img_name": "xacto",
+    "love": "TRUE",
+    "expert": "Rick Barrack",
+    "title": "Chief Creative Officer, CBX",
+    "opinion": "I still have my very first one. It’s engineered perfectly, ergonomically sound, and can be used as just about anything: letter opener, nail clipper, presentation pointer, and of course board cutter."
+  },
+  {
+    "index": 16,
+    "product": "Pepto Bismol",
+    "img_name": "pepto_bismol",
+    "love": "FALSE",
+    "expert": "Rick Barrack",
+    "title": "Chief Creative Officer, CBX",
+    "opinion": "It’s a pink clay-like substance that has no appetite appeal. I get sick just thinking about it."
+  },
+  {
+    "index": 17,
+    "product": "The Getty Center",
+    "img_name": "getty",
+    "love": "TRUE",
+    "expert": "Sarika Doshi",
+    "title": "Cofounder, Rank & Style",
+    "opinion": "It is the most pleasant, welcoming and inspiring space to experience art. It inspires to me think creatively, and to be present and thoughtful."
+  },
+  {
+    "index": 18,
+    "product": "London underground map",
+    "img_name": "london_map",
+    "love": "TRUE",
+    "expert": "Krista Donaldson",
+    "title": "CEO, D-Rev",
+    "opinion": "It’s simple and elegantly clear."
+  },
+  {
+    "index": 19,
+    "product": "Pencil",
+    "img_name": "pencil",
+    "love": "TRUE",
+    "expert": "D’Wayne Edwards",
+    "title": "Founder, Pensole",
+    "opinion": "Invented in the 16th century, the pencil gave Pablo Picasso an image, Leonardo Da Vinci an object, Ludwig Van Beethovan sound and Charles Darwin a voice. It’s timeless."
+  },
+  {
+    "index": 20,
+    "product": "Tesla Model S",
+    "img_name": "tesla_model_s",
+    "love": "TRUE",
+    "expert": "Dana Brunetti",
+    "title": "Producer, Trigger Street",
+    "opinion": "An all-electric vehicle that performs better than all of the gasoline powered cars I own and have owned, without the ugly looks of the hybrids. Truly a game changer."
+  }
+];
 
-
-
-// D3
-// =============================================
-
-var width = 868,
-	height = 550;
-
-var color = d3.scale.quantize();
-
-var projection = d3.geo.albersUsa()
-	.scale(1180)
-	.translate([width / 2, height / 2]);
-
-var path = d3.geo.path()
-	.projection(projection);
-
-var svg = d3.select(".viz-svg-wrap").append("svg")
-	.attr("width", width)
-	.attr("height", height);f
-
-queue()
-	.defer(d3.json, jsonURL)
-	.defer(d3.tsv, spreadsheetURL)
-	.defer(d3.tsv, regionalTSV)
-	.await(ready);
-
-
-
-function ready(error, us, termData, regionalData) {
-
-	var nested_regional = d3.nest()
-		.key(function(d) {return d.state; })
-		.entries(regionalData);
-
-	var nested_terms = d3.nest()
-		.key(function(d) {return d.state; })
-		.entries(termData);
-
-	REGIONALDATA = nested_regional;
-	INGDATA = nested_terms;
-	MAPDATA = us;
-
-	populateStates(INGDATA);
-
-	// Create the state paths
-	var states = svg.selectAll("path")
-		.data(us.features)
-	  .enter().append("path")
-		.attr("d", path)
-		.attr("class", "viz-state-shape");
-
-	STATES = states;
-
-	// Shade map
-	drawIngMap(us, states);
-
-	// Now that the elements exist we can bind handlers
-	bindMapHandlers();
-}
-
-
-
-
-
-
-
-
+compileTemplate();
 
 
 // HANDLERS
 // =============================================
+$('.viz-loathe, .viz-love').on('click', function(e) {
+	var vars = getVars($(this));
 
-
-function bindMapHandlers() {
-
-	// Regional map btns
-	$(".viz-regional-btn").on("click", function(){
-		var term = $(this).data("term");
-
-		updateLayout($(this));
-		drawRegionalMap(MAPDATA, STATES, term);
-	});
-
-	// Top terms map btn
-	$(".viz-terms-btn").on("click", function(){
-		updateLayout($(this));
-		drawIngMap(MAPDATA, STATES);
-	});
-
-	// State hover functionality
-	$(".viz-content-block").on({
-		mouseenter: function() {
-			var callout = $(".viz-hover-callout");
-			var states = $(".viz-state");
-			var state = this.id;
-			var element = states.filter("[data-state='" + state + "']").first();
-			var toInsert = element.clone();
-
-			d3.select(this).moveToFront();
-
-			if (this instanceof SVGElement) {
-				this.addClass("viz-state-active");
-			} else {
-				var partnerState = d3.select("#" + state);
-				partnerState.moveToFront();
-				partnerState[0][0].addClass("viz-state-active");
-			}
-
-			callout.html(toInsert);
-		},
-		mouseleave: function() {
-			var state = this.id;
-
-			if (this instanceof SVGElement) {
-				this.removeClass("viz-state-active");
-			} else {
-				d3.select("#" + state)[0][0].removeClass("viz-state-active");
-			}
-		}
-	}, ".viz-state-shape, .viz-proxy");
-
-}
-
-
+	updateUnselected(vars);
+	showAnswer(vars);
+	removeHandlers(vars);
+});
 
 
 // HELPERS
 // =============================================
 
-function updateLayout(target) {
-	$(".viz-map-hed").hide();
-	$(".viz-map-intro").hide();
-	$(".viz-scale").hide();
-	$(".viz-nav-btn").removeClass("viz-nav-btn-active");
-	target.addClass("viz-nav-btn-active");
-}
+function compileTemplate() {
+	var toAppendStringLeft = "";
+	var toAppendStringRight = "";
 
-function drawRegionalMap(data, states, term) {
-
-	$(".viz-proxy").hide();
-	$(".viz-" + term).show();
-	$(".viz-scale-regional").fadeIn(200);
-	$(".viz-map-overlay").fadeOut(200);
-
-	color.range(['rgb(178,24,43)','rgb(214,96,77)','rgb(244,165,130)','rgb(253,219,199)','rgb(255,255,255)','rgb(224,224,224)'])
-		.domain([45, -15]);
-
-	// Merge diff vals from REGIONALDATA into us data object
-	if (!data.features[0].properties[term + "_diff"]) {
-		for (var i = 0; i < REGIONALDATA.length; i++) {
-
-			var state = REGIONALDATA[i];
-
-			var regionalDataState = state.key;
-
-			//Find the corresponding state inside the GeoJSON
-			for (var j = 0; j < data.features.length; j++) {
-
-				var jsonState = data.features[j].properties.abrv;
-
-				if (regionalDataState == jsonState) {
-
-					//Copy the termData value into the JSON
-					data.features[j].properties[term + "_diff"] = parseFloat(state.values[0][term + "_diff"]);
-
-					//Stop looking through the JSON
-					break;
-				}
-			}
-		}
-	}
-
-	states.style("stroke", "rgb(204, 198, 185)")
-		.style("fill", function(d) {
-			var value = d.properties[term + "_diff"];
-			return color(value);
-		});
-}
-
-function drawIngMap(data, states) {
-	
-	$(".viz-terms").show();
-	$(".viz-proxy").show();
-	$(".viz-scale-ing").fadeIn(200);
-	$(".viz-map-overlay").fadeIn(200);
-
-	color.range(['rgb(254,229,217)','rgb(252,174,145)','rgb(251,106,74)','rgb(203,24,29)'])
-		.domain([0.1, 0.5]);
-
-	// Merge diff vals from INGDATA into us data object
-	if (!data.features[0].properties.value) {
-		for (var i = 0; i < INGDATA.length; i++) {
-			var ingArray = [];
-
-			_.each(INGDATA[i].values, function(e, j) {
-				if (INGDATA[i].values[j].type === "ingredient" || INGDATA[i].values[j].type === "dish") {
-					ingArray.push(INGDATA[i].values[j]);
-				}
-			});
-
-			var mostDiff = ingArray[0];
-			var termDataState = mostDiff.state_fullname;
-
-			//Find the corresponding state inside the GeoJSON
-			for (var j = 0; j < data.features.length; j++) {
-
-				var jsonState = data.features[j].properties.name;
-
-				if (termDataState == jsonState) {
-
-					//Copy the termData value into the JSON
-					data.features[j].properties.value = mostDiff.diff;
-					data.features[j].properties.abrv =  mostDiff.state;
-					data.features[j].properties.term = mostDiff.term;
-
-					//Stop looking through the JSON
-					break;
-				}
-			}
-		}
-	}
-
-	states.style("stroke", "rgb(255, 255, 255)")
-		.attr("id", function(d) { return d.properties.abrv; })
-		.style("fill", function(d) {
-			var value = d.properties.value;
-			return color(value);
-		});
-}
-
-
-function populateStates(data) {
-	var myObj = {};
-	var toAppendString1 = "";
-	var toAppendString2 = "";
-	var dataLength = data.length;
-	var toPercent = d3.format("%");
-
-
-	// Create objects that underscore likes
-	myObj["states"] = data;
-	data = myObj;
-	
-	// Compile the list
-	for (i = 0; i < dataLength; i++) {
-		if (i < dataLength/2 ) {
-			toAppendString1 += statesTemplate(data.states[i]);
+	_.each(templateData, function(entity, i) {
+		if (i < (templateData.length)/2) {
+		    toAppendStringLeft += quizTemplate(entity);
 		} else {
-			toAppendString2 += statesTemplate(data.states[i]);
+		    toAppendStringRight += quizTemplate(entity);
 		}
-	}
-
-	// Append the lists
-	$(".viz-states-col-1").html(toAppendString1);
-	$(".viz-states-col-2").html(toAppendString2);
-}
-
-var percentTimesHundo = function(val) {
-	val  = val * 100;
-	// var formatVal = d3.format(".0");
-	return d3.round(val);
-};
-
-
-// SVG HELPERS
-// =============================================
-
-d3.selection.prototype.moveToFront = function() {
-	return this.each(function() {
-		this.parentNode.appendChild(this);
 	});
+
+	$('.viz-choice-list-left').append(toAppendStringLeft);
+	$('.viz-choice-list-right').append(toAppendStringRight);
 };
 
-SVGElement.prototype.hasClass = function(className) {
-	return new RegExp('(\\s|^)' + className + '(\\s|$)').test(this.getAttribute("class"));
+function getVars($clicked) {
+	var vars = {};
+
+	var parentEl = $clicked.closest('.viz-choice-item');
+	vars.loveLoathe = parentEl.find('.viz-love, .viz-loathe');
+	vars.selectedEl = $clicked;
+	vars.unselectedEl = vars.loveLoathe.not(vars.selectedEl);
+	vars.rightEl = vars.loveLoathe.filter('[data-correct="true"]');
+	vars.opinion = parentEl.find('.viz-opinion-wrap');
+	vars.decision = vars.opinion.find('.viz-opinion-decision')
+
+	return vars;
 };
 
-SVGElement.prototype.addClass = function(className) {
-	if (!this.hasClass(className)) {
-		this.setAttribute("class", this.getAttribute("class") + " " + className);
+function updateUnselected(vars) {
+	vars.unselectedEl.addClass('viz-unselected');
+};
+
+function showAnswer(vars) {
+	vars.opinion.slideDown(200);
+
+	if (vars.selectedEl[0] === vars.rightEl[0]) {
+		vars.decision.text('agrees');
+		incrementAgree();
+	} else {
+		vars.decision.text('disagrees');
+		incrementDisagree();
 	}
 };
 
-SVGElement.prototype.removeClass = function(className) {
-	var removedClass = this.getAttribute("class").replace(new RegExp("(\\s|^)" + className + "(\\s|$)", "g"), "$2");
-	if (this.hasClass(className)) {
-		this.setAttribute("class", removedClass);
-	}
+function incrementAgree() {
+	var newCount = parseInt(agreeCount.text());
+	agreeCount.text(newCount += 1);
+};
+
+function incrementDisagree() {
+	var newCount = parseInt(disagreeCount.text());
+	disagreeCount.text(newCount += 1);
+};
+
+function removeHandlers(vars) {
+	vars.loveLoathe.off('click').addClass('viz-disabled');
 };

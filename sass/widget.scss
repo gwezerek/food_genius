@@ -7,15 +7,15 @@
 
 //  Imports
 // =============================================
-@import "compass/css3";
-@import "compass/utilities/general/clearfix";
-@import "partials/mixins";
-@import "partials/variables";
+@import 'compass/css3';
+@import 'compass/utilities/general/clearfix';
+@import 'partials/mixins';
+@import 'partials/variables';
 
 
 //  Modules
 // =============================================
-@import "partials/base";
+@import 'partials/base';
 
 
 
@@ -32,227 +32,152 @@
 // Longform page styline
 
 #page .page-inner {
-	background-image: none;
+    background-image: none;
 }
 
 .full-view {
-	padding-left: 0;
+    padding-left: 0;
 }
 
 #page.kind-longread #page-main .after-body {
-	margin: 0;
+    margin: 0;
 }
 
 #page .page-inner {
-	background-image: none;
+    background-image: none;
 }
 
-#page.kind-longread #page-main article.full-view>header {
-	padding-right: 0 !important;
+#page.kind-longread #page-main article.full-view > header {
+    padding-right: 0 !important;
 }
 
 #page.kind-longread #page-main article.full-view .prose.body {
-	padding-right: 0 !important;
+    padding-right: 0 !important;
 }
 
 #page-body {
-	padding: 0 20px;
-	@media (min-width: $small) {
-		padding: 0 30px;
-	}
-	@media (min-width: $medium) {
-		padding: 0 50px;
-	}
-	@media (min-width: $large) {
-		padding: 0 200px 0 20px;
-	}
+    padding: 0 20px;
+    @media (min-width: $small) {
+        padding: 0 30px;
+    }
+    @media (min-width: $medium) {
+        padding: 0 50px;
+    }
+    @media (min-width: $large) {
+        padding: 0 200px 0 20px;
+    }
 }
 
-#page.kind-longread #page-main article.full-view>header .title {
-	margin-top: 24px;
-	margin-bottom: 15px;
+#page.kind-longread #page-main article.full-view > header .title {
+    margin-top: 24px;
+    margin-bottom: 15px;
 }
 
 .full-view .byline {
-	display: none;
+    display: none;
 }
 
-.full-view>header .deck, .full-view>header .deck p {
-	margin-bottom: 0;
-	font-weight: 500 !important;
+.full-view > header .deck,
+ .full-view > header .deck p {
+    font-weight: 500 !important;
+    margin-bottom: 0;
 }
 
 .prose.body {
-
-	// General FC resets
-	* {
-		-webkit-font-smoothing: subpixel-antialiased;
-	}
-
-	img {
-		max-width: none;
-	}
-
-	form {
-		margin: 0 0 -15px 0;
-	}
-
-	table {
-		margin: 0;
-		border: none;
-	}
-
-	table thead, table tfoot {
-		background: none;
-	}
-
-	p, p:first-child, p:first-line {
-		color: inherit;
-		font-weight: inherit !important;
-		font-family: inherit !important;
-		line-height: inherit;
-	}
-
-	label {
-		margin: 0;
-	}
-
-	ol {
-		list-style-type: none;
-		line-height: 100%;
-		& li {
-			width: auto;
-		}
-	}
-
-	ul {
-		margin: 0;
-		& li {
-			padding-left: 0;
-			line-height: 100%;
-		}
-	}
-
-	ol>li:before {
-		position: static;
-	}
-
-	ul>li:before {
-		content: none;
-	}
-
-
-	// Base overwrites
-	.viz-hed {
-		margin: 0;
-		padding: 5px 10px 7px;
-		padding: 5px 10px 7px;
-		text-transform: none;
-		letter-spacing: 0;
-		font-weight: 600 !important;
-		font-size: 22px;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
-
-	.viz-subhead {
-		text-transform: none;
-		letter-spacing: 0;
-		font-weight: 600 !important;
-		font-size: 18px !important;
-		line-height: 110%;
-	}
-
-	.viz-copy, .viz-copy:first-line, .viz-copy:first-child {
-		color: $txt-black !important;
-		font-size: 14px !important;
-		line-height: 140% !important;
-		font-weight: 500 !important;
-	}
-
-	.viz-smallcaps {
-		font-size: 12px !important;
-		font-family: $slab !important;
-		line-height: 120%;
-	}
-
-	.viz-detail {
-	    color: $med-gray !important;
-	    text-transform: none;
-	}
-
-	.viz-source, .viz-source:first-line, .viz-source:first-child {
-		margin: 0 0 7px;
-		color: $med-gray !important;
-		font-weight: 400 !important;
-		font-size: 12px !important;
-		font-family: $slab !important;
-		line-height: 140% !important;
-	}
-
-
-	// Graphic specific
-	.viz-map-hed {
-		margin-bottom: 10px !important;
-		text-align: center;
-		line-height: 120%;
-	}
-
-	.viz-nav-btn {
-		border-bottom: none;
-		color: $med-gray !important;
-		&:hover {
-			color: $dark-gray !important;
-		}
-	}
-
-	.viz-nav-btn-active {
-		color: $txt-black !important;
-	}
-	
-	.viz-state {
-		margin-bottom: 20px;
-		padding: 0;
-	}
-
-	.viz-state-anchor {
-		border-bottom: none;
-		color: $txt-black !important;
-	}
-
-	.viz-content-map {
-		margin: 24px 0;
-		margin-right: -312px;
-		max-width: 940px;
-	}
-
-	.viz-footer {
-		margin-right: -312px;
-		max-width: 940px;
-	}
-
-	.viz-ing-segment {
-		width: 25%;
-	}
-
-	.viz-reg-segment {
-		width: 16.666666667%;
-	}
-	
-	.viz-scale-label, .viz-scale-label:first-line, .viz-scale-label:first-child {
-		margin: 0 0 5px;
-		width: 100%;
-		color: $txt-black !important;
-		font-weight: 500 !important;
-		font-size: 12px !important;
-		font-family: $slab !important;
-	}
-
+    // General FC resets
+    * {
+        -webkit-font-smoothing: subpixel-antialiased;
+    }
+    img {
+        max-width: none;
+    }
+    form {
+        margin: 0 0 -15px 0;
+    }
+    table {
+        margin: 0;
+        border: none;
+    }
+    table thead,
+    table tfoot {
+        background: none;
+    }
+    p,
+    p:first-child,
+    p:first-line {
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit;
+        color: inherit;
+    }
+    label {
+        margin: 0;
+    }
+    ol {
+        line-height: 100%;
+        list-style-type: none;
+        & li {
+            width: auto;
+        }
+    }
+    ul {
+        margin: 0;
+        & li {
+            line-height: 100%;
+            padding-left: 0;
+        }
+    }
+    ol > li:before {
+        position: static;
+    }
+    ul > li:before {
+        content: none;
+    }
+    // Base overwrites
+    .viz-hed {
+        font-size: 22px;
+        font-weight: 600 !important;
+        margin: 0;
+        padding: 5px 10px 7px;
+        padding: 5px 10px 7px;
+        letter-spacing: 0;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .viz-subhead {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        line-height: 110%;
+        letter-spacing: 0;
+        text-transform: none;
+    }
+    .viz-copy,
+    .viz-copy:first-line,
+    .viz-copy:first-child {
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        line-height: 140% !important;
+        color: $txt-black !important;
+    }
+    .viz-smallcaps {
+        font-family: $slab !important;
+        font-size: 12px !important;
+        line-height: 120%;
+    }
+    .viz-detail {
+        text-transform: none;
+        color: $med-gray !important;
+    }
+    .viz-source,
+    .viz-source:first-line,
+    .viz-source:first-child {
+        font-family: $slab !important;
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        line-height: 140% !important;
+        margin: 0 0 7px;
+        color: $med-gray !important;
+    }
+    // Graphic specific
 }
-
-
-
-
-
-
-
