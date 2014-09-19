@@ -288,7 +288,7 @@ function getUpdatedText() {
 };
 
 function updateFb(text) {
-  var newURL = 'https://www.facebook.com/dialog/feed?link=' + encodeURIComponent(document.URL) + '&caption=' + text + '&name' + encodeURIComponent($('.viz-hed').text()) + '&app_id=123388861116012&display=popup&description=%26nbsp%3B';
+  var newURL = 'https://www.facebook.com/dialog/feed?link=' + encodeURIComponent(document.URL) + '&redirect_uri=' + document.URL + '&caption=' + text + '&name=' + encodeURIComponent($('.viz-hed').text()) + '&app_id=123388861116012&display=popup&description=%26nbsp%3B';
   fbBtn.attr('href', newURL);
 };
 
