@@ -2613,7 +2613,7 @@
 
 /* line 98, ../sass/partials/_base.scss */
 .viz-footer-copy {
-  font-size: 12px;
+  font-size: 10px;
   line-height: 140%;
   margin: 0;
   color: #99948a;
@@ -2931,9 +2931,9 @@
 .viz-share-button {
   width: 24px;
   height: 24px;
+  margin-right: 7px;
   padding: 5px;
   padding: 4px;
-  margin-right: 7px;
   text-align: center;
   text-decoration: none;
   box-shadow: #ccc6b9 0 1px 0 0;
@@ -2971,14 +2971,14 @@
 .viz-opinion-hed {
   margin-bottom: 6px;
   padding-bottom: 6px;
-  border-bottom: 1px solid #ccc6b9;
   color: #33312e;
+  border-bottom: 1px solid #ccc6b9;
 }
 
 /* line 363, ../sass/partials/_base.scss */
 .viz-opinion {
-  text-indent: -3.5px;
   margin-bottom: 24px;
+  text-indent: -3.5px;
 }
 
 /* line 368, ../sass/partials/_base.scss */
@@ -3008,11 +3008,24 @@
 
 /* line 389, ../sass/partials/_base.scss */
 .viz-expert-name {
+  -webkit-transition: 0.2s color ease-in-out, 0.2s border-color ease-in-out;
+  -moz-transition: 0.2s color ease-in-out, 0.2s border-color ease-in-out;
+  -o-transition: 0.2s color ease-in-out, 0.2s border-color ease-in-out;
+  transition: 0.2s color ease-in-out, 0.2s border-color ease-in-out;
+  padding-bottom: 1px;
+  text-decoration: none;
   letter-spacing: .5px;
   text-transform: uppercase;
+  color: #99948a;
+  border-bottom: 1px solid #ccc6b9;
+}
+/* line 397, ../sass/partials/_base.scss */
+.viz-expert-name:hover {
+  color: #33312e;
+  border-color: #33312e;
 }
 
-/* line 394, ../sass/partials/_base.scss */
+/* line 403, ../sass/partials/_base.scss */
 .viz-expert-job {
   font-size: 12px;
 }

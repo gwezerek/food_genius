@@ -12,20 +12,18 @@
 	<meta name="viewport" content="width=device-width">
 	<title>Can You Spot Great Design? The Fast Company Quiz</title>
 	<link rel="stylesheet" href="css/site.css">
-	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-	<script src="http://d3js.org/queue.v1.min.js"></script>
-	<script src="http://d3js.org/topojson.v1.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/pym/0.1.0/pym.min.js"></script>
 </head>
 
 <body>
 	<article class="viz-article">
 		<div class="viz-container">
 				<header class="viz-header">
-					<h4 class="viz-hed">Can You Spot Great Design? The&nbsp;<cite class="viz-hed-cite">Fast Company</cite>&nbsp;Quiz</h4>
-          <p class="viz-copy viz-intro">Do you know what good design looks like? We asked a panel of design experts what products, household items or body parts that they felt embodied great&mdash;or terrible&mdash;design. Answer these questions to find out if your design eye matches the&nbsp;professionals.</p>
+					<h4 class="viz-hed">Can You Spot Great Design? The <cite class="viz-hed-cite">Fast&nbsp;Company</cite> Design Sense&nbsp;Quiz</h4>
+          <p class="viz-copy viz-intro">Do you know what good design looks like? We asked a panel of design experts what products, household items or body parts they felt embodied great&mdash;or terrible&mdash;design. Answer these questions to find out if your design eye matches the&nbsp;professionals'.</p>
 				</header>
 			<ol class="viz-choice-list">
 				<!-- template goes here -->
@@ -77,12 +75,29 @@
 					<h5 class="viz-copy viz-opinion-hed">Our expert <span class="viz-opinion-decision"></span> with you</h5>
 					<p class="viz-copy viz-opinion">
 						<span class="viz-opinion-copy">&ldquo;<%- opinion %>&rdquo;</span>
-						<span class="viz-expert"><span class="viz-nobreak"><i class="viz-expert-icon icon-user"></i> <span class="viz-expert-name"><%- expert %></span></span><span class="viz-expert-job"> <%- title %></span></span>
+						<span class="viz-expert"><span class="viz-nobreak"><i class="viz-expert-icon icon-user"></i> <a href="<%- person_link %>" class="viz-expert-name"><%- expert %></a></span><span class="viz-expert-job"> <%- title %></span></span>
 					</p>
 				</div>
 			</li>
 		</script>
 
+		<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '1468377633429250',
+		      xfbml      : true,
+		      version    : 'v2.1'
+		    });
+		  };
+
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
 		<script type="text/javascript" src="js/main.js"></script>
 
 	</article>

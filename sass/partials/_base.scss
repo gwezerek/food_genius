@@ -96,7 +96,7 @@
 }
 
 .viz-footer-copy {
-    font-size: 12px;
+    font-size: 10px;
     line-height: 140%;
     margin: 0;
     color: $med-gray;
@@ -321,9 +321,9 @@
 .viz-share-button {
     width: 24px;
     height: 24px;
+    margin-right: 7px;
     padding: 5px;
     padding: 4px;
-    margin-right: 7px;
     text-align: center;
     text-decoration: none;
     box-shadow: $light-gray 0 1px 0 0;
@@ -356,13 +356,13 @@
 .viz-opinion-hed {
     margin-bottom: 6px;
     padding-bottom: 6px;
-    border-bottom: 1px solid $light-gray;
     color: $txt-black;
+    border-bottom: 1px solid $light-gray;
 }
 
 .viz-opinion {
-    text-indent: -3.5px;
     margin-bottom: 24px;
+    text-indent: -3.5px;
 }
 
 .viz-opinion-decision {
@@ -387,8 +387,17 @@
 }
 
 .viz-expert-name {
+    @include transition(0.2s color ease-in-out, 0.2s border-color ease-in-out);
+    padding-bottom: 1px;
+    text-decoration: none;
     letter-spacing: .5px;
     text-transform: uppercase;
+    color: $med-gray;
+    border-bottom: 1px solid $light-gray;
+    &:hover {
+        color: $txt-black;
+        border-color: $txt-black;
+    }
 }
 
 .viz-expert-job {
