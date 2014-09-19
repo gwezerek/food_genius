@@ -10,7 +10,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width">
-	<title>Can You Spot Great Design?: The Fast Company Quiz</title>
+	<title>Can You Spot Great Design? The Fast Company Quiz</title>
 	<link rel="stylesheet" href="css/site.css">
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -24,16 +24,20 @@
 	<article class="viz-article">
 		<div class="viz-container">
 				<header class="viz-header">
-					<h4 class="viz-hed">Can You Spot Great Design?: The <cite class="viz-hed-cite">Fast Company</cite> Quiz</h4>
+					<h4 class="viz-hed">Can You Spot Great Design? The&nbsp;<cite class="viz-hed-cite">Fast Company</cite>&nbsp;Quiz</h4>
           <p class="viz-copy viz-intro">Do you know what good design looks like? We asked a panel of design experts what products, household items or body parts that they felt embodied great&mdash;or terrible&mdash;design. Answer these questions to find out if your design eye matches the&nbsp;professionals.</p>
 				</header>
-			<section class="viz-content-block">
-				<ol class="viz-choice-list">
-					<div class="viz-choice-list-left"></div>
-					<div class="viz-choice-list-right"></div>
-				</ol>
-			</section>
-			<section class="viz-content-block">
+			<ol class="viz-choice-list">
+				<!-- template goes here -->
+			</ol>
+			<button class="viz-neutral-btn viz-next-btn">
+				<span class="viz-label">Next <i class="icon-arrow-right"></i></span>
+			</button>
+			<section class="viz-content-block viz-results-wrap">
+				<div class="viz-share-wrap">
+					<a href="" class="viz-neutral-btn js-viz-fb-btn viz-share-button icon-facebook"></a>
+					<a href="" class="viz-neutral-btn js-viz-tw-btn viz-share-button icon-twitter"></a>
+				</div>
 				<p class="viz-copy viz-results">You agreed with our experts <span class="viz-agree-count">0</span> times and disagreed <span class="viz-disagree-count">0</span> times.</p>
 			</section>
 			<footer class="viz-footer">
@@ -49,7 +53,8 @@
 		<script class="viz-template" type="text/template">
 			<li class="viz-choice-item">
 				<header class="viz-choice-hed viz-copy">
-					<p class="viz-product-label"><%- index %>. <%- product %></p>
+					<p class="viz-product-label"><%- product %></p>
+					<p class="viz-remaining"><%- index %> of 20</p>
 				</header>
 				<div class="viz-grid">
 					<div class="viz-col-1-3 viz-loathe" <% if ( love === 'FALSE' ){ %>data-correct="true"<% } %>>
@@ -72,7 +77,7 @@
 					<h5 class="viz-copy viz-opinion-hed">Our expert <span class="viz-opinion-decision"></span> with you</h5>
 					<p class="viz-copy viz-opinion">
 						<span class="viz-opinion-copy">&ldquo;<%- opinion %>&rdquo;</span>
-						<span class="viz-expert"><i class="viz-expert-icon icon-user"></i>&nbsp;<span class="viz-expert-name"><%- expert %></span><span class="viz-expert-job"> <%- title %></span></span>
+						<span class="viz-expert"><span class="viz-nobreak"><i class="viz-expert-icon icon-user"></i> <span class="viz-expert-name"><%- expert %></span></span><span class="viz-expert-job"> <%- title %></span></span>
 					</p>
 				</div>
 			</li>
