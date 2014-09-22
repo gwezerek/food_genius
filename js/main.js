@@ -5,6 +5,8 @@
 'use strict';
 
 
+console.log("in graphicScript");
+
 // SETUP
 // =============================================
 var agreeCount = $('.viz-agree-count');
