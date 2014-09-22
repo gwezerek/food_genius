@@ -7,7 +7,6 @@
 
 // SETUP
 // =============================================
-var pymChild = new pym.Child();
 var agreeCount = $('.viz-agree-count');
 var disagreeCount = $('.viz-disagree-count');
 var fbBtn = $('.js-viz-fb-btn');

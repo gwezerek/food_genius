@@ -31,57 +31,53 @@
 
 // Longform page styline
 
-#page .page-inner {
-    background-image: none;
-}
+// .full-view {
+//     padding-left: 0;
+// }
 
-.full-view {
-    padding-left: 0;
-}
+// #page.kind-longread #page-main .after-body {
+//     margin: 0;
+// }
 
-#page.kind-longread #page-main .after-body {
-    margin: 0;
-}
+// #page .page-inner {
+//     background-image: none;
+// }
 
-#page .page-inner {
-    background-image: none;
-}
+// #page.kind-longread #page-main article.full-view > header {
+//     padding-right: 0 !important;
+// }
 
-#page.kind-longread #page-main article.full-view > header {
-    padding-right: 0 !important;
-}
+// #page.kind-longread #page-main article.full-view .prose.body {
+//     padding-right: 0 !important;
+// }
 
-#page.kind-longread #page-main article.full-view .prose.body {
-    padding-right: 0 !important;
-}
+// #page-body {
+//     padding: 0 20px;
+//     @media (min-width: $small) {
+//         padding: 0 30px;
+//     }
+//     @media (min-width: $medium) {
+//         padding: 0 50px;
+//     }
+//     @media (min-width: $large) {
+//         padding: 0 200px 0 20px;
+//     }
+// }
 
-#page-body {
-    padding: 0 20px;
-    @media (min-width: $small) {
-        padding: 0 30px;
-    }
-    @media (min-width: $medium) {
-        padding: 0 50px;
-    }
-    @media (min-width: $large) {
-        padding: 0 200px 0 20px;
-    }
-}
+// #page.kind-longread #page-main article.full-view > header .title {
+//     margin-top: 24px;
+//     margin-bottom: 15px;
+// }
 
-#page.kind-longread #page-main article.full-view > header .title {
-    margin-top: 24px;
-    margin-bottom: 15px;
-}
+// .full-view .byline {
+//     display: none;
+// }
 
-.full-view .byline {
-    display: none;
-}
-
-.full-view > header .deck,
- .full-view > header .deck p {
-    font-weight: 500 !important;
-    margin-bottom: 0;
-}
+// .full-view > header .deck,
+//  .full-view > header .deck p {
+//     font-weight: 500 !important;
+//     margin-bottom: 0;
+// }
 
 .prose.body {
     // General FC resets
@@ -137,9 +133,8 @@
     .viz-hed {
         font-size: 22px;
         font-weight: 600 !important;
-        margin: 0;
-        padding: 5px 10px 7px;
-        padding: 5px 10px 7px;
+        line-height: 130%;
+        margin-bottom: 12px !important;
         letter-spacing: 0;
         text-transform: none;
         -webkit-font-smoothing: antialiased;
@@ -158,7 +153,7 @@
         font-size: 14px !important;
         font-weight: 500 !important;
         line-height: 140% !important;
-        color: $txt-black !important;
+        color: $dark-gray !important;
     }
     .viz-smallcaps {
         font-family: $slab !important;
@@ -180,4 +175,108 @@
         color: $med-gray !important;
     }
     // Graphic specific
+    .viz-article {
+        // padding: 20px 24px 22px;
+    }
+    .viz-choice-list {
+        margin: 0 !important;
+    }
+    .viz-choice-item {
+        padding-right: 0;
+    }
+    .viz-product-label.viz-product-label {
+        font-family: $slab !important;
+        font-size: 18px;
+        font-weight: 500 !important;
+        line-height: 110%;
+        color: $txt-black;
+    }
+    .viz-opinion-hed {
+        font-family: $sans;
+        font-size: 14px;
+        font-weight: 700 !important;
+        padding-bottom: 6px;
+        letter-spacing: 0;
+        text-transform: none;
+        color: $txt-black;
+        border-bottom: 1px solid $light-gray;
+    }
+    .viz-opinion-copy {
+        color: $dark-gray;
+    }
+    .viz-remaining {
+        font-size: 12px !important;
+        display: inline-block;
+        float: right;
+        margin: 0;
+        color: $light-gray !important;
+    }
+    .viz-neutral-btn {
+        color: $med-gray !important;
+        border: 1px solid $light-gray !important;
+        &:hover {
+            color: $txt-black !important;
+        }
+    }
+    .viz-label {
+        @include trans(.2s, all, ease-in-out);
+        @include backface-visibility(hidden);
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 110%;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        text-transform: uppercase;
+        color: $white;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .viz-next-label {
+        color: $med-gray !important;
+    }
+    .viz-expert {
+        font-size: 10px;
+        line-height: 140%;
+        color: $med-gray;
+    }
+    .viz-expert-icon {
+        font-size: 10px;
+        margin-right: 1px;
+        color: $med-gray;
+    }
+    .viz-expert-job {
+        color: $med-gray;
+    }
+    .icon-arrow-right {
+        margin-right: 0;
+        font-size: 10px;
+    }
+    .viz-expert-name {
+        @include transition(.2s color ease-in-out, .2s border-color ease-in-out);
+        padding-bottom: 1px;
+        text-decoration: none;
+        letter-spacing: .5px;
+        text-transform: uppercase;
+        color: $med-gray !important;
+        border-bottom: 1px solid $light-gray !important;
+        &:hover {
+            color: $txt-black !important;
+            border-color: $txt-black !important;
+        }
+    }
+    .viz-choice-button {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .viz-results {
+        margin: 0 0 0 72px !important;
+    }
+    .viz-footer-copy {
+        font-size: 10px !important;
+        line-height: 140% !important;
+        margin: 0 !important;
+        color: $med-gray !important;
+    }
 }

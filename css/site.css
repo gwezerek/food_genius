@@ -3050,3 +3050,8 @@ body {
     padding: 40px 20px;
   }
 }
+
+/* line 41, ../sass/site.scss */
+.viz-hed {
+  font-size: 28px;
+}

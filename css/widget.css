@@ -2763,100 +2763,29 @@
   font-size: 12px;
 }
 
-/* line 34, ../sass/widget.scss */
-#page .page-inner {
-  background-image: none;
-}
-
-/* line 38, ../sass/widget.scss */
-.full-view {
-  padding-left: 0;
-}
-
-/* line 42, ../sass/widget.scss */
-#page.kind-longread #page-main .after-body {
-  margin: 0;
-}
-
-/* line 46, ../sass/widget.scss */
-#page .page-inner {
-  background-image: none;
-}
-
-/* line 50, ../sass/widget.scss */
-#page.kind-longread #page-main article.full-view > header {
-  padding-right: 0 !important;
-}
-
-/* line 54, ../sass/widget.scss */
-#page.kind-longread #page-main article.full-view .prose.body {
-  padding-right: 0 !important;
-}
-
-/* line 58, ../sass/widget.scss */
-#page-body {
-  padding: 0 20px;
-}
-@media (min-width: 600px) {
-  /* line 58, ../sass/widget.scss */
-  #page-body {
-    padding: 0 30px;
-  }
-}
-@media (min-width: 850px) {
-  /* line 58, ../sass/widget.scss */
-  #page-body {
-    padding: 0 50px;
-  }
-}
-@media (min-width: 1000px) {
-  /* line 58, ../sass/widget.scss */
-  #page-body {
-    padding: 0 200px 0 20px;
-  }
-}
-
-/* line 71, ../sass/widget.scss */
-#page.kind-longread #page-main article.full-view > header .title {
-  margin-top: 24px;
-  margin-bottom: 15px;
-}
-
-/* line 76, ../sass/widget.scss */
-.full-view .byline {
-  display: none;
-}
-
-/* line 81, ../sass/widget.scss */
-.full-view > header .deck,
-.full-view > header .deck p {
-  font-weight: 500 !important;
-  margin-bottom: 0;
-}
-
-/* line 88, ../sass/widget.scss */
+/* line 84, ../sass/widget.scss */
 .prose.body * {
   -webkit-font-smoothing: subpixel-antialiased;
 }
-/* line 91, ../sass/widget.scss */
+/* line 87, ../sass/widget.scss */
 .prose.body img {
   max-width: none;
 }
-/* line 94, ../sass/widget.scss */
+/* line 90, ../sass/widget.scss */
 .prose.body form {
   margin: 0 0 -15px 0;
 }
-/* line 97, ../sass/widget.scss */
+/* line 93, ../sass/widget.scss */
 .prose.body table {
   margin: 0;
   border: none;
 }
-/* line 102, ../sass/widget.scss */
+/* line 98, ../sass/widget.scss */
 .prose.body table thead,
 .prose.body table tfoot {
   background: none;
 }
-/* line 107, ../sass/widget.scss */
+/* line 103, ../sass/widget.scss */
 .prose.body p,
 .prose.body p:first-child,
 .prose.body p:first-line {
@@ -2865,49 +2794,48 @@
   line-height: inherit;
   color: inherit;
 }
-/* line 113, ../sass/widget.scss */
+/* line 109, ../sass/widget.scss */
 .prose.body label {
   margin: 0;
 }
-/* line 116, ../sass/widget.scss */
+/* line 112, ../sass/widget.scss */
 .prose.body ol {
   line-height: 100%;
   list-style-type: none;
 }
-/* line 119, ../sass/widget.scss */
+/* line 115, ../sass/widget.scss */
 .prose.body ol li {
   width: auto;
 }
-/* line 123, ../sass/widget.scss */
+/* line 119, ../sass/widget.scss */
 .prose.body ul {
   margin: 0;
 }
-/* line 125, ../sass/widget.scss */
+/* line 121, ../sass/widget.scss */
 .prose.body ul li {
   line-height: 100%;
   padding-left: 0;
 }
-/* line 130, ../sass/widget.scss */
+/* line 126, ../sass/widget.scss */
 .prose.body ol > li:before {
   position: static;
 }
-/* line 133, ../sass/widget.scss */
+/* line 129, ../sass/widget.scss */
 .prose.body ul > li:before {
   content: none;
 }
-/* line 137, ../sass/widget.scss */
+/* line 133, ../sass/widget.scss */
 .prose.body .viz-hed {
   font-size: 22px;
   font-weight: 600 !important;
-  margin: 0;
-  padding: 5px 10px 7px;
-  padding: 5px 10px 7px;
+  line-height: 130%;
+  margin-bottom: 12px !important;
   letter-spacing: 0;
   text-transform: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* line 148, ../sass/widget.scss */
+/* line 143, ../sass/widget.scss */
 .prose.body .viz-subhead {
   font-size: 18px !important;
   font-weight: 600 !important;
@@ -2915,27 +2843,27 @@
   letter-spacing: 0;
   text-transform: none;
 }
-/* line 157, ../sass/widget.scss */
+/* line 152, ../sass/widget.scss */
 .prose.body .viz-copy,
 .prose.body .viz-copy:first-line,
 .prose.body .viz-copy:first-child {
   font-size: 14px !important;
   font-weight: 500 !important;
   line-height: 140% !important;
-  color: #33312e !important;
+  color: #66635d !important;
 }
-/* line 163, ../sass/widget.scss */
+/* line 158, ../sass/widget.scss */
 .prose.body .viz-smallcaps {
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif !important;
   font-size: 12px !important;
   line-height: 120%;
 }
-/* line 168, ../sass/widget.scss */
+/* line 163, ../sass/widget.scss */
 .prose.body .viz-detail {
   text-transform: none;
   color: #99948a !important;
 }
-/* line 174, ../sass/widget.scss */
+/* line 169, ../sass/widget.scss */
 .prose.body .viz-source,
 .prose.body .viz-source:first-line,
 .prose.body .viz-source:first-child {
@@ -2944,5 +2872,135 @@
   font-weight: 400 !important;
   line-height: 140% !important;
   margin: 0 0 7px;
+  color: #99948a !important;
+}
+/* line 181, ../sass/widget.scss */
+.prose.body .viz-choice-list {
+  margin: 0 !important;
+}
+/* line 184, ../sass/widget.scss */
+.prose.body .viz-choice-item {
+  padding-right: 0;
+}
+/* line 187, ../sass/widget.scss */
+.prose.body .viz-product-label.viz-product-label {
+  font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif !important;
+  font-size: 18px;
+  font-weight: 500 !important;
+  line-height: 110%;
+  color: #33312e;
+}
+/* line 194, ../sass/widget.scss */
+.prose.body .viz-opinion-hed {
+  font-family: "MuseoSans", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700 !important;
+  padding-bottom: 6px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #33312e;
+  border-bottom: 1px solid #ccc6b9;
+}
+/* line 204, ../sass/widget.scss */
+.prose.body .viz-opinion-copy {
+  color: #66635d;
+}
+/* line 207, ../sass/widget.scss */
+.prose.body .viz-remaining {
+  font-size: 12px !important;
+  display: inline-block;
+  float: right;
+  margin: 0;
+  color: #ccc6b9 !important;
+}
+/* line 214, ../sass/widget.scss */
+.prose.body .viz-neutral-btn {
+  color: #99948a !important;
+  border: 1px solid #ccc6b9 !important;
+}
+/* line 217, ../sass/widget.scss */
+.prose.body .viz-neutral-btn:hover {
+  color: #33312e !important;
+}
+/* line 221, ../sass/widget.scss */
+.prose.body .viz-label {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 110%;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  text-transform: uppercase;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* line 236, ../sass/widget.scss */
+.prose.body .viz-next-label {
+  color: #99948a !important;
+}
+/* line 239, ../sass/widget.scss */
+.prose.body .viz-expert {
+  font-size: 10px;
+  line-height: 140%;
+  color: #99948a;
+}
+/* line 244, ../sass/widget.scss */
+.prose.body .viz-expert-icon {
+  font-size: 10px;
+  margin-right: 1px;
+  color: #99948a;
+}
+/* line 249, ../sass/widget.scss */
+.prose.body .viz-expert-job {
+  color: #99948a;
+}
+/* line 252, ../sass/widget.scss */
+.prose.body .icon-arrow-right {
+  margin-right: 0;
+  font-size: 10px;
+}
+/* line 256, ../sass/widget.scss */
+.prose.body .viz-expert-name {
+  -webkit-transition: 0.2s color ease-in-out, 0.2s border-color ease-in-out;
+  -moz-transition: 0.2s color ease-in-out, 0.2s border-color ease-in-out;
+  -o-transition: 0.2s color ease-in-out, 0.2s border-color ease-in-out;
+  transition: 0.2s color ease-in-out, 0.2s border-color ease-in-out;
+  padding-bottom: 1px;
+  text-decoration: none;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: #99948a !important;
+  border-bottom: 1px solid #ccc6b9 !important;
+}
+/* line 264, ../sass/widget.scss */
+.prose.body .viz-expert-name:hover {
+  color: #33312e !important;
+  border-color: #33312e !important;
+}
+/* line 269, ../sass/widget.scss */
+.prose.body .viz-choice-button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* line 273, ../sass/widget.scss */
+.prose.body .viz-results {
+  margin: 0 0 0 72px !important;
+}
+/* line 276, ../sass/widget.scss */
+.prose.body .viz-footer-copy {
+  font-size: 10px !important;
+  line-height: 140% !important;
+  margin: 0 !important;
   color: #99948a !important;
 }
